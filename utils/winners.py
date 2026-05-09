@@ -2,6 +2,17 @@
 # 2.5 PALMARÈS — TITRES ET FINALES EN COUPE DU MONDE
 # Enrichissement du classement avec les titres historiques
 # ══════════════════════════════════════════════════════════
+# ══════════════════════════════════════════════════════════
+from utils.helpers import save_to_clean_data
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# On charge le classement historique depuis le CSV
+try:
+    stats_wc = pd.read_csv("data_clean/classement_historique_wc.csv")
+except FileNotFoundError:
+    print("Erreur : classement_historique_wc.csv introuvable. Exécutez performance.py d'abord.")
+    raise
 
 # Palmarès manuel — titres officiels FIFA World Cup
 # Source : FIFA (données non présentes dans le dataset)
@@ -76,7 +87,7 @@ for _, row in stats_wc.sort_values("titres", ascending=False).iterrows():
               f"{row['taux_V']:>5.1f}% {row['titres']:>4} {row['finales']:>8}  {row['annees_titres']}")
 
 # ── Sauvegarde enrichie ───────────────────────────────────
-stats_wc.to_csv("data_clean/classement_historique_wc.csv", index=True)
+save_to_clean_data(stats_wc, "classement_historique_wc.csv", index=True)
 
 # ── Visualisation — Champions du monde dans les groupes ───
 champions = stats_wc[stats_wc["titres"] > 0].sort_values("titres", ascending=False)

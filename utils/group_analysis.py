@@ -2,6 +2,18 @@
 # 2.4 ANALYSE PAR GROUPE — FIFA WORLD CUP 2026
 # Croisement du classement historique avec les groupes officiels
 # ══════════════════════════════════════════════════════════
+# ══════════════════════════════════════════════════════════
+import pandas as pd
+import matplotlib.pyplot as plt
+from utils.helpers import save_to_clean_data
+from utils.groups import groupes_2026
+
+# On charge le classement historique calculé dans performance.py
+try:
+    stats_wc = pd.read_csv("data_clean/classement_historique_wc.csv")
+except FileNotFoundError:
+    print("Erreur : classement_historique_wc.csv introuvable. Exécutez performance.py d'abord.")
+    raise
 
 # ── Ajouter le groupe de chaque équipe au classement ──────
 equipe_groupe = {equipe: groupe
@@ -65,8 +77,8 @@ for r in resultats_groupes:
 
 # ── Sauvegarde ────────────────────────────────────────────
 df_groupes = pd.DataFrame(resultats_groupes)
-df_groupes.to_csv("data_clean/analyse_groupes_2026.csv", index=False)
-stats_wc.to_csv("data_clean/classement_historique_wc.csv", index=True)
+save_to_clean_data(df_groupes, "analyse_groupes_2026.csv", index=False)
+save_to_clean_data(stats_wc, "classement_historique_wc.csv", index=True)
 
 # ── Visualisation — Favoris par groupe ────────────────────
 fig, ax = plt.subplots(figsize=(14, 7))

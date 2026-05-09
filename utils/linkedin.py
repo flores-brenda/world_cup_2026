@@ -6,10 +6,21 @@
 import os
 os.makedirs("outputs/linkedin", exist_ok=True)
 
+import pandas as pd
+import matplotlib.pyplot as plt
+from utils.groups import groupes_2026
+
+# On charge le classement historique calculé dans performance.py
+try:
+    stats_wc = pd.read_csv("data_clean/classement_historique_wc.csv")
+except FileNotFoundError:
+    print("Erreur : classement_historique_wc.csv introuvable. Exécutez performance.py d'abord.")
+    raise
+
 # ── Palette de couleurs par rang dans le groupe ───────────
 def couleur_rang(rang, total):
-    # Le favori en bleu foncé, les autres en dégradé
-    palette = ["#042C53", "#185FA5", "#378ADD", "#85B7EB"]
+    # Le favori en or, les autres en bleu (Thème Dashboard)
+    palette = ["#f0c040", "#4a9eff", "#185fa5", "#2a4365"]
     return palette[min(rang, total - 1)]
 
 # ── Emoji drapeaux approximatifs par équipe ───────────────
@@ -40,43 +51,61 @@ for groupe in sorted(groupes_2026.keys()):
 
     # ── Graphique ─────────────────────────────────────────
     fig, axes = plt.subplots(1, 2, figsize=(14, 5))
-    fig.patch.set_facecolor("#F8FAFD")
+    
+    # Couleurs du thème sombre HTML
+    bg_color = "#060d18"
+    surface_color = "#0d1b2e"
+    text_color = "#e8eef6"
+    muted_color = "#7a90a8"
+    gold_color = "#f0c040"
+    
+    fig.patch.set_facecolor(bg_color)
 
     fig.suptitle(f"⚽ FIFA World Cup 2026 — Groupe {groupe}\nAnalyse historique",
-                 fontsize=14, fontweight="bold", color="#042C53", y=1.02)
+                 fontsize=16, fontweight="bold", color=text_color, y=1.05)
 
     couleurs = [couleur_rang(i, len(stats_g)) for i in range(len(stats_g))]
+
+    for ax in axes:
+        ax.set_facecolor(surface_color)
+        ax.tick_params(colors=muted_color, labelsize=10)
+        for spine in ax.spines.values():
+            spine.set_color("#132238")
+            spine.set_linewidth(1)
 
     # Barres horizontales — Points historiques
     equipes_labels = [f"{drapeaux.get(e, '')} {e}" for e in stats_g["equipe"]]
     barres = axes[0].barh(equipes_labels[::-1], stats_g["PTS"][::-1],
-                          color=couleurs[::-1], edgecolor="white", linewidth=0.8)
+                          color=couleurs[::-1], edgecolor=surface_color, linewidth=1.5)
     axes[0].set_title("Points historiques en Coupe du Monde", fontweight="bold",
-                      fontsize=11, color="#042C53")
-    axes[0].set_xlabel("Points (V×3 + N×1)", color="#042C53")
-    axes[0].set_facecolor("#F8FAFD")
+                      fontsize=12, color=text_color)
+    axes[0].set_xlabel("Points (V×3 + N×1)", color=muted_color)
+    
     for barre, val in zip(barres, stats_g["PTS"][::-1]):
-        axes[0].text(max(barre.get_width() - 5, 1),
+        axes[0].text(max(barre.get_width() - 2, 1),
                      barre.get_y() + barre.get_height()/2,
                      str(int(val)), va="center", ha="right",
-                     color="white", fontsize=10, fontweight="bold")
+                     color=bg_color if barre.get_facecolor()[0] > 0.8 else text_color, 
+                     fontsize=11, fontweight="bold")
 
     # Barres horizontales — Taux de victoire
     barres2 = axes[1].barh(equipes_labels[::-1], stats_g["taux_V"][::-1],
-                           color=couleurs[::-1], edgecolor="white", linewidth=0.8)
+                           color=couleurs[::-1], edgecolor=surface_color, linewidth=1.5)
     axes[1].set_title("Taux de victoire (%)", fontweight="bold",
-                      fontsize=11, color="#042C53")
-    axes[1].set_xlabel("Taux de victoire (%)", color="#042C53")
-    axes[1].set_facecolor("#F8FAFD")
-    axes[1].axvline(x=50, color="#EF9F27", linestyle="--", alpha=0.7, label="50% référence")
-    axes[1].legend(fontsize=8)
+                      fontsize=12, color=text_color)
+    axes[1].set_xlabel("Taux de victoire (%)", color=muted_color)
+    axes[1].axvline(x=50, color="#ef4444", linestyle="--", alpha=0.7, label="50% référence")
+    
+    legend = axes[1].legend(fontsize=9, facecolor=surface_color, edgecolor="#132238", labelcolor=muted_color)
+    
     for barre, val in zip(barres2, stats_g["taux_V"][::-1]):
-        offset = -3 if val > 10 else 1
+        offset = -3 if val > 15 else 2
+        txt_color = bg_color if (val > 15 and barre.get_facecolor()[0] > 0.8) else text_color
         axes[1].text(max(barre.get_width() + offset, 1),
                      barre.get_y() + barre.get_height()/2,
-                     f"{val:.1f}%", va="center", ha="right" if val > 10 else "left",
-                     color="white" if val > 10 else "#042C53",
-                     fontsize=10, fontweight="bold")
+                     f"{val:.1f}%", va="center", ha="right" if val > 15 else "left",
+                     color=txt_color,
+                     fontsize=11, fontweight="bold")
 
     # Légende des titres dans le coin
     titres_texte = "\n".join([
@@ -84,13 +113,12 @@ for groupe in sorted(groupes_2026.keys()):
         for _, row in stats_g.iterrows() if row["titres"] > 0
     ]) or "Aucun champion du monde dans ce groupe"
 
-    fig.text(0.5, -0.05, titres_texte, ha="center", fontsize=9,
-             color="#042C53", style="italic")
+    fig.text(0.5, -0.05, titres_texte, ha="center", fontsize=11,
+             color=gold_color, style="italic")
 
     plt.tight_layout()
     chemin_graphique = f"outputs/linkedin/groupe_{groupe}.png"
-    plt.savefig(chemin_graphique, dpi=150, bbox_inches="tight",
-                facecolor="#F8FAFD")
+    plt.savefig(chemin_graphique, dpi=200, bbox_inches="tight", facecolor=bg_color)
     plt.close()
 
     # ── Texte du post LinkedIn ────────────────────────────

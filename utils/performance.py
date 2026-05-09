@@ -4,6 +4,10 @@
 # ══════════════════════════════════════════════════════════
 
 import os
+import pandas as pd
+import matplotlib.pyplot as plt
+from utils.groups import equipes_2026, wc_results
+from utils.helpers import save_to_clean_data
 os.makedirs("outputs/graphs", exist_ok=True)
 
 # ── Calcul des statistiques pour chaque équipe ────────────
@@ -110,5 +114,4 @@ print("\n✅ Graphique sauvegardé : outputs/graphs/classement_historique_wc.png
 
 # ── SAUVEGARDE DU CLASSEMENT HISTORIQUE EN CSV ────────────
 # Permet de visualiser et partager facilement le classement
-stats_wc.to_csv("data_clean/classement_historique_wc.csv", index=True)
-print("✅ Classement sauvegardé : data_clean/classement_historique_wc.csv")
+save_to_clean_data(stats_wc, "classement_historique_wc.csv", index=True)

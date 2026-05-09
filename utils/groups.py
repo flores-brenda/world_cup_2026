@@ -8,6 +8,15 @@
 # Format inédit : 48 équipes / 12 groupes / 104 matchs
 # Tournoi : 11 juin → 19 juillet 2026 (USA, Canada, Mexique)
 
+import pandas as pd
+
+# On charge les résultats nettoyés depuis le CSV généré par clean.py
+try:
+    results_clean = pd.read_csv("data_clean/results_clean.csv")
+    results_clean["date"] = pd.to_datetime(results_clean["date"])
+except FileNotFoundError:
+    print("Erreur : data_clean/results_clean.csv introuvable. Exécutez clean.py d'abord.")
+    raise
 groupes_2026 = {
     "A": ["Mexico", "South Africa", "South Korea", "Czechia"],
     "B": ["Canada", "Bosnia and Herzegovina", "Qatar", "Switzerland"],
