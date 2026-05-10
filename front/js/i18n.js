@@ -54,7 +54,18 @@ const translations = {
     "btn_simular_grupo": "SIMULER GROUPE",
     "sim_table_title": "Tableau des positions finales (Simulé)",
     "footer_text": "⚽ Analyse du Football International 1872–2025 · Dataset Kaggle (martj42) · Projet Data Science",
-    "vs": "VS"
+    "vs": "VS",
+    "tt_points": "Les 10 équipes qui ont gagné le plus de matchs dans toute l'histoire.",
+    "tt_taux": "Pourcentage de matchs gagnés. Plus c'est haut, plus l'équipe est efficace.",
+    "tt_grouppts": "Indique si ce groupe est composé d'équipes fortes ou faibles historiquement.",
+    "tt_groupfav": "Montre la différence de niveau entre l'équipe la plus forte du groupe et les autres.",
+    "tt_scatter": "À droite et en haut : les meilleures équipes de l'histoire.",
+    "tt_pj": "La majorité des pays ont joué très peu de matchs en Coupe du Monde.",
+    "tt_bf": "La plupart des pays marquent peu de buts au total.",
+    "tt_buts": "Comparaison entre les buts marqués et encaissés par les meilleures équipes.",
+    "tt_palmares": "Le nombre total de Coupes du Monde remportées par les champions.",
+    "tt_poisson": "Probabilités de victoire basées sur la force de chaque équipe (buts marqués/encaissés).",
+    "tt_h2h": "Bilan historique des rencontres entre ces deux pays."
   },
   es: {
     "title": "Análisis FIFA World Cup 2026",
@@ -110,7 +121,18 @@ const translations = {
     "btn_simular_grupo": "SIMULAR GRUPO",
     "sim_table_title": "Tabla de posiciones finales (Simulado)",
     "footer_text": "⚽ Análisis del Fútbol Internacional 1872–2025 · Dataset Kaggle (martj42) · Proyecto Data Science",
-    "vs": "VS"
+    "vs": "VS",
+    "tt_points": "Los 10 equipos que han ganado más partidos en toda la historia.",
+    "tt_taux": "Porcentaje de partidos ganados. Más alto significa que el equipo es más efectivo.",
+    "tt_grouppts": "Indica si este grupo está formado por equipos fuertes o débiles históricamente.",
+    "tt_groupfav": "Muestra la diferencia de nivel entre el mejor equipo del grupo y el resto.",
+    "tt_scatter": "Arriba y a la derecha: los mejores equipos de la historia.",
+    "tt_pj": "La mayoría de los países han jugado muy pocos partidos en el Mundial.",
+    "tt_bf": "La mayoría de los países han marcado pocos goles en total.",
+    "tt_buts": "Comparación entre goles marcados y recibidos por los mejores equipos.",
+    "tt_palmares": "El número total de Copas del Mundo ganadas por los campeones.",
+    "tt_poisson": "Probabilidades de victoria basadas en la fuerza de cada equipo (goles a favor/en contra).",
+    "tt_h2h": "Historial de resultados de los partidos jugados entre estos dos países."
   },
   en: {
     "title": "FIFA World Cup 2026 Analysis",
@@ -166,7 +188,18 @@ const translations = {
     "btn_simular_grupo": "SIMULATE GROUP",
     "sim_table_title": "Final Standings Table (Simulated)",
     "footer_text": "⚽ International Football Analysis 1872–2025 · Kaggle Dataset (martj42) · Data Science Project",
-    "vs": "VS"
+    "vs": "VS",
+    "tt_points": "The 10 teams that have won the most matches in history.",
+    "tt_taux": "Percentage of matches won. Higher means the team is more effective.",
+    "tt_grouppts": "Indicates whether this group consists of historically strong or weak teams.",
+    "tt_groupfav": "Shows the difference in skill between the strongest team in the group and the rest.",
+    "tt_scatter": "Top right corner: the best teams in history.",
+    "tt_pj": "Most countries have played very few matches in the World Cup.",
+    "tt_bf": "Most countries have scored few goals overall.",
+    "tt_buts": "Comparison between goals scored and conceded by the top teams.",
+    "tt_palmares": "Total number of World Cups won by the champions.",
+    "tt_poisson": "Winning probabilities based on each team's strength (goals scored/conceded).",
+    "tt_h2h": "Historical track record of matches between these two countries."
   }
 };
 
