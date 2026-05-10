@@ -11,6 +11,12 @@ document.addEventListener("DOMContentLoaded", () => {
   initTabs();
   const { stats } = initCache();
 
+  // ── Calcul Elo (avant les modules qui en dépendent) ──────
+  const { ratings, globalAvg } = buildEloRatings(stats);
+  window.ELO_RATINGS   = ratings;
+  window.ELO_GLOBAL_AVG = globalAvg;
+  console.log(`✅ Elo calculé — ${Object.keys(ratings).length} équipes · avg buts/match: ${globalAvg.toFixed(3)}`);
+
   // Rendu de chaque section
   renderHeaderStats(stats);
   renderClassement(stats);
