@@ -2,14 +2,15 @@
 function renderHeaderStats(stats) {
   const el = document.getElementById("headerStats");
   const items = [
-    { val: "48", label: "Équipes qualifiées" },
-    { val: "12", label: "Groupes" },
-    { val: stats.reduce((a, b) => a + b.BF, 0).toLocaleString(), label: "Buts historiques" },
-    { val: stats.filter(s => s.titres > 0).length, label: "Ex-champions" },
-    { val: stats.filter(s => s.PJ === 0).length, label: "Débutants en CM" },
+    { val: "48", key: "stat_teams" },
+    { val: "12", key: "stat_groups" },
+    { val: stats.reduce((a, b) => a + b.BF, 0).toLocaleString(), key: "stat_goals" },
+    { val: stats.filter(s => s.titres > 0).length, key: "stat_champions" },
+    { val: stats.filter(s => s.PJ === 0).length, key: "stat_debutants" },
   ];
+  el.innerHTML = "";
   items.forEach(i => {
-    el.innerHTML += `<div class="hstat"><div class="hstat-val">${i.val}</div><div class="hstat-label">${i.label}</div></div>`;
+    el.innerHTML += `<div class="hstat"><div class="hstat-val">${i.val}</div><div class="hstat-label" data-i18n="${i.key}"></div></div>`;
   });
 }
 

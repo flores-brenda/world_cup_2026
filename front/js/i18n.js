@@ -1,0 +1,209 @@
+// ── i18n (Internationalization) ─────────────────────────────
+const translations = {
+  fr: {
+    "title": "Analyse FIFA World Cup 2026",
+    "badge_project": "PROJET DATA SCIENCE",
+    "countdown_label": "Coup d'envoi de la Coupe du Monde",
+    "header_desc": "Analyse historique des équipes qualifiées • Dataset Kaggle 1872–2025",
+    "stat_teams": "Équipes qualifiées",
+    "stat_groups": "Groupes",
+    "stat_goals": "Buts historiques",
+    "stat_champions": "Ex-champions",
+    "stat_debutants": "Débutants en CM",
+    "tab_classement": "🏆 Classement",
+    "tab_groupes": "🗂️ Groupes 2026",
+    "tab_scatter": "📊 Performance",
+    "tab_palmares": "🏅 Palmarès",
+    "tab_pronostics": "🔮 Pronostics",
+    "tab_h2h": "⚔️ Face à Face",
+    "tab_simulador": "🎲 Simulateur Groupes",
+    "sec_classement_title": "CLASSEMENT HISTORIQUE",
+    "sec_classement_sub": "Points cumulés en FIFA World Cup de toutes les équipes qualifiées pour 2026",
+    "cache_data": "Données en cache localStorage",
+    "top10_points": "Top 10 — Points historiques",
+    "top10_winrate": "Top 10 — Taux de victoire (%)",
+    "rank_full": "Classement complet",
+    "sec_groupes_title": "GROUPES 2026",
+    "sec_groupes_sub": "Tirage au sort FIFA — 5 décembre 2025 • 12 groupes • 48 équipes",
+    "group_avg_pts": "Moyenne pts historiques par groupe",
+    "group_fav_vs_avg": "Favori vs Moyenne du Groupe",
+    "sec_scatter_title": "PERFORMANCE GLOBALE",
+    "sec_scatter_sub": "Taux de victoire vs. points historiques — toutes les équipes qualifiées",
+    "scatter_title": "Scatter — Taux victoire × Points",
+    "scatter_info": "⚡ X : Taux de victoire (%). Y : Points historiques (V×3 + N×1). Les lignes marquent 50% et 50 pts.",
+    "dist_played": "Distribution — Parties jouées",
+    "dist_goals_for": "Distribution — Buts pour",
+    "goals_for_against": "Buts pour vs contre (Top 12)",
+    "sec_palmares_title": "PALMARÈS",
+    "sec_palmares_sub": "Champions du monde qualifiés pour 2026",
+    "titles_wc": "Titres FIFA World Cup",
+    "sec_pronostics_title": "SIMULATEUR DE MATCH",
+    "sec_pronostics_sub": "Prédiction basée sur la distribution de Poisson (matchs internationaux depuis 2014)",
+    "top5_fav": "TOP 5 FAVORIS DU TOURNOI (MODÈLE MATHÉMATIQUE)",
+    "btn_simuler": "SIMULER",
+    "xg_title": "Expected Goals (xG)",
+    "prob_poisson": "Probabilités (Loi de Poisson)",
+    "sec_h2h_title": "Historique de face à face",
+    "sec_h2h_sub": "Historique de confrontations directes entre deux sélections",
+    "total_matches_played": "Total des matchs joués",
+    "matches_in_history": "Matchs dans l'historique",
+    "results_donut": "Résultats (Donut)",
+    "last_clashes": "Derniers affrontements",
+    "sec_simulador_title": "SIMULATEUR DE LA PHASE DE GROUPES",
+    "sec_simulador_sub": "Simulation dynamique basée sur les probabilités de Poisson",
+    "btn_simular_grupo": "SIMULER GROUPE",
+    "sim_table_title": "Tableau des positions finales (Simulé)",
+    "footer_text": "⚽ Analyse du Football International 1872–2025 · Dataset Kaggle (martj42) · Projet Data Science",
+    "vs": "VS"
+  },
+  es: {
+    "title": "Análisis FIFA World Cup 2026",
+    "badge_project": "PROYECTO DATA SCIENCE",
+    "countdown_label": "Saque inicial de la Copa del Mundo",
+    "header_desc": "Análisis histórico de los equipos clasificados • Dataset Kaggle 1872–2025",
+    "stat_teams": "Equipos clasificados",
+    "stat_groups": "Grupos",
+    "stat_goals": "Goles históricos",
+    "stat_champions": "Ex campeones",
+    "stat_debutants": "Debutantes en CM",
+    "tab_classement": "🏆 Clasificación",
+    "tab_groupes": "🗂️ Grupos 2026",
+    "tab_scatter": "📊 Rendimiento",
+    "tab_palmares": "🏅 Palmarés",
+    "tab_pronostics": "🔮 Pronósticos",
+    "tab_h2h": "⚔️ Cara a Cara",
+    "tab_simulador": "🎲 Simulador Grupos",
+    "sec_classement_title": "CLASIFICACIÓN HISTÓRICA",
+    "sec_classement_sub": "Puntos acumulados en la Copa Mundial de la FIFA por todos los equipos clasificados para 2026",
+    "cache_data": "Datos en caché localStorage",
+    "top10_points": "Top 10 — Puntos históricos",
+    "top10_winrate": "Top 10 — Tasa de victorias (%)",
+    "rank_full": "Clasificación completa",
+    "sec_groupes_title": "GRUPOS 2026",
+    "sec_groupes_sub": "Sorteo de la FIFA — 5 de diciembre de 2025 • 12 grupos • 48 equipos",
+    "group_avg_pts": "Promedio de pts históricos por grupo",
+    "group_fav_vs_avg": "Favorito vs Promedio del Grupo",
+    "sec_scatter_title": "RENDIMIENTO GLOBAL",
+    "sec_scatter_sub": "Tasa de victorias vs. puntos históricos — todos los equipos clasificados",
+    "scatter_title": "Dispersión — Tasa de victorias × Puntos",
+    "scatter_info": "⚡ X: Tasa de victorias (%). Y: Puntos históricos (V×3 + E×1). Las líneas marcan 50% y 50 pts.",
+    "dist_played": "Distribución — Partidos jugados",
+    "dist_goals_for": "Distribución — Goles a favor",
+    "goals_for_against": "Goles a favor vs en contra (Top 12)",
+    "sec_palmares_title": "PALMARÉS",
+    "sec_palmares_sub": "Campeones del mundo clasificados para 2026",
+    "titles_wc": "Títulos FIFA World Cup",
+    "sec_pronostics_title": "SIMULADOR DE PARTIDO",
+    "sec_pronostics_sub": "Predicción basada en la distribución de Poisson (partidos internacionales desde 2014)",
+    "top5_fav": "TOP 5 FAVORITOS DEL TORNEO (MODELO MATEMÁTICO)",
+    "btn_simuler": "SIMULAR",
+    "xg_title": "Goles Esperados (xG)",
+    "prob_poisson": "Probabilidades (Ley de Poisson)",
+    "sec_h2h_title": "Historial Cara a Cara",
+    "sec_h2h_sub": "Historial de enfrentamientos directos entre dos selecciones",
+    "total_matches_played": "Total de partidos jugados",
+    "matches_in_history": "Partidos en el historial",
+    "results_donut": "Resultados (Donut)",
+    "last_clashes": "Últimos enfrentamientos",
+    "sec_simulador_title": "SIMULADOR DE LA FASE DE GRUPOS",
+    "sec_simulador_sub": "Simulación dinámica basada en probabilidades de Poisson",
+    "btn_simular_grupo": "SIMULAR GRUPO",
+    "sim_table_title": "Tabla de posiciones finales (Simulado)",
+    "footer_text": "⚽ Análisis del Fútbol Internacional 1872–2025 · Dataset Kaggle (martj42) · Proyecto Data Science",
+    "vs": "VS"
+  },
+  en: {
+    "title": "FIFA World Cup 2026 Analysis",
+    "badge_project": "DATA SCIENCE PROJECT",
+    "countdown_label": "World Cup Kick-off",
+    "header_desc": "Historical analysis of qualified teams • Kaggle Dataset 1872–2025",
+    "stat_teams": "Qualified Teams",
+    "stat_groups": "Groups",
+    "stat_goals": "Historical Goals",
+    "stat_champions": "Former Champions",
+    "stat_debutants": "WC Debutants",
+    "tab_classement": "🏆 Standings",
+    "tab_groupes": "🗂️ 2026 Groups",
+    "tab_scatter": "📊 Performance",
+    "tab_palmares": "🏅 Hall of Fame",
+    "tab_pronostics": "🔮 Predictions",
+    "tab_h2h": "⚔️ Head to Head",
+    "tab_simulador": "🎲 Group Simulator",
+    "sec_classement_title": "HISTORICAL STANDINGS",
+    "sec_classement_sub": "Cumulative FIFA World Cup points of all qualified teams for 2026",
+    "cache_data": "Data in localStorage cache",
+    "top10_points": "Top 10 — Historical Points",
+    "top10_winrate": "Top 10 — Win Rate (%)",
+    "rank_full": "Full Standings",
+    "sec_groupes_title": "2026 GROUPS",
+    "sec_groupes_sub": "FIFA Draw — December 5, 2025 • 12 groups • 48 teams",
+    "group_avg_pts": "Historical avg pts per group",
+    "group_fav_vs_avg": "Favorite vs Group Average",
+    "sec_scatter_title": "OVERALL PERFORMANCE",
+    "sec_scatter_sub": "Win rate vs. historical points — all qualified teams",
+    "scatter_title": "Scatter — Win Rate × Points",
+    "scatter_info": "⚡ X: Win Rate (%). Y: Historical points (W×3 + D×1). Lines mark 50% and 50 pts.",
+    "dist_played": "Distribution — Matches Played",
+    "dist_goals_for": "Distribution — Goals For",
+    "goals_for_against": "Goals For vs Against (Top 12)",
+    "sec_palmares_title": "HALL OF FAME",
+    "sec_palmares_sub": "World Champions qualified for 2026",
+    "titles_wc": "FIFA World Cup Titles",
+    "sec_pronostics_title": "MATCH SIMULATOR",
+    "sec_pronostics_sub": "Prediction based on Poisson distribution (international matches since 2014)",
+    "top5_fav": "TOP 5 TOURNAMENT FAVORITES (MATHEMATICAL MODEL)",
+    "btn_simuler": "SIMULATE",
+    "xg_title": "Expected Goals (xG)",
+    "prob_poisson": "Probabilities (Poisson Distribution)",
+    "sec_h2h_title": "Head to Head History",
+    "sec_h2h_sub": "Direct confrontation history between two national teams",
+    "total_matches_played": "Total Matches Played",
+    "matches_in_history": "Matches in history",
+    "results_donut": "Results (Donut)",
+    "last_clashes": "Last Encounters",
+    "sec_simulador_title": "GROUP STAGE SIMULATOR",
+    "sec_simulador_sub": "Dynamic simulation based on Poisson probabilities",
+    "btn_simular_grupo": "SIMULATE GROUP",
+    "sim_table_title": "Final Standings Table (Simulated)",
+    "footer_text": "⚽ International Football Analysis 1872–2025 · Kaggle Dataset (martj42) · Data Science Project",
+    "vs": "VS"
+  }
+};
+
+let currentLang = localStorage.getItem('appLang') || 'fr';
+
+function setLanguage(lang) {
+  if (!translations[lang]) return;
+  currentLang = lang;
+  localStorage.setItem('appLang', lang);
+
+  // Update all elements with data-i18n attribute
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (translations[lang][key]) {
+      el.textContent = translations[lang][key];
+    }
+  });
+
+  // Update specific elements without data attribute (or with HTML inside)
+  document.title = translations[lang].title;
+
+  // Highlight active lang button
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    if (btn.getAttribute('data-lang') === lang) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
+  });
+}
+
+function initI18n() {
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      setLanguage(e.target.getAttribute('data-lang'));
+    });
+  });
+  // Initial call
+  setLanguage(currentLang);
+}

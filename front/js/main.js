@@ -27,6 +27,9 @@ document.addEventListener("DOMContentLoaded", () => {
   renderH2H(stats);
   renderSimulador(stats);
 
+  // Traduire tous les éléments après leur rendu
+  if (typeof initI18n === 'function') initI18n();
+
   // Compte à rebours
   initCountdown();
 });
