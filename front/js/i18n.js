@@ -65,7 +65,10 @@ const translations = {
     "tt_buts": "Comparaison entre les buts marqués et encaissés par les meilleures équipes.",
     "tt_palmares": "Le nombre total de Coupes du Monde remportées par les champions.",
     "tt_poisson": "Probabilités de victoire basées sur la force de chaque équipe (buts marqués/encaissés).",
-    "tt_h2h": "Bilan historique des rencontres entre ces deux pays."
+    "tt_h2h": "Bilan historique des rencontres entre ces deux pays.",
+    "device_mobile": "Mobile",
+    "device_tablet": "Tablette",
+    "device_desktop": "Ordinateur"
   },
   es: {
     "title": "Análisis FIFA World Cup 2026",
@@ -132,7 +135,10 @@ const translations = {
     "tt_buts": "Comparación entre goles marcados y recibidos por los mejores equipos.",
     "tt_palmares": "El número total de Copas del Mundo ganadas por los campeones.",
     "tt_poisson": "Probabilidades de victoria basadas en la fuerza de cada equipo (goles a favor/en contra).",
-    "tt_h2h": "Historial de resultados de los partidos jugados entre estos dos países."
+    "tt_h2h": "Historial de resultados de los partidos jugados entre estos dos países.",
+    "device_mobile": "Móvil",
+    "device_tablet": "Tablet",
+    "device_desktop": "Ordenador"
   },
   en: {
     "title": "FIFA World Cup 2026 Analysis",
@@ -199,7 +205,10 @@ const translations = {
     "tt_buts": "Comparison between goals scored and conceded by the top teams.",
     "tt_palmares": "Total number of World Cups won by the champions.",
     "tt_poisson": "Winning probabilities based on each team's strength (goals scored/conceded).",
-    "tt_h2h": "Historical track record of matches between these two countries."
+    "tt_h2h": "Historical track record of matches between these two countries.",
+    "device_mobile": "Mobile",
+    "device_tablet": "Tablet",
+    "device_desktop": "Desktop"
   }
 };
 
