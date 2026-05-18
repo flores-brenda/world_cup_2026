@@ -240,6 +240,22 @@
       </div>
     </div>
 
+    <div class="section" id="sec-bracket">
+      <div class="section-title" data-i18n="sec_bracket_title">PHASE À ÉLIMINATION DIRECTE</div>
+      <div class="section-sub" data-i18n="sec_bracket_sub">Simulateur de croisements des Seizièmes de finale à la Finale</div>
+      
+      <div class="card" style="margin-bottom: 20px; text-align: center;">
+        <button id="btn-reset-bracket" style="background:var(--blue); color:white; padding:10px 20px; border:none; border-radius:6px; font-weight:bold; cursor:pointer; font-size:14px; transition:0.2s;">
+          SIMULER LES RÉSULTATS PROBABLES
+        </button>
+        <p style="color: var(--muted); font-size: 13px; margin-top: 10px;">Cliquez sur une équipe pour la faire avancer au tour suivant.</p>
+      </div>
+
+      <div class="card" style="overflow-x: auto; padding: 20px;">
+        <div id="bracket-container"></div>
+      </div>
+    </div>
+
     </div>
   <footer data-i18n="footer_text">⚽ Analyse du Football International 1872–2025 · Dataset Kaggle (martj42) · Projet Data
     Science</footer>
@@ -258,6 +274,7 @@
   <script src="./front/js/elo.js"></script>
   <script src="./front/js/h2h.js"></script>
   <script src="./front/js/simulateur.js"></script>
+  <script src="./front/js/bracket.js"></script>
 
   <script src="./front/js/i18n.js"></script>
 

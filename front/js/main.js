@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderPronostics(stats);
   renderH2H(stats);
   renderSimulador(stats);
+  if (typeof initBracketModule === 'function') initBracketModule();
 
   // Traduire tous les éléments après leur rendu
   if (typeof initI18n === 'function') initI18n();

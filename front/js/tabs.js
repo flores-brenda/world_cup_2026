@@ -6,6 +6,7 @@ const TABS = [
   { id: "h2h",        label: "⚔️ Face à Face" },
   { id: "palmares",   label: "🏅 Palmarès" },
   { id: "simulador",  label: "🎲 Simulateur Groupes" },
+  { id: "bracket",    label: "🌳 Bracket (Phase Finale)" },
   { id: "pronostics", label: "🔮 Pronostics" }
 ];
 
@@ -18,7 +19,8 @@ function initTabs() {
     "palmares": "tab_palmares",
     "pronostics": "tab_pronostics",
     "h2h": "tab_h2h",
-    "simulador": "tab_simulador"
+    "simulador": "tab_simulador",
+    "bracket": "tab_bracket"
   };
 
   TABS.forEach(t => {
