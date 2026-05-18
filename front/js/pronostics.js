@@ -39,8 +39,7 @@ function renderPronostics(stats) {
     const top5container = document.getElementById("top5-predictions");
     if (top5container && top5.length > 0) {
       const maxPower = top5[0].power;
-      // Baseline to make differences in Elo more visible (e.g. min Elo around 1400)
-      const baseline = window.ELO_RATINGS ? 1400 : 0; 
+      const baseline = window.ELO_RATINGS ? 1400 : 0;
       
       top5.forEach((t, i) => {
         const heightVal = Math.max(0, t.power - baseline);
@@ -51,11 +50,11 @@ function renderPronostics(stats) {
         const displayScore = window.ELO_RATINGS ? Math.round(t.power) : t.power.toFixed(1);
         
         top5container.innerHTML += `
-          <div style="display:flex; flex-direction:column; align-items:center; width:80px;">
-            <div style="font-weight:bold; font-size:16px; color:${color}; margin-bottom:4px;">${displayScore}</div>
+          <div class="top5-bar-item">
+            <div style="font-weight:bold; font-size:clamp(13px,1.5vw,16px); color:${color}; margin-bottom:4px;">${displayScore}</div>
             <div style="width:100%; height:${height}px; background:${color}; border-radius:4px 4px 0 0; opacity:0.8; transition:0.3s;"
               onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.8"></div>
-            <div style="font-size:11px; color:var(--muted); font-weight:bold; text-transform:uppercase; margin-top:8px; padding-bottom:8px; text-align:center;">${t.equipe.substring(0, 10)}</div>
+            <div style="font-size:clamp(9px,0.9vw,11px); color:var(--muted); font-weight:bold; text-transform:uppercase; margin-top:8px; padding-bottom:8px; text-align:center;">${t.equipe.substring(0, 10)}</div>
           </div>`;
       });
     }

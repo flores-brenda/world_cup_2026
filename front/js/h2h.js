@@ -81,48 +81,45 @@ function renderH2H(stats) {
     }
 
     eloPanel.innerHTML = `
-      <div style="margin-top:20px; padding:16px; background:rgba(255,255,255,0.04);
+      <div style="margin-top:20px; padding:clamp(10px,2vw,16px); background:rgba(255,255,255,0.04);
                   border-radius:12px; border:1px solid var(--border);">
-        <div style="font-size:11px; text-transform:uppercase; letter-spacing:1px;
+        <div style="font-size:clamp(9px,0.9vw,11px); text-transform:uppercase; letter-spacing:1px;
                     color:var(--muted); margin-bottom:14px;">
           🎯 Analyse Elo — Probabilités pour un match hypothétique
         </div>
 
-        <!-- Comparaison Elo -->
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; gap:12px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; gap:clamp(6px,1.5vw,12px);">
           <div style="text-align:center; flex:1;">
-            <div style="font-weight:700; font-size:18px; color:${eloColor(eloA)};">${eloA}</div>
-            <div style="font-size:11px; color:var(--muted);">${eloLabel(eloA)}</div>
-            <div style="font-size:10px; color:var(--muted); margin-top:2px;">${tA}</div>
+            <div style="font-weight:700; font-size:clamp(14px,2vw,18px); color:${eloColor(eloA)};">${eloA}</div>
+            <div style="font-size:clamp(9px,0.9vw,11px); color:var(--muted);">${eloLabel(eloA)}</div>
+            <div style="font-size:clamp(8px,0.8vw,10px); color:var(--muted); margin-top:2px;">${tA}</div>
           </div>
-          <div style="font-size:22px; color:var(--muted);">⚔️</div>
+          <div style="font-size:clamp(16px,2.5vw,22px); color:var(--muted);">⚔️</div>
           <div style="text-align:center; flex:1;">
-            <div style="font-weight:700; font-size:18px; color:${eloColor(eloB)};">${eloB}</div>
-            <div style="font-size:11px; color:var(--muted);">${eloLabel(eloB)}</div>
-            <div style="font-size:10px; color:var(--muted); margin-top:2px;">${tB}</div>
+            <div style="font-weight:700; font-size:clamp(14px,2vw,18px); color:${eloColor(eloB)};">${eloB}</div>
+            <div style="font-size:clamp(9px,0.9vw,11px); color:var(--muted);">${eloLabel(eloB)}</div>
+            <div style="font-size:clamp(8px,0.8vw,10px); color:var(--muted); margin-top:2px;">${tB}</div>
           </div>
         </div>
 
-        <!-- Barre de probabilités -->
-        <div style="display:flex; height:28px; border-radius:6px; overflow:hidden; margin-bottom:10px;">
+        <div style="display:flex; height:clamp(22px,3vw,28px); border-radius:6px; overflow:hidden; margin-bottom:10px;">
           <div style="width:${probs.probA}%; background:#4ade80; display:flex; align-items:center;
-                      justify-content:center; font-size:11px; font-weight:700; color:#0f2a1d;
+                      justify-content:center; font-size:clamp(9px,0.9vw,11px); font-weight:700; color:#0f2a1d;
                       transition:width 0.5s;">${probs.probA}%</div>
           <div style="width:${probs.probD}%; background:#f0c040; display:flex; align-items:center;
-                      justify-content:center; font-size:11px; font-weight:700; color:#3a2800;
+                      justify-content:center; font-size:clamp(9px,0.9vw,11px); font-weight:700; color:#3a2800;
                       transition:width 0.5s;">${probs.probD}%</div>
           <div style="width:${probs.probB}%; background:#f87171; display:flex; align-items:center;
-                      justify-content:center; font-size:11px; font-weight:700; color:#3a0000;
+                      justify-content:center; font-size:clamp(9px,0.9vw,11px); font-weight:700; color:#3a0000;
                       transition:width 0.5s;">${probs.probB}%</div>
         </div>
-        <div style="display:flex; justify-content:space-between; font-size:10px; color:var(--muted);">
+        <div style="display:flex; justify-content:space-between; font-size:clamp(8px,0.8vw,10px); color:var(--muted);">
           <span>Victoire ${tA}</span>
           <span>Match nul</span>
           <span>Victoire ${tB}</span>
         </div>
 
-        <!-- Note méthodologie -->
-        <div style="margin-top:12px; font-size:10px; color:var(--muted); opacity:0.7;">
+        <div style="margin-top:12px; font-size:clamp(8px,0.7vw,10px); color:var(--muted); opacity:0.7;">
           Basé sur ${matches.length} rencontre${matches.length !== 1 ? 's' : ''} historique${matches.length !== 1 ? 's' : ''} ·
           Elo calculé sur matchs RAW_H2H depuis 1990 · Simulation Monte Carlo 500 itérations
         </div>
@@ -134,7 +131,7 @@ function renderH2H(stats) {
     if (matches.length > 0 && timelineCard && timeline) {
       timelineCard.style.display = "block";
       timeline.innerHTML = '<div style="position:absolute; top:50%; left:5%; right:5%; height:2px; background:var(--border); z-index:0;"></div>';
-      matches.slice(0, 10).forEach(m => {
+      matches.slice(0, 10).reverse().forEach(m => {
         let color = "#f0c040";
         if (m.home_score !== m.away_score) {
           const winner = m.home_score > m.away_score ? m.home_team : m.away_team;

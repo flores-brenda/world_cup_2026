@@ -23,25 +23,21 @@
     </div>
 
     <!-- Selecteur de langue -->
-    <div style="position: absolute; top: 20px; right: 20px; display: flex; gap: 8px;">
+    <div class="lang-selector">
       <button class="lang-btn" data-lang="fr"
-        style="background:var(--surface2); color:white; border:1px solid var(--border); border-radius:4px; padding:4px 8px; cursor:pointer; font-size:12px;">FR</button>
+        style="background:var(--surface2); color:white; border:1px solid var(--border); border-radius:4px; padding:4px 8px; cursor:pointer; font-size:clamp(10px,1.3vw,12px);">FR</button>
       <button class="lang-btn" data-lang="es"
-        style="background:var(--surface2); color:white; border:1px solid var(--border); border-radius:4px; padding:4px 8px; cursor:pointer; font-size:12px;">ES</button>
+        style="background:var(--surface2); color:white; border:1px solid var(--border); border-radius:4px; padding:4px 8px; cursor:pointer; font-size:clamp(10px,1.3vw,12px);">ES</button>
       <button class="lang-btn" data-lang="en"
-        style="background:var(--surface2); color:white; border:1px solid var(--border); border-radius:4px; padding:4px 8px; cursor:pointer; font-size:12px;">EN</button>
+        style="background:var(--surface2); color:white; border:1px solid var(--border); border-radius:4px; padding:4px 8px; cursor:pointer; font-size:clamp(10px,1.3vw,12px);">EN</button>
     </div>
 
     <div style="display:flex; flex-direction: column; align-items:center;">
       <div class="header-badge" data-i18n="badge_project">PROJET DATA SCIENCE</div>
-      <div
-        style="background: rgba(240, 192, 64, 0.08); border: 1px solid rgba(240, 192, 64, 0.3); border-radius: 12px; padding: 12px 28px; display: inline-block; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.4);">
-        <div
-          style="font-size: 11px; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; font-weight: bold;"
-          data-i18n="countdown_label">
+      <div class="countdown-container">
+        <div class="countdown-label" data-i18n="countdown_label">
           Coup d'envoi de la Coupe du Monde</div>
-        <div id="countdown"
-          style="font-family:'Bebas Neue',sans-serif; color: white; font-size: 42px; letter-spacing: 4px; line-height: 1; text-shadow: 0 0 10px rgba(255,255,255,0.2);">
+        <div id="countdown" class="countdown-display">
           Chargement...
         </div>
       </div>
@@ -128,12 +124,10 @@
       <div class="section-sub" data-i18n="sec_h2h_sub">Historique de confrontations directes entre deux sélections</div>
 
       <div class="card" style="margin-bottom:20px; text-align:center;">
-        <div style="display:flex; justify-content:center; align-items:center; gap:20px;">
-          <select id="h2h-teamA-select"
-            style="padding:10px; border-radius:6px; background:var(--surface2); color:white; border:1px solid var(--border); font-size:16px; font-weight:bold;"></select>
-          <div style="font-family:'Bebas Neue', sans-serif; font-size:24px; color:var(--gold);" data-i18n="vs">VS</div>
-          <select id="h2h-teamB-select"
-            style="padding:10px; border-radius:6px; background:var(--surface2); color:white; border:1px solid var(--border); font-size:16px; font-weight:bold;"></select>
+        <div class="h2h-selectors">
+          <select id="h2h-teamA-select" class="select-responsive"></select>
+          <div class="vs-badge" data-i18n="vs">VS</div>
+          <select id="h2h-teamB-select" class="select-responsive"></select>
         </div>
       </div>
 
@@ -176,12 +170,10 @@
       </div>
 
       <div class="card" style="margin-bottom:20px; text-align:center;">
-        <div style="display:flex; justify-content:center; align-items:center; gap:20px; margin-bottom:20px;">
-          <select id="sim-group-select"
-            style="padding:10px; border-radius:6px; background:var(--surface2); color:white; border:1px solid var(--border); font-size:16px; font-weight:bold;"></select>
+        <div class="sim-selectors" style="margin-bottom:20px;">
+          <select id="sim-group-select" class="select-responsive"></select>
         </div>
-        <button id="btn-simular-grupo"
-          style="background:var(--blue); color:white; padding:12px 30px; border:none; border-radius:8px; font-weight:bold; cursor:pointer; font-size:16px; transition:0.2s;"
+        <button id="btn-simular-grupo" class="btn-primary"
           data-i18n="btn_simular_grupo">SIMULER
           GROUPE</button>
       </div>
@@ -198,22 +190,17 @@
 
       <div class="card" style="margin-bottom:20px; text-align:center; padding-bottom:0;">
         <div class="card-title" data-i18n="top5_fav">LES 5 PAYS LES PLUS PROBABLES DE DEVENIR CHAMPIONS</div>
-        <div id="top5-predictions"
-          style="display:flex; justify-content:center; align-items:flex-end; gap:20px; height:140px; margin-top:10px; border-bottom:1px solid rgba(255,255,255,0.05);">
+        <div id="top5-predictions" class="top5-container">
         </div>
       </div>
 
       <div class="card" style="margin-bottom:20px; text-align:center;">
-        <div style="display:flex; justify-content:center; align-items:center; gap:20px; margin-bottom:20px;">
-          <select id="teamA-select"
-            style="padding:10px; border-radius:6px; background:var(--surface2); color:white; border:1px solid var(--border); font-size:16px; font-weight:bold;"></select>
-          <div style="font-family:'Bebas Neue', sans-serif; font-size:24px; color:var(--gold);" data-i18n="vs">VS</div>
-          <select id="teamB-select"
-            style="padding:10px; border-radius:6px; background:var(--surface2); color:white; border:1px solid var(--border); font-size:16px; font-weight:bold;"></select>
+        <div class="pronostics-selectors" style="margin-bottom:20px;">
+          <select id="teamA-select" class="select-responsive"></select>
+          <div class="vs-badge" data-i18n="vs">VS</div>
+          <select id="teamB-select" class="select-responsive"></select>
         </div>
-        <button id="btn-simuler"
-          style="background:var(--blue); color:white; padding:12px 30px; border:none; border-radius:8px; font-weight:bold; cursor:pointer; font-size:16px; transition:0.2s;"
-          data-i18n="btn_simuler">SIMULER</button>
+        <button id="btn-simuler" class="btn-primary" data-i18n="btn_simuler">SIMULER</button>
       </div>
       <div class="grid-2" id="prediction-results" style="display:none;">
         <div class="card" style="text-align:center;">
@@ -245,10 +232,10 @@
       <div class="section-sub" data-i18n="sec_bracket_sub">Simulateur de croisements des Seizièmes de finale à la Finale</div>
       
       <div class="card" style="margin-bottom: 20px; text-align: center;">
-        <button id="btn-reset-bracket" style="background:var(--blue); color:white; padding:10px 20px; border:none; border-radius:6px; font-weight:bold; cursor:pointer; font-size:14px; transition:0.2s;">
+        <button id="btn-reset-bracket" class="btn-primary" style="font-size:14px;">
           SIMULER LES RÉSULTATS PROBABLES
         </button>
-        <p style="color: var(--muted); font-size: 13px; margin-top: 10px;">Cliquez sur une équipe pour la faire avancer au tour suivant.</p>
+        <p style="color: var(--muted); font-size: clamp(11px, 1.3vw, 13px); margin-top: 10px;">Cliquez sur une équipe pour la faire avancer au tour suivant.</p>
       </div>
 
       <div class="card" style="overflow-x: auto; padding: 20px;">

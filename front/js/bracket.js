@@ -188,7 +188,7 @@ function renderBracket() {
   const container = document.getElementById("bracket-container");
   if (!container) return;
 
-  let html = `<div class="bracket-wrapper">`;
+  let html = `<div class="bracket-scroll"><div class="bracket-wrapper">`;
   
   BRACKET_ROUNDS.forEach(roundDef => {
     html += `<div class="bracket-column" id="col-${roundDef.id}">`;
@@ -202,7 +202,7 @@ function renderBracket() {
     html += `</div>`;
   });
   
-  html += `</div>`;
+  html += `</div></div>`;
   container.innerHTML = html;
 }
 

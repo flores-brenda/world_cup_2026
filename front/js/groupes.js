@@ -9,17 +9,39 @@ function renderGroupes(stats) {
   const ctxGP = document.getElementById("chartGroupPts");
   if (ctxGP) {
     const ctx = ctxGP.getContext("2d");
-    const gr = ctx.createLinearGradient(0, 0, 0, 300);
-    gr.addColorStop(0, "#f0c040"); gr.addColorStop(1, "#185fa5");
     new Chart(ctx, {
       type: "bar",
-      data: { labels: gLabels.map(g => "Gr. " + g), datasets: [{ label: "Pts moy.", data: gMoy, backgroundColor: gr, borderRadius: 6 }] },
+      data: {
+        labels: gLabels.map(g => "Gr. " + g),
+        datasets: [{
+          label: "Pts moy.",
+          data: gMoy,
+          backgroundColor: function(context) {
+            const chart = context.chart;
+            const { ctx, chartArea } = chart;
+            if (!chartArea) return "#f0c040";
+            const gr = ctx.createLinearGradient(0, chartArea.top, 0, chartArea.bottom);
+            gr.addColorStop(0, "#f0c040");
+            gr.addColorStop(1, "#185fa5");
+            return gr;
+          },
+          borderRadius: 6
+        }]
+      },
       options: {
         responsive: true, maintainAspectRatio: false,
         plugins: { legend: { display: false } },
         scales: {
-          x: { grid: { display: false }, ticks: { color: "#e8eef6" } },
-          y: { grid: { color: "rgba(255,255,255,.04)" } }
+          x: {
+            grid: { display: false },
+            ticks: {
+              color: "#e8eef6",
+              font: { size: 11 },
+              maxRotation: 45,
+              minRotation: 0
+            }
+          },
+          y: { grid: { color: "rgba(255,255,255,.04)" }, ticks: { font: { size: 11 } } }
         }
       }
     });
@@ -38,10 +60,23 @@ function renderGroupes(stats) {
       },
       options: {
         responsive: true, maintainAspectRatio: false,
-        plugins: { legend: { labels: { color: "#e8eef6" } } },
+        plugins: {
+          legend: {
+            labels: { color: "#e8eef6", font: { size: 11 }, boxWidth: 12, padding: 12 },
+            position: "bottom"
+          }
+        },
         scales: {
-          x: { grid: { display: false }, ticks: { color: "#e8eef6" } },
-          y: { grid: { color: "rgba(255,255,255,.04)" } }
+          x: {
+            grid: { display: false },
+            ticks: {
+              color: "#e8eef6",
+              font: { size: 11 },
+              maxRotation: 45,
+              minRotation: 0
+            }
+          },
+          y: { grid: { color: "rgba(255,255,255,.04)" }, ticks: { font: { size: 11 } } }
         }
       }
     });
@@ -91,12 +126,23 @@ function renderScatter(stats) {
       options: {
         responsive: true, maintainAspectRatio: false,
         plugins: {
-          legend: { labels: { color: "#7a90a8", boxWidth: 10 }, position: "right" },
+          legend: {
+            labels: { color: "#7a90a8", boxWidth: 8, font: { size: 10 }, padding: 8 },
+            position: "bottom"
+          },
           tooltip: { callbacks: { label: c => `${c.raw.label} — ${c.raw.x}% / ${c.raw.y} pts` } }
         },
         scales: {
-          x: { title: { display: true, text: "Taux de victoire (%)", color: "#7a90a8" }, grid: { color: "rgba(255,255,255,.04)" }, ticks: { color: "#7a90a8", callback: v => v + "%" } },
-          y: { title: { display: true, text: "Points historiques", color: "#7a90a8" }, grid: { color: "rgba(255,255,255,.04)" }, ticks: { color: "#7a90a8" } }
+          x: {
+            title: { display: true, text: "Taux de victoire (%)", color: "#7a90a8", font: { size: 11 } },
+            grid: { color: "rgba(255,255,255,.04)" },
+            ticks: { color: "#7a90a8", callback: v => v + "%", font: { size: 10 } }
+          },
+          y: {
+            title: { display: true, text: "Points historiques", color: "#7a90a8", font: { size: 11 } },
+            grid: { color: "rgba(255,255,255,.04)" },
+            ticks: { color: "#7a90a8", font: { size: 10 } }
+          }
         }
       }
     });
@@ -110,7 +156,10 @@ function renderScatter(stats) {
       data: { labels: sPJ.map(s => s.equipe.split(" ")[0]), datasets: [{ data: sPJ.map(s => s.PJ), backgroundColor: "#185fa5", borderRadius: 4 }] },
       options: {
         responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } },
-        scales: { x: { grid: { display: false }, ticks: { color: "#7a90a8", font: { size: 9 } } }, y: { grid: { color: "rgba(255,255,255,.04)" } } }
+        scales: {
+          x: { grid: { display: false }, ticks: { color: "#7a90a8", font: { size: 10 }, maxRotation: 45 } },
+          y: { grid: { color: "rgba(255,255,255,.04)" }, ticks: { font: { size: 10 } } }
+        }
       }
     });
   }
@@ -123,7 +172,10 @@ function renderScatter(stats) {
       data: { labels: sBF.map(s => s.equipe.split(" ")[0]), datasets: [{ data: sBF.map(s => s.BF), backgroundColor: "#22c55e", borderRadius: 4 }] },
       options: {
         responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } },
-        scales: { x: { grid: { display: false }, ticks: { color: "#7a90a8", font: { size: 9 } } }, y: { grid: { color: "rgba(255,255,255,.04)" } } }
+        scales: {
+          x: { grid: { display: false }, ticks: { color: "#7a90a8", font: { size: 10 }, maxRotation: 45 } },
+          y: { grid: { color: "rgba(255,255,255,.04)" }, ticks: { font: { size: 10 } } }
+        }
       }
     });
   }
@@ -142,8 +194,16 @@ function renderScatter(stats) {
       },
       options: {
         responsive: true, maintainAspectRatio: false,
-        plugins: { legend: { labels: { color: "#7a90a8", boxWidth: 10, font: { size: 10 } } } },
-        scales: { x: { grid: { display: false }, ticks: { color: "#7a90a8", font: { size: 9 } } }, y: { grid: { color: "rgba(255,255,255,.04)" } } }
+        plugins: {
+          legend: {
+            labels: { color: "#7a90a8", boxWidth: 10, font: { size: 10 }, padding: 8 },
+            position: "bottom"
+          }
+        },
+        scales: {
+          x: { grid: { display: false }, ticks: { color: "#7a90a8", font: { size: 10 }, maxRotation: 45 } },
+          y: { grid: { color: "rgba(255,255,255,.04)" }, ticks: { font: { size: 10 } } }
+        }
       }
     });
   }
