@@ -1,12 +1,12 @@
 // ── Tabs navigation ───────────────────────────────────────
 const TABS = [
-  { id: "classement", label: "🏆 Classement" },
   { id: "groupes",    label: "🗂️ Groupes 2026" },
+  { id: "classement", label: "🏆 Classement" },
   { id: "scatter",    label: "📊 Performance" },
-  { id: "palmares",   label: "🥇 Palmarès" },
-  { id: "pronostics", label: "🔮 Pronostics" },
   { id: "h2h",        label: "⚔️ Face à Face" },
-  { id: "simulador",  label: "🎲 Simulateur des Groupes" }
+  { id: "palmares",   label: "🏅 Palmarès" },
+  { id: "simulador",  label: "🎲 Simulateur Groupes" },
+  { id: "pronostics", label: "🔮 Pronostics" }
 ];
 
 function initTabs() {
@@ -23,7 +23,7 @@ function initTabs() {
 
   TABS.forEach(t => {
     const btn = document.createElement("button");
-    btn.className = "tab-btn" + (t.id === "classement" ? " active" : "");
+    btn.className = "tab-btn" + (t.id === "groupes" ? " active" : "");
     btn.textContent = t.label;
     btn.setAttribute("data-id", t.id);
     btn.setAttribute("data-i18n", tabKeys[t.id] || "");
