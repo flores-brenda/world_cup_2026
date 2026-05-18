@@ -22,24 +22,40 @@ function renderPronostics(stats) {
   if (PREDICTIONS && PREDICTIONS.strengths) {
     PREDICTIONS.strengths.forEach(s => strMap[s.equipe] = s);
 
-    // Top 5 Favoris : Power Index = Attack / (Defense + 0.1)
-    const powerList = PREDICTIONS.strengths
-      .map(s => ({ equipe: s.equipe, power: s.attack_strength / Math.max(s.defense_weakness, 0.1) }))
-      .sort((a, b) => b.power - a.power);
+    // Top 5 Favoris : Basé sur le calcul statistique Elo
+    let powerList = [];
+    if (window.ELO_RATINGS) {
+      powerList = teams.map(eq => ({
+        equipe: eq,
+        power: window.ELO_RATINGS[eq] || 1500
+      })).sort((a, b) => b.power - a.power);
+    } else {
+      powerList = PREDICTIONS.strengths
+        .map(s => ({ equipe: s.equipe, power: s.attack_strength / Math.max(s.defense_weakness, 0.1) }))
+        .sort((a, b) => b.power - a.power);
+    }
 
     const top5 = powerList.slice(0, 5);
     const top5container = document.getElementById("top5-predictions");
     if (top5container && top5.length > 0) {
       const maxPower = top5[0].power;
+      // Baseline to make differences in Elo more visible (e.g. min Elo around 1400)
+      const baseline = window.ELO_RATINGS ? 1400 : 0; 
+      
       top5.forEach((t, i) => {
-        const height = Math.max(20, (t.power / maxPower) * 100);
+        const heightVal = Math.max(0, t.power - baseline);
+        const maxVal = Math.max(1, maxPower - baseline);
+        const height = Math.max(20, (heightVal / maxVal) * 100);
+        
         const color = i === 0 ? "var(--gold)" : (i === 1 ? "#cbd5e1" : (i === 2 ? "#b45309" : "var(--blue-light)"));
+        const displayScore = window.ELO_RATINGS ? Math.round(t.power) : t.power.toFixed(1);
+        
         top5container.innerHTML += `
           <div style="display:flex; flex-direction:column; align-items:center; width:80px;">
-            <div style="font-weight:bold; font-size:16px; color:${color}; margin-bottom:4px;">${t.power.toFixed(1)}</div>
+            <div style="font-weight:bold; font-size:16px; color:${color}; margin-bottom:4px;">${displayScore}</div>
             <div style="width:100%; height:${height}px; background:${color}; border-radius:4px 4px 0 0; opacity:0.8; transition:0.3s;"
               onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.8"></div>
-            <div style="font-size:11px; color:var(--muted); font-weight:bold; text-transform:uppercase; margin-top:8px; padding-bottom:8px;">${t.equipe.substring(0, 10)}</div>
+            <div style="font-size:11px; color:var(--muted); font-weight:bold; text-transform:uppercase; margin-top:8px; padding-bottom:8px; text-align:center;">${t.equipe.substring(0, 10)}</div>
           </div>`;
       });
     }
