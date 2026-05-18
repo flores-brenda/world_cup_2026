@@ -10,6 +10,26 @@ const TABS = [
   { id: "pronostics", label: "🔮 Pronostics" }
 ];
 
+const VALID_TABS = TABS.map(t => t.id);
+
+function switchToTab(tabId) {
+  const section = document.getElementById("sec-" + tabId);
+  if (!section) return;
+
+  document.querySelectorAll(".section").forEach(s => s.classList.remove("active"));
+  document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+
+  section.classList.add("active");
+  const btn = document.querySelector(`.tab-btn[data-id="${tabId}"]`);
+  if (btn) btn.classList.add("active");
+}
+
+function handleHashChange() {
+  const hash = window.location.hash.replace("#", "");
+  const tabId = VALID_TABS.includes(hash) ? hash : "groupes";
+  switchToTab(tabId);
+}
+
 function initTabs() {
   const nav = document.getElementById("tabsNav");
   const tabKeys = {
@@ -30,11 +50,15 @@ function initTabs() {
     btn.setAttribute("data-id", t.id);
     btn.setAttribute("data-i18n", tabKeys[t.id] || "");
     btn.onclick = () => {
-      document.querySelectorAll(".section").forEach(s => s.classList.remove("active"));
-      document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
-      document.getElementById("sec-" + t.id).classList.add("active");
-      btn.classList.add("active");
+      window.location.hash = t.id;
+      switchToTab(t.id);
     };
     nav.appendChild(btn);
   });
+
+  // Restaurer l'onglet depuis l'URL au chargement
+  handleHashChange();
+
+  // Écouter les changements de hash (boutons précédent/suivant du navigateur)
+  window.addEventListener("hashchange", handleHashChange);
 }
