@@ -61,18 +61,17 @@ function renderSimulador(stats) {
     document.getElementById("sim-results").style.display = "block";
 
     // ── En-tête Elo des équipes du groupe ──────────────────
-    let eloHeader = `<div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px;">`;
+    let eloHeader = `<div class="elo-badges">`;
     teams.slice().sort((a, b) => (ratings[b] || ELO_DEBUTANT) - (ratings[a] || ELO_DEBUTANT))
       .forEach(t => {
         const elo = Math.round(ratings[t] || ELO_DEBUTANT);
         const col = eloColor(elo);
         const lbl = eloLabel(elo);
         eloHeader += `
-          <div style="display:flex;align-items:center;gap:6px;padding:6px 12px;
-                      background:rgba(255,255,255,0.05);border-radius:8px;border:1px solid ${col}22;">
-            <span style="width:8px;height:8px;border-radius:50%;background:${col};display:inline-block;"></span>
-            <span style="font-weight:600;font-size:13px;">${t}</span>
-            <span style="color:${col};font-weight:700;font-size:13px;">${elo}</span>
+          <div class="elo-badge-item" style="border:1px solid ${col}22;">
+            <span style="width:8px;height:8px;border-radius:50%;background:${col};display:inline-block;flex-shrink:0;"></span>
+            <span style="font-weight:600;">${t}</span>
+            <span style="color:${col};font-weight:700;">${elo}</span>
             <span style="color:var(--muted);font-size:10px;">${lbl}</span>
           </div>`;
       });
@@ -90,6 +89,14 @@ function renderSimulador(stats) {
 
     // ── Tableau de classement ──────────────────────────────
     const table = document.getElementById("simTable");
+    // Ajouter wrapper scrollable si pas déjà présent
+    let simScrollWrapper = table.closest('.table-scroll');
+    if (!simScrollWrapper) {
+      simScrollWrapper = document.createElement('div');
+      simScrollWrapper.className = 'table-scroll';
+      table.parentNode.insertBefore(simScrollWrapper, table);
+      simScrollWrapper.appendChild(table);
+    }
     table.innerHTML = `<thead><tr>
       <th>Pos</th><th>Équipe</th><th>Elo</th>
       <th class="r">PJ</th><th class="r">V</th><th class="r">E</th><th class="r">D</th>

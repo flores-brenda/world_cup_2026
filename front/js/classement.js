@@ -49,6 +49,14 @@ function renderClassement(stats) {
   const table = document.getElementById("rankTable");
   if (!table) return;
   const maxPts = stats[0]?.PTS || 1;
+  // Ajouter un wrapper scrollable autour du tableau
+  let scrollWrapper = table.closest('.table-scroll');
+  if (!scrollWrapper) {
+    scrollWrapper = document.createElement('div');
+    scrollWrapper.className = 'table-scroll';
+    table.parentNode.insertBefore(scrollWrapper, table);
+    scrollWrapper.appendChild(table);
+  }
   table.innerHTML = `<thead><tr><th>#</th><th>Équipe</th><th class="r">PJ</th><th class="r">V</th><th class="r">N</th><th class="r">D</th>
     <th class="r">BF</th><th class="r">BC</th><th class="r">DB</th><th class="r">PTS</th><th class="r">%V</th><th class="r">🏆</th></tr></thead><tbody>`;
   stats.forEach((s, i) => {

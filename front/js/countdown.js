@@ -19,7 +19,7 @@ function initCountdown() {
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
     el.innerHTML =
-      `J-${days} <span style="color:var(--muted); font-size:32px; vertical-align:middle; margin:0 8px;">|</span> ` +
+      `J-${days} <span style="color:var(--muted); font-size:clamp(22px,3.5vw,32px); vertical-align:middle; margin:0 8px;">|</span> ` +
       `${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
   };
 
