@@ -14,8 +14,12 @@ let bracketData = {};
 // Initialise le bracket avec les équipes qui passent la phase de groupes
 function initBracketData() {
   const ratings = window.ELO_RATINGS || {};
+  const strMap = {};
+  if (window.PREDICTIONS && window.PREDICTIONS.strengths) {
+    window.PREDICTIONS.strengths.forEach(s => strMap[s.equipe] = s);
+  }
   
-  // 1. Simuler les positions de groupes basées sur l'ELO pour obtenir les qualifiés
+  // 1. Simuler les positions de groupes basées sur le Power (xG) ou ELO
   let clasificados = {
     winners: [],
     runners: [],
@@ -23,15 +27,25 @@ function initBracketData() {
   };
 
   Object.keys(GROUPES).forEach(g => {
-    let teams = GROUPES[g].map(t => ({ name: t, elo: ratings[t] || ELO_DEBUTANT }));
-    teams.sort((a, b) => b.elo - a.elo); // Trier par Elo (simulation rapide)
+    let teams = GROUPES[g].map(t => {
+      let power = 1.0;
+      if (strMap[t]) {
+        power = strMap[t].attack_strength / Math.max(strMap[t].defense_weakness, 0.1);
+      } else if (ratings[t]) {
+        power = ratings[t] / 1500; // Normalisation approximative pour le fallback
+      }
+      return { name: t, power: power };
+    });
+    
+    teams.sort((a, b) => b.power - a.power); // Trier par Power
+    
     clasificados.winners.push({ ...teams[0], group: g, pos: 1 });
     clasificados.runners.push({ ...teams[1], group: g, pos: 2 });
     clasificados.thirds.push({ ...teams[2], group: g, pos: 3 });
   });
 
   // Trier les troisièmes places pour prendre les 8 meilleurs
-  clasificados.thirds.sort((a, b) => b.elo - a.elo);
+  clasificados.thirds.sort((a, b) => b.power - a.power);
   const bestThirds = clasificados.thirds.slice(0, 8);
 
   // Helper pour chercher l'équipe par groupe et position
@@ -81,10 +95,39 @@ function simulateFullBracket() {
     
     matches.forEach((match, index) => {
       if (match.t1 && match.t2 && match.t1 !== "TBD" && match.t2 !== "TBD") {
-        const ratings = window.ELO_RATINGS || {};
-        const elo1 = ratings[match.t1] || ELO_DEBUTANT;
-        const elo2 = ratings[match.t2] || ELO_DEBUTANT;
-        const prob1 = 1 / (1 + Math.pow(10, (elo2 - elo1) / 400));
+        let prob1 = 0.5; // Default 50/50 fallback
+        if (window.PREDICTIONS && window.PREDICTIONS.strengths) {
+          const strMap = {};
+          window.PREDICTIONS.strengths.forEach(s => strMap[s.equipe] = s);
+          
+          const strA = strMap[match.t1] || { attack_strength: 1, defense_weakness: 1 };
+          const strB = strMap[match.t2] || { attack_strength: 1, defense_weakness: 1 };
+          const avg = window.PREDICTIONS.global_avg || 1.3;
+          
+          const xgA = strA.attack_strength * strB.defense_weakness * avg;
+          const xgB = strB.attack_strength * strA.defense_weakness * avg;
+          
+          // Fonction Poisson locale si non définie globalement
+          const fact = n => n <= 1 ? 1 : n * fact(n - 1);
+          const poisson = (k, lambda) => (Math.pow(Math.E, -lambda) * Math.pow(lambda, k)) / fact(k);
+          
+          let pA = 0, pB = 0, pDraw = 0;
+          for(let i=0; i<=7; i++) {
+            for(let j=0; j<=7; j++) {
+              const p = poisson(i, xgA) * poisson(j, xgB);
+              if(i > j) pA += p;
+              else if(i < j) pB += p;
+              else pDraw += p;
+            }
+          }
+          prob1 = pA + (pDraw / 2); // En cas de match nul, 50% de chance pour chaque équipe aux tirs au but
+        } else {
+          // Fallback Elo
+          const ratings = window.ELO_RATINGS || {};
+          const elo1 = ratings[match.t1] || 1200;
+          const elo2 = ratings[match.t2] || 1200;
+          prob1 = 1 / (1 + Math.pow(10, (elo2 - elo1) / 400));
+        }
         
         // Simulation pondérée
         const winner = Math.random() < prob1 ? match.t1 : match.t2;
@@ -159,11 +202,42 @@ function createMatchHTML(match, round, index) {
   let p2Text = "";
   
   if (match.t1 && match.t2 && match.t1 !== "TBD" && match.t2 !== "TBD") {
-    const ratings = window.ELO_RATINGS || {};
-    const elo1 = ratings[match.t1] || 1200;
-    const elo2 = ratings[match.t2] || 1200;
-    const p1 = Math.round((1 / (1 + Math.pow(10, (elo2 - elo1) / 400))) * 100);
-    const p2 = 100 - p1;
+    let p1 = 50;
+    let p2 = 50;
+    
+    if (window.PREDICTIONS && window.PREDICTIONS.strengths) {
+      const strMap = {};
+      window.PREDICTIONS.strengths.forEach(s => strMap[s.equipe] = s);
+      
+      const strA = strMap[match.t1] || { attack_strength: 1, defense_weakness: 1 };
+      const strB = strMap[match.t2] || { attack_strength: 1, defense_weakness: 1 };
+      const avg = window.PREDICTIONS.global_avg || 1.3;
+      
+      const xgA = strA.attack_strength * strB.defense_weakness * avg;
+      const xgB = strB.attack_strength * strA.defense_weakness * avg;
+      
+      const fact = n => n <= 1 ? 1 : n * fact(n - 1);
+      const poisson = (k, lambda) => (Math.pow(Math.E, -lambda) * Math.pow(lambda, k)) / fact(k);
+      
+      let probA = 0, probB = 0, probDraw = 0;
+      for(let i=0; i<=7; i++) {
+        for(let j=0; j<=7; j++) {
+          const p = poisson(i, xgA) * poisson(j, xgB);
+          if(i > j) probA += p;
+          else if(i < j) probB += p;
+          else probDraw += p;
+        }
+      }
+      p1 = Math.round((probA + (probDraw / 2)) * 100);
+      p2 = 100 - p1;
+    } else {
+      // Fallback Elo
+      const ratings = window.ELO_RATINGS || {};
+      const elo1 = ratings[match.t1] || 1200;
+      const elo2 = ratings[match.t2] || 1200;
+      p1 = Math.round((1 / (1 + Math.pow(10, (elo2 - elo1) / 400))) * 100);
+      p2 = 100 - p1;
+    }
     
     p1Text = ` <span style="font-size:10.5px; color:var(--gold); margin-left:6px; opacity:0.8;">[${p1}%]</span>`;
     p2Text = ` <span style="font-size:10.5px; color:var(--gold); margin-left:6px; opacity:0.8;">[${p2}%]</span>`;
