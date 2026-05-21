@@ -213,56 +213,6 @@ function createMatchHTML(match, round, index) {
 
   const t1Name = match.t1 || "TBD";
   const t2Name = match.t2 || "TBD";
-<<<<<<< HEAD
-  
-  let p1Text = "";
-  let p2Text = "";
-  
-  if (match.t1 && match.t2 && match.t1 !== "TBD" && match.t2 !== "TBD") {
-    let p1 = 50;
-    let p2 = 50;
-    
-    if (window.PREDICTIONS && window.PREDICTIONS.strengths) {
-      const strMap = {};
-      window.PREDICTIONS.strengths.forEach(s => strMap[s.equipe] = s);
-      
-      const strA = strMap[match.t1] || { attack_strength: 1, defense_weakness: 1 };
-      const strB = strMap[match.t2] || { attack_strength: 1, defense_weakness: 1 };
-      const avg = window.PREDICTIONS.global_avg || 1.3;
-      
-      const xgA = strA.attack_strength * strB.defense_weakness * avg;
-      const xgB = strB.attack_strength * strA.defense_weakness * avg;
-      
-      const fact = n => n <= 1 ? 1 : n * fact(n - 1);
-      const poisson = (k, lambda) => (Math.pow(Math.E, -lambda) * Math.pow(lambda, k)) / fact(k);
-      
-      let probA = 0, probB = 0, probDraw = 0;
-      for(let i=0; i<=7; i++) {
-        for(let j=0; j<=7; j++) {
-          const p = poisson(i, xgA) * poisson(j, xgB);
-          if(i > j) probA += p;
-          else if(i < j) probB += p;
-          else probDraw += p;
-        }
-      }
-      p1 = Math.round((probA + (probDraw / 2)) * 100);
-      p2 = 100 - p1;
-    } else {
-      // Fallback Elo
-      const ratings = window.ELO_RATINGS || {};
-      const elo1 = ratings[match.t1] || 1200;
-      const elo2 = ratings[match.t2] || 1200;
-      p1 = Math.round((1 / (1 + Math.pow(10, (elo2 - elo1) / 400))) * 100);
-      p2 = 100 - p1;
-    }
-    
-    p1Text = ` <span style="font-size:10.5px; color:var(--gold); margin-left:6px; opacity:0.8;">[${p1}%]</span>`;
-    p2Text = ` <span style="font-size:10.5px; color:var(--gold); margin-left:6px; opacity:0.8;">[${p2}%]</span>`;
-  }
-  
-  const onClickT1 = match.t1 ? `onclick="manualSelectionHandler('${round}', ${index}, '${match.t1}')"` : "";
-  const onClickT2 = match.t2 ? `onclick="manualSelectionHandler('${round}', ${index}, '${match.t2}')"` : "";
-=======
 
   const probs = getMatchProbabilities(match);
   const p1Text = probs ? ` <span class="bracket-prob">[${probs.p1}%]</span>` : "";
@@ -270,7 +220,6 @@ function createMatchHTML(match, round, index) {
 
   const onClickT1 = match.t1 ? `onclick="manualSelectionHandler('${round}', ${index}, '${match.t1.replace(/'/g, "\\'")}')"` : "";
   const onClickT2 = match.t2 ? `onclick="manualSelectionHandler('${round}', ${index}, '${match.t2.replace(/'/g, "\\'")}')"` : "";
->>>>>>> f469acabf418c66d55fc1bd26dc37a2b417be183
 
   return `
     <div class="bracket-match" data-round="${round}" data-index="${index}">
