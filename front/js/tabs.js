@@ -2,7 +2,6 @@
 const TABS = [
   { id: "groupes",    label: "🗂️ Groupes 2026" },
   { id: "classement", label: "🏆 Classement" },
-  { id: "scatter",    label: "📊 Performance" },
   { id: "h2h",        label: "⚔️ Face à Face" },
   { id: "palmares",   label: "🏅 Palmarès" },
   { id: "simulador",  label: "🎲 Simulateur Groupes" },
@@ -35,7 +34,6 @@ function initTabs() {
   const tabKeys = {
     "classement": "tab_classement",
     "groupes": "tab_groupes",
-    "scatter": "tab_scatter",
     "palmares": "tab_palmares",
     "pronostics": "tab_pronostics",
     "h2h": "tab_h2h",
