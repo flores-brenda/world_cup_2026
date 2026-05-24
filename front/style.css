@@ -660,36 +660,7 @@
       font-size: clamp(11px, 0.9vw, 13px);
     }
 
-    /* Indicateur d'appareil / Device Indicator */
-    .device-indicator {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      background: var(--surface2);
-      color: var(--muted);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 4px 10px;
-      font-size: 11px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-weight: bold;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
 
-    .device-mobile, .device-tablet, .device-desktop { display: none; }
-
-    @media (max-width: 767px) {
-      .device-mobile { display: inline; }
-    }
-    @media (min-width: 768px) and (max-width: 1024px) {
-      .device-tablet { display: inline; }
-    }
-    @media (min-width: 1025px) {
-      .device-desktop { display: inline; }
-    }
 
 /* ═══════════════════════════════════════════════════════════
    BRACKET — Phase à Élimination Directe
