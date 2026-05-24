@@ -281,11 +281,22 @@
       <div class="section-title" data-i18n="sec_bracket_title">PHASE À ÉLIMINATION DIRECTE</div>
       <div class="section-sub" data-i18n="sec_bracket_sub">Simulateur de croisements des Seizièmes de finale à la Finale</div>
       
-      <div class="card" style="margin-bottom: 20px; text-align: center;">
-        <button id="btn-reset-bracket" class="btn-primary" style="font-size:14px;">
-          SIMULER LES RÉSULTATS PROBABLES
-        </button>
-        <p style="color: var(--muted); font-size: clamp(11px, 1.3vw, 13px); margin-top: 10px;">Cliquez sur une équipe pour la faire avancer au tour suivant.</p>
+      <div class="grid-2" style="margin-bottom: 20px;">
+        <div class="card" style="text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+          <button id="btn-sim-random" class="btn-primary" style="background: #334155; border: 1px solid var(--blue-light); color: white; font-size:14px; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+            <span style="font-size: 18px;">🎲</span> <span data-i18n="btn_sim_random">Simulation Libre</span>
+          </button>
+          <p style="color: var(--muted); font-size: clamp(11px, 1.2vw, 12px); max-width: 280px; line-height: 1.4;" data-i18n="desc_sim_random">Explorez tous les scénarios possibles, même les plus grandes surprises.</p>
+        </div>
+        <div class="card" style="text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+          <button id="btn-sim-data" class="btn-primary" style="background: linear-gradient(135deg, var(--gold), var(--green)); color: #000; border: none; font-size:14px; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+            <span style="font-size: 18px;">📈</span> <span data-i18n="btn_sim_data">Prédiction IA/Data</span>
+          </button>
+          <p style="color: var(--muted); font-size: clamp(11px, 1.2vw, 12px); max-width: 280px; line-height: 1.4;" data-i18n="desc_sim_data">Basé sur les performances historiques et probabilités de victoire. Le chemin le plus probable vers la finale.</p>
+        </div>
+      </div>
+      <div style="text-align:center; margin-bottom: 20px;">
+        <p style="color: var(--muted); font-size: clamp(11px, 1.3vw, 13px);" data-i18n="bracket_hint">Cliquez sur une équipe pour la faire avancer au tour suivant.</p>
       </div>
 
       <div class="card" style="overflow-x: auto; padding: 20px;">

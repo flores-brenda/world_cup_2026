@@ -95,26 +95,47 @@ function initBracketData() {
 }
 
 // ── Simulation complète ────────────────────────────────────
-function simulateFullBracket() {
+function simulateFullBracket(mode = 'data') {
   initBracketData();
+  recomputeBracket(mode);
+  renderBracket();
+}
 
+function recomputeBracket(mode = 'data') {
   BRACKET_ROUNDS.forEach(roundDef => {
     const roundId = roundDef.id;
     const matches = bracketData[roundId];
 
     matches.forEach((match, index) => {
       if (match.t1 && match.t2 && match.t1 !== "TBD" && match.t2 !== "TBD") {
-        const probs = getMatchProbabilities(match);
-        const prob1 = probs ? probs.prob1 : 0.5;
-        const winner = Math.random() < prob1 ? match.t1 : match.t2;
-        bracketData[roundId][index].w = winner;
+        
+        // Si l'utilisateur avait forcé un gagnant mais que l'équipe n'est plus là, on annule
+        if (match.manualWinner && match.manualWinner !== match.t1 && match.manualWinner !== match.t2) {
+          match.manualWinner = null;
+        }
 
+        let winner;
+        if (match.manualWinner) {
+          winner = match.manualWinner;
+        } else if (mode === 'data') {
+          const probs = getMatchProbabilities(match);
+          const p = probs ? probs.prob1 : 0.5;
+          
+          // Simulation pondérée : on accentue la probabilité pour réduire les grosses surprises
+          // Formule : p^3 / (p^3 + (1-p)^3)
+          const steepP = Math.pow(p, 3) / (Math.pow(p, 3) + Math.pow(1 - p, 3));
+          winner = Math.random() < steepP ? match.t1 : match.t2;
+        } else {
+          winner = Math.random() < 0.5 ? match.t1 : match.t2;
+        }
+        
+        match.w = winner;
         propagateWinner(roundId, index, winner);
+      } else {
+        match.w = null;
       }
     });
   });
-
-  renderBracket();
 }
 
 function propagateWinner(roundId, matchIndex, winner) {
@@ -128,41 +149,9 @@ function propagateWinner(roundId, matchIndex, winner) {
 
 // ── Sélection manuelle ─────────────────────────────────────
 function manualSelectionHandler(round, matchIndex, winnerTeam) {
-  bracketData[round][matchIndex].w = winnerTeam;
-
-  const nextRound = NEXT_ROUND[round];
-  if (!nextRound) { renderBracket(); return; }
-
-  const nextMatchIndex = Math.floor(matchIndex / 2);
-  const isTeam1 = matchIndex % 2 === 0;
-
-  if (isTeam1) {
-    bracketData[nextRound][nextMatchIndex].t1 = winnerTeam;
-  } else {
-    bracketData[nextRound][nextMatchIndex].t2 = winnerTeam;
-  }
-
-  clearSubsequentRounds(nextRound, nextMatchIndex, isTeam1);
+  bracketData[round][matchIndex].manualWinner = winnerTeam;
+  recomputeBracket('data');
   renderBracket();
-}
-
-function clearSubsequentRounds(round, matchIndex, isTeam1) {
-  let r = round;
-  let idx = matchIndex;
-
-  while (r !== "final") {
-    bracketData[r][idx].w = null;
-    let nextR = NEXT_ROUND[r];
-    let nextIdx = Math.floor(idx / 2);
-    let nextIsTeam1 = idx % 2 === 0;
-
-    if (nextIsTeam1) bracketData[nextR][nextIdx].t1 = null;
-    else bracketData[nextR][nextIdx].t2 = null;
-
-    r = nextR;
-    idx = nextIdx;
-  }
-  bracketData["final"][0].w = null;
 }
 
 // ── Calcul partagé des probabilités ────────────────────
@@ -454,8 +443,12 @@ function handleBracketResize() {
 
 // ── Initialisation du module ───────────────────────────────
 function initBracketModule() {
-  document.getElementById("btn-reset-bracket")?.addEventListener("click", () => {
-    simulateFullBracket();
+  document.getElementById("btn-sim-random")?.addEventListener("click", () => {
+    simulateFullBracket('random');
+  });
+  
+  document.getElementById("btn-sim-data")?.addEventListener("click", () => {
+    simulateFullBracket('data');
   });
 
   // Redessiner les connecteurs quand la fenêtre est redimensionnée
