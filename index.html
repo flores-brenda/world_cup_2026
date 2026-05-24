@@ -32,23 +32,102 @@
         style="background:var(--surface2); color:white; border:1px solid var(--border); border-radius:4px; padding:4px 8px; cursor:pointer; font-size:clamp(10px,1.3vw,12px);">EN</button>
     </div>
 
-    <div style="display:flex; flex-direction: column; align-items:center;">
-      <div class="header-badge" data-i18n="badge_project">PROJET DATA SCIENCE</div>
-      <div class="countdown-container">
-        <div class="countdown-label" data-i18n="countdown_label">
-          Coup d'envoi de la Coupe du Monde</div>
-        <div id="countdown" class="countdown-display">
-          Chargement...
+    <div id="header-full-content">
+      <div style="display:flex; flex-direction: column; align-items:center;">
+        <div class="header-badge" data-i18n="badge_project">PROJET DATA SCIENCE</div>
+        <div class="countdown-container">
+          <div class="countdown-label" data-i18n="countdown_label">
+            Coup d'envoi de la Coupe du Monde</div>
+          <div id="countdown" class="countdown-display">
+            Chargement...
+          </div>
         </div>
       </div>
+      <h1>FIFA WORLD<br>CUP 2026</h1>
+      <p data-i18n="header_desc">Analyse historique des équipes qualifiées • Dataset Kaggle 1872–2025</p>
+      <div class="header-stats" id="headerStats"></div>
     </div>
-    <h1>FIFA WORLD<br>CUP 2026</h1>
-    <p data-i18n="header_desc">Analyse historique des équipes qualifiées • Dataset Kaggle 1872–2025</p>
-    <div class="header-stats" id="headerStats"></div>
+    
+    <div id="header-minimal-content" style="display:none; padding-bottom: 10px; border-bottom: 1px solid var(--border); margin-bottom: 20px;">
+      <h2 style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(24px, 4vw, 32px); color: var(--gold); letter-spacing: 2px; margin:0;">FIFA WORLD CUP 2026</h2>
+    </div>
   </header>
   <div class="tabs" id="tabsNav"></div>
   <div class="content">
-<div class="section active" id="sec-groupes">
+<div class="section active" id="sec-home">
+  <!-- Key metrics -->
+  <div class="grid-3" style="margin-bottom: 24px;">
+    <div class="card hstat" style="text-align:center;">
+      <div class="hstat-val" style="font-size: clamp(32px, 6vw, 48px); color: var(--gold);">48</div>
+      <div class="hstat-label" style="font-size: 14px;" data-i18n="stat_selections">Sélections (Équipes)</div>
+    </div>
+    <div class="card hstat" style="text-align:center;">
+      <div class="hstat-val" style="font-size: clamp(32px, 6vw, 48px); color: var(--gold);">16</div>
+      <div class="hstat-label" style="font-size: 14px;" data-i18n="stat_venues">Villes Hôtes</div>
+    </div>
+    <div class="card hstat" style="text-align:center;">
+      <div class="hstat-val" style="font-size: clamp(32px, 6vw, 48px); color: var(--gold);">104</div>
+      <div class="hstat-label" style="font-size: 14px;" data-i18n="stat_matches">Matchs au Total</div>
+    </div>
+  </div>
+
+  <div class="section-title" data-i18n="sec_home_title">MATCHS D'OUVERTURE DÉMARQUÉS</div>
+  <div class="section-sub" data-i18n="sec_home_sub">Les rencontres inaugurales de la Coupe du Monde 2026</div>
+
+  <div class="grid-3" id="home-matches">
+    <!-- Match 1 -->
+    <div class="card" style="text-align:center; padding: 20px;">
+      <div style="font-size: 11px; color: var(--gold); letter-spacing: 1px; margin-bottom: 12px; font-weight:bold;">11 JUIN 2026 • ESTADIO AZTECA</div>
+      <div style="display:flex; justify-content:center; align-items:center; gap: 15px;">
+        <div style="text-align:center;">
+          <div><img src="https://flagcdn.com/w80/mx.png" width="48" style="border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);" alt="Mexico"></div>
+          <div style="font-size: 12px; font-weight:bold; margin-top:5px;" data-i18n="mexico">MEXIQUE</div>
+        </div>
+        <div class="vs-badge" data-i18n="vs">VS</div>
+        <div style="text-align:center;">
+          <div><img src="https://flagcdn.com/w80/za.png" width="48" style="border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);" alt="South Africa"></div>
+          <div style="font-size: 12px; font-weight:bold; margin-top:5px;" data-i18n="south_africa">AFRIQUE DU SUD</div>
+        </div>
+      </div>
+      <div style="margin-top: 15px; font-size: 12px; color: var(--muted);">14:00 (<span data-i18n="local_time">Heure Locale</span>)</div>
+    </div>
+    
+    <!-- Match 2 -->
+    <div class="card" style="text-align:center; padding: 20px;">
+      <div style="font-size: 11px; color: var(--gold); letter-spacing: 1px; margin-bottom: 12px; font-weight:bold;">12 JUIN 2026 • BMO FIELD</div>
+      <div style="display:flex; justify-content:center; align-items:center; gap: 15px;">
+        <div style="text-align:center;">
+          <div><img src="https://flagcdn.com/w80/ca.png" width="48" style="border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);" alt="Canada"></div>
+          <div style="font-size: 12px; font-weight:bold; margin-top:5px;" data-i18n="canada">CANADA</div>
+        </div>
+        <div class="vs-badge" data-i18n="vs">VS</div>
+        <div style="text-align:center;">
+          <div style="font-size: 32px;">🌍</div>
+          <div style="font-size: 12px; font-weight:bold; margin-top:5px;" data-i18n="tbd">À DÉFINIR</div>
+        </div>
+      </div>
+      <div style="margin-top: 15px; font-size: 12px; color: var(--muted);" data-i18n="tbd">À DÉFINIR</div>
+    </div>
+
+    <!-- Match 3 -->
+    <div class="card" style="text-align:center; padding: 20px;">
+      <div style="font-size: 11px; color: var(--gold); letter-spacing: 1px; margin-bottom: 12px; font-weight:bold;">12 JUIN 2026 • SOFI STADIUM</div>
+      <div style="display:flex; justify-content:center; align-items:center; gap: 15px;">
+        <div style="text-align:center;">
+          <div><img src="https://flagcdn.com/w80/us.png" width="48" style="border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);" alt="USA"></div>
+          <div style="font-size: 12px; font-weight:bold; margin-top:5px;" data-i18n="usa">ÉTATS-UNIS</div>
+        </div>
+        <div class="vs-badge" data-i18n="vs">VS</div>
+        <div style="text-align:center;">
+          <div style="font-size: 32px;">🌍</div>
+          <div style="font-size: 12px; font-weight:bold; margin-top:5px;" data-i18n="tbd">À DÉFINIR</div>
+        </div>
+      </div>
+      <div style="margin-top: 15px; font-size: 12px; color: var(--muted);" data-i18n="tbd">À DÉFINIR</div>
+    </div>
+  </div>
+</div>
+<div class="section" id="sec-groupes">
       <div class="section-title" data-i18n="sec_groupes_title">GROUPES 2026</div>
       <div class="section-sub" data-i18n="sec_groupes_sub">Tirage au sort FIFA — 5 décembre 2025 • 12 groupes • 48
         équipes</div>

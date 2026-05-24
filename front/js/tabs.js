@@ -1,5 +1,6 @@
 // ── Tabs navigation ───────────────────────────────────────
 const TABS = [
+  { id: "home",       label: "🏠 Accueil" },
   { id: "groupes",    label: "🗂️ Groupes 2026" },
   { id: "classement", label: "🏆 Classement" },
   { id: "h2h",        label: "⚔️ Face à Face" },
@@ -21,17 +22,32 @@ function switchToTab(tabId) {
   section.classList.add("active");
   const btn = document.querySelector(`.tab-btn[data-id="${tabId}"]`);
   if (btn) btn.classList.add("active");
+
+  const header = document.querySelector("header");
+  const fullContent = document.getElementById("header-full-content");
+  const minimalContent = document.getElementById("header-minimal-content");
+
+  if (tabId === "home") {
+    if (header) header.classList.remove("header-minimal");
+    if (fullContent) fullContent.style.display = "block";
+    if (minimalContent) minimalContent.style.display = "none";
+  } else {
+    if (header) header.classList.add("header-minimal");
+    if (fullContent) fullContent.style.display = "none";
+    if (minimalContent) minimalContent.style.display = "block";
+  }
 }
 
 function handleHashChange() {
   const hash = window.location.hash.replace("#", "");
-  const tabId = VALID_TABS.includes(hash) ? hash : "groupes";
+  const tabId = VALID_TABS.includes(hash) ? hash : "home";
   switchToTab(tabId);
 }
 
 function initTabs() {
   const nav = document.getElementById("tabsNav");
   const tabKeys = {
+    "home": "tab_home",
     "classement": "tab_classement",
     "groupes": "tab_groupes",
     "palmares": "tab_palmares",
@@ -43,7 +59,7 @@ function initTabs() {
 
   TABS.forEach(t => {
     const btn = document.createElement("button");
-    btn.className = "tab-btn" + (t.id === "groupes" ? " active" : "");
+    btn.className = "tab-btn" + (t.id === "home" ? " active" : "");
     btn.textContent = t.label;
     btn.setAttribute("data-id", t.id);
     btn.setAttribute("data-i18n", tabKeys[t.id] || "");
