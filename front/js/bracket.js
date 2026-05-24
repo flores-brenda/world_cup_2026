@@ -15,6 +15,7 @@ const NEXT_ROUND = { r32: "r16", r16: "qf", qf: "sf", sf: "final", final: null }
 let bracketData = {};
 let bracketMode = "desktop"; // "desktop" | "mobile"
 let bracketSelectedRound = "r32"; // pour le mode mobile
+let simulationMode = "data"; // track current simulation mode
 
 // ── Constantes de hauteur ──────────────────────────────────
 // Le contenu d'un slot R32 nécessite ~58px desktop / ~46px tablette
@@ -96,6 +97,7 @@ function initBracketData() {
 
 // ── Simulation complète ────────────────────────────────────
 function simulateFullBracket(mode = 'data') {
+  simulationMode = mode;
   initBracketData();
   recomputeBracket(mode);
   renderBracket();
@@ -117,12 +119,15 @@ function recomputeBracket(mode = 'data') {
         let winner;
         if (match.manualWinner) {
           winner = match.manualWinner;
+        } else if (match.w && (match.w === match.t1 || match.w === match.t2)) {
+          // Si on a déjà simulé un gagnant et qu'il est toujours valide, on le conserve pour éviter
+          // que toute la table ne change sans raison lors d'un clic manuel.
+          winner = match.w;
         } else if (mode === 'data') {
           const probs = getMatchProbabilities(match);
           const p = probs ? probs.prob1 : 0.5;
           
           // Simulation pondérée : on accentue la probabilité pour réduire les grosses surprises
-          // Formule : p^3 / (p^3 + (1-p)^3)
           const steepP = Math.pow(p, 3) / (Math.pow(p, 3) + Math.pow(1 - p, 3));
           winner = Math.random() < steepP ? match.t1 : match.t2;
         } else {
@@ -150,7 +155,8 @@ function propagateWinner(roundId, matchIndex, winner) {
 // ── Sélection manuelle ─────────────────────────────────────
 function manualSelectionHandler(round, matchIndex, winnerTeam) {
   bracketData[round][matchIndex].manualWinner = winnerTeam;
-  recomputeBracket('data');
+  bracketData[round][matchIndex].w = winnerTeam; // Force winner explicitly
+  recomputeBracket(simulationMode);
   renderBracket();
 }
 
