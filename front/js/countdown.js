@@ -9,7 +9,10 @@ function initCountdown() {
     const distance = targetDate - now;
 
     if (distance < 0) {
-      el.innerHTML = "🏆 LA COUPE DU MONDE EST COMMENCÉE !";
+      const container = el.closest('.countdown-container') || el.parentElement;
+      if (container) {
+        container.style.display = 'none';
+      }
       return;
     }
 

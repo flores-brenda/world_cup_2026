@@ -628,7 +628,7 @@ function initCountdown() {{
     const distance = targetDate - now;
     
     if (distance < 0) {{
-      el.innerHTML = "🏆 LA COUPE DU MONDE EST COMMENCÉE !";
+      el.parentElement.style.display = "none";
       return;
     }}
     
