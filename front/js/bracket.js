@@ -43,24 +43,79 @@ function initBracketData() {
     thirds: []
   };
 
+  const globalAvg = window.ELO_GLOBAL_AVG || 1.3;
+
   Object.keys(GROUPES).forEach(g => {
-    let teams = GROUPES[g].map(t => {
-      let power = 1.0;
-      if (strMap[t]) {
-        power = strMap[t].attack_strength / Math.max(strMap[t].defense_weakness, 0.1);
-      } else if (ratings[t]) {
-        power = ratings[t] / 1500; // Normalisation approximative pour le fallback
+    let groupTeams = GROUPES[g];
+    let standings = groupTeams.map(t => ({ name: t, pts: 0, gd: 0, gf: 0, power: 1.0 }));
+
+    // Calcular "power" base para desempates o para cuando no hay simulacion
+    standings.forEach(st => {
+      if (strMap[st.name]) {
+        st.power = strMap[st.name].attack_strength / Math.max(strMap[st.name].defense_weakness, 0.1);
+      } else if (ratings[st.name]) {
+        st.power = ratings[st.name] / 1500;
       }
-      return { name: t, power: power };
     });
-    
-    teams.sort((a, b) => b.power - a.power); // Trier par Power
-    clasificados.winners.push({ ...teams[0], group: g, pos: 1 });
-    clasificados.runners.push({ ...teams[1], group: g, pos: 2 });
-    clasificados.thirds.push({ ...teams[2], group: g, pos: 3 });
+
+    if (simulationMode === 'data' || simulationMode === 'random') {
+      // Simular todos los partidos del grupo
+      for (let i = 0; i < groupTeams.length; i++) {
+        for (let j = i + 1; j < groupTeams.length; j++) {
+          const tA = groupTeams[i];
+          const tB = groupTeams[j];
+          const eloA = ratings[tA] || (typeof ELO_DEBUTANT !== 'undefined' ? ELO_DEBUTANT : 1200);
+          const eloB = ratings[tB] || (typeof ELO_DEBUTANT !== 'undefined' ? ELO_DEBUTANT : 1200);
+          
+          let goalsA = 0, goalsB = 0;
+          
+          if (simulationMode === 'data') {
+             if (typeof eloToXG === 'function' && typeof simPoissonGoals === 'function') {
+               const { xgA, xgB } = eloToXG(eloA, eloB, globalAvg);
+               goalsA = simPoissonGoals(xgA);
+               goalsB = simPoissonGoals(xgB);
+             } else {
+               // Fallback simple si no existen las funciones
+               const probA = 1 / (1 + Math.pow(10, (eloB - eloA) / 400));
+               const rand = Math.random();
+               if (rand < probA * 0.6) { goalsA = 2; goalsB = 0; }
+               else if (rand < probA) { goalsA = 1; goalsB = 1; }
+               else { goalsA = 0; goalsB = 1; }
+             }
+          } else {
+             // Simulación Random (modo sorpresa)
+             goalsA = Math.floor(Math.random() * 4);
+             goalsB = Math.floor(Math.random() * 4);
+          }
+
+          const sA = standings.find(s => s.name === tA);
+          const sB = standings.find(s => s.name === tB);
+          
+          sA.gf += goalsA; sB.gf += goalsB;
+          sA.gd += (goalsA - goalsB); sB.gd += (goalsB - goalsA);
+
+          if (goalsA > goalsB) { sA.pts += 3; }
+          else if (goalsA < goalsB) { sB.pts += 3; }
+          else { sA.pts += 1; sB.pts += 1; }
+        }
+      }
+      // Ordenar por puntos, luego diferencia de goles, goles a favor, y finalmente power
+      standings.sort((a, b) => b.pts - a.pts || b.gd - a.gd || b.gf - a.gf || b.power - a.power);
+    } else {
+      // Modo estático por defecto
+      standings.sort((a, b) => b.power - a.power);
+    }
+
+    clasificados.winners.push({ ...standings[0], group: g, pos: 1 });
+    clasificados.runners.push({ ...standings[1], group: g, pos: 2 });
+    clasificados.thirds.push({ ...standings[2], group: g, pos: 3 });
   });
 
-  clasificados.thirds.sort((a, b) => b.power - a.power);
+  if (simulationMode === 'data' || simulationMode === 'random') {
+    clasificados.thirds.sort((a, b) => b.pts - a.pts || b.gd - a.gd || b.gf - a.gf || b.power - a.power);
+  } else {
+    clasificados.thirds.sort((a, b) => b.power - a.power);
+  }
   const bestThirds = clasificados.thirds.slice(0, 8);
 
   const getTeam = (group, pos) => {
