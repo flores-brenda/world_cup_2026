@@ -1,6 +1,8 @@
 // ── Tabs navigation ───────────────────────────────────────
 const TABS = [
   { id: "home",       label: "🏠 Accueil" },
+  { id: "resultados",  label: "📊 En Vivo" },
+  { id: "accuracy",   label: "🎯 Modelo vs Realidad" },
   { id: "groupes",    label: "🗂️ Groupes 2026" },
   { id: "classement", label: "🏆 Classement" },
   { id: "h2h",        label: "⚔️ Face à Face" },
@@ -48,6 +50,8 @@ function initTabs() {
   const nav = document.getElementById("tabsNav");
   const tabKeys = {
     "home": "tab_home",
+    "resultados": "tab_resultados",
+    "accuracy": "tab_accuracy",
     "classement": "tab_classement",
     "groupes": "tab_groupes",
     "palmares": "tab_palmares",

@@ -28,6 +28,14 @@ document.addEventListener("DOMContentLoaded", () => {
   renderSimulador(stats);
   if (typeof initBracketModule === 'function') initBracketModule();
 
+  // Nuevos módulos — datos en tiempo real
+  // initResultados carga el JSON de forma asíncrona y luego llama a renderModeloAccuracy
+  if (typeof initResultados === 'function') {
+    initResultados().then(() => {
+      if (typeof renderModeloAccuracy === 'function') renderModeloAccuracy();
+    });
+  }
+
   // Traduire tous les éléments après leur rendu
   if (typeof initI18n === 'function') initI18n();
 

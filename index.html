@@ -122,6 +122,33 @@
     </div>
   </div>
 </div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- SECCIÓN: RESULTADOS EN VIVO (Mejora 3)             -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <div class="section" id="sec-resultados">
+    <div class="section-title" data-i18n="sec_resultados_title">CLASIFICACIÓN EN VIVO</div>
+    <div class="section-sub" data-i18n="sec_resultados_sub">Tabla de posiciones actualizada con resultados reales del torneo</div>
+    <div id="resultados-container">
+      <div class="info-box" style="text-align:center; padding:30px;">
+        ⏳ Cargando resultados del torneo...
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- SECCIÓN: MODELO VS REALIDAD (Mejora 2)             -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <div class="section" id="sec-accuracy">
+    <div class="section-title" data-i18n="sec_accuracy_title">¿ACERTÓ EL MODELO?</div>
+    <div class="section-sub" data-i18n="sec_accuracy_sub">Validación del modelo Poisson + Elo comparado con los resultados reales del Mundial 2026</div>
+    <div id="accuracy-container">
+      <div class="info-box" style="text-align:center; padding:30px;">
+        ⏳ Cargando predicciones del modelo...
+      </div>
+    </div>
+  </div>
+
 <div class="section" id="sec-groupes">
       <div class="section-title" data-i18n="sec_groupes_title">GROUPES 2026</div>
       <div class="section-sub" data-i18n="sec_groupes_sub">Tirage au sort FIFA — 5 décembre 2025 • 12 groupes • 48
@@ -315,6 +342,8 @@
   <script src="./front/js/palmares.js"></script>
   <script src="./front/js/pronostics.js"></script>
   <script src="./front/js/elo.js"></script>
+  <script src="./front/js/resultados.js"></script>
+  <script src="./front/js/modelo_accuracy.js"></script>
   <script src="./front/js/h2h.js"></script>
   <script src="./front/js/simulateur.js"></script>
   <script src="./front/js/bracket.js"></script>
