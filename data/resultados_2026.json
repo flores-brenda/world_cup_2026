@@ -11,7 +11,7 @@
       "date": "2026-06-11", "group": "A",
       "home": "South Korea", "away": "Czechia",
       "home_score": 2, "away_score": 1,
-      "stadium": "AT&T Stadium", "city": "Dallas"
+      "stadium": "Estadio Akron", "city": "Guadalajara"
     },
     {
       "date": "2026-06-12", "group": "B",
@@ -23,7 +23,7 @@
       "date": "2026-06-12", "group": "D",
       "home": "United States", "away": "Paraguay",
       "home_score": 4, "away_score": 1,
-      "stadium": "MetLife Stadium", "city": "New York"
+      "stadium": "SoFi Stadium", "city": "Los Angeles"
     },
     {
       "date": "2026-06-13", "group": "B",
@@ -35,25 +35,31 @@
       "date": "2026-06-13", "group": "C",
       "home": "Brazil", "away": "Morocco",
       "home_score": 1, "away_score": 1,
-      "stadium": "SoFi Stadium", "city": "Los Angeles"
+      "stadium": "MetLife Stadium", "city": "East Rutherford"
     },
     {
       "date": "2026-06-13", "group": "C",
       "home": "Scotland", "away": "Haiti",
       "home_score": 1, "away_score": 0,
-      "stadium": "Arrowhead Stadium", "city": "Kansas City"
+      "stadium": "Gillette Stadium", "city": "Foxborough"
     },
     {
       "date": "2026-06-13", "group": "D",
       "home": "Australia", "away": "Turkey",
       "home_score": 2, "away_score": 0,
-      "stadium": "Rose Bowl", "city": "Los Angeles"
+      "stadium": "BC Place", "city": "Vancouver"
     },
     {
       "date": "2026-06-14", "group": "E",
       "home": "Germany", "away": "Curacao",
       "home_score": 7, "away_score": 1,
-      "stadium": "Arrowhead Stadium", "city": "Kansas City"
+      "stadium": "NRG Stadium", "city": "Houston"
+    },
+    {
+      "date": "2026-06-14", "group": "E",
+      "home": "Ivory Coast", "away": "Ecuador",
+      "home_score": 1, "away_score": 0,
+      "stadium": "Lincoln Financial Field", "city": "Philadelphia"
     },
     {
       "date": "2026-06-14", "group": "F",
@@ -62,16 +68,10 @@
       "stadium": "AT&T Stadium", "city": "Arlington"
     },
     {
-      "date": "2026-06-14", "group": "E",
-      "home": "Ivory Coast", "away": "Ecuador",
-      "home_score": 1, "away_score": 1,
-      "stadium": "AT&T Stadium", "city": "Dallas"
-    },
-    {
       "date": "2026-06-14", "group": "F",
       "home": "Sweden", "away": "Tunisia",
-      "home_score": 2, "away_score": 0,
-      "stadium": "Levi's Stadium", "city": "San Francisco"
+      "home_score": 5, "away_score": 1,
+      "stadium": "Estadio BBVA", "city": "Monterrey"
     },
     {
       "date": "2026-06-15", "group": "H",
@@ -95,7 +95,7 @@
       "date": "2026-06-15", "group": "G",
       "home": "Iran", "away": "New Zealand",
       "home_score": null, "away_score": null,
-      "stadium": "Rose Bowl", "city": "Los Angeles"
+      "stadium": "Rose Bowl", "city": "Pasadena"
     }
   ]
 }
