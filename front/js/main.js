@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // initResultados carga el JSON de forma asíncrona y luego llama a renderModeloAccuracy
   if (typeof initResultados === 'function') {
     initResultados().then(() => {
+      if (typeof renderHomeResults === 'function') renderHomeResults();
       if (typeof renderModeloAccuracy === 'function') renderModeloAccuracy();
     });
   }

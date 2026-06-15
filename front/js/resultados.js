@@ -5,25 +5,149 @@
 
 let RESULTADOS_2026 = null;
 
+// ── Mapa de códigos de banderas (flagcdn.com) ──────────────
+const FLAG_CODES = {
+  "Mexico": "mx", "South Africa": "za", "South Korea": "kr", "Czechia": "cz",
+  "Canada": "ca", "Bosnia and Herzegovina": "ba", "Qatar": "qa", "Switzerland": "ch",
+  "Brazil": "br", "Morocco": "ma", "Scotland": "gb-sct", "Haiti": "ht",
+  "United States": "us", "Paraguay": "py", "Australia": "au", "Turkey": "tr",
+  "Germany": "de", "Curacao": "cw", "Ivory Coast": "ci", "Ecuador": "ec",
+  "Netherlands": "nl", "Japan": "jp", "Sweden": "se", "Tunisia": "tn",
+  "Belgium": "be", "Egypt": "eg", "Iran": "ir", "New Zealand": "nz",
+  "Spain": "es", "Cape Verde": "cv", "Saudi Arabia": "sa", "Uruguay": "uy",
+  "France": "fr", "Senegal": "sn", "Iraq": "iq", "Norway": "no",
+  "Argentina": "ar", "Algeria": "dz", "Austria": "at", "Jordan": "jo",
+  "Portugal": "pt", "DR Congo": "cd", "Uzbekistan": "uz", "Colombia": "co",
+  "England": "gb-eng", "Croatia": "hr", "Ghana": "gh", "Panama": "pa"
+};
+
+function flagImg(team, size = 48) {
+  const code = FLAG_CODES[team] || 'un';
+  return `<img src="https://flagcdn.com/w80/${code}.png" width="${size}"
+    style="border-radius:4px; border:1px solid rgba(255,255,255,0.12); display:block; margin:0 auto;"
+    alt="${team}" onerror="this.style.display='none'">`;
+}
+
+// ── Renderiza los últimos 3 resultados en la Home ──────────
+function renderHomeResults() {
+  const container = document.getElementById('home-matches');
+  if (!container || !RESULTADOS_2026) return;
+
+  const played = RESULTADOS_2026.matches
+    .filter(m => m.home_score !== null && m.away_score !== null)
+    .slice(-3)
+    .reverse(); // más reciente primero
+
+  if (played.length === 0) {
+    container.innerHTML = `<div class="info-box" style="grid-column:1/-1; text-align:center; padding:20px; color:var(--muted);">
+      ⏳ ${t('acc_loading') || 'Cargando resultados...'}
+    </div>`;
+    return;
+  }
+
+  container.innerHTML = played.map(m => {
+    const winner   = m.home_score > m.away_score ? 'home' : (m.home_score < m.away_score ? 'away' : 'draw');
+    const isDraw   = winner === 'draw';
+    const homeWins = winner === 'home';
+    const awayWins = winner === 'away';
+
+    const scoreColor = isDraw ? 'var(--gold)' : 'var(--green)';
+    const homeColor  = homeWins ? 'var(--green)' : (isDraw ? 'var(--gold)' : 'var(--muted)');
+    const awayColor  = awayWins ? 'var(--green)' : (isDraw ? 'var(--gold)' : 'var(--muted)');
+
+    const resultLabel = isDraw
+      ? t('acc_draw')
+      : (homeWins ? `${m.home} ✓` : `${m.away} ✓`);
+
+    const groupBadge = `<span style="background:var(--blue); color:#fff; border-radius:3px; padding:1px 6px;
+      font-size:9px; font-weight:700; letter-spacing:1px; margin-right:6px;">GR. ${m.group}</span>`;
+
+    return `
+      <div class="card" style="text-align:center; padding:20px; position:relative; transition:transform .2s;"
+           onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
+
+        <!-- Cabecera: grupo + fecha + ciudad -->
+        <div style="font-size:10px; color:var(--gold); letter-spacing:1px; margin-bottom:14px; font-weight:700;">
+          ${groupBadge}${m.date} · ${m.city.toUpperCase()}
+        </div>
+
+        <!-- Equipos y marcador -->
+        <div style="display:flex; justify-content:center; align-items:center; gap:10px;">
+          <!-- Local -->
+          <div style="flex:1; text-align:center;">
+            ${flagImg(m.home, 44)}
+            <div style="font-size:11px; font-weight:700; margin-top:8px; color:${homeColor};
+              text-transform:uppercase; letter-spacing:.5px; line-height:1.2;">${m.home}</div>
+          </div>
+
+          <!-- Marcador -->
+          <div style="text-align:center; min-width:80px;">
+            <div style="font-family:'Bebas Neue',sans-serif; font-size:46px; color:${scoreColor};
+              line-height:1; letter-spacing:3px;">${m.home_score}–${m.away_score}</div>
+            <div style="font-size:9px; color:var(--muted); margin-top:4px; text-transform:uppercase;
+              letter-spacing:1px;">${resultLabel}</div>
+          </div>
+
+          <!-- Visitante -->
+          <div style="flex:1; text-align:center;">
+            ${flagImg(m.away, 44)}
+            <div style="font-size:11px; font-weight:700; margin-top:8px; color:${awayColor};
+              text-transform:uppercase; letter-spacing:.5px; line-height:1.2;">${m.away}</div>
+          </div>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+
 /**
  * Carga el JSON de resultados reales y renderiza la sección.
- * Se llama desde main.js después de DOMContentLoaded.
+ * También activa un auto-refresh cada 5 minutos.
  */
 async function initResultados() {
+  await cargarResultados(); // carga inicial
+
+  // ── Auto-refresh cada 5 minutos ──────────────────────────
+  const INTERVALO_MS = 5 * 60 * 1000; // 5 minutos
+  setInterval(async () => {
+    const prevUpdated = RESULTADOS_2026?.last_updated;
+    await cargarResultados(true); // silent = true
+    const newUpdated  = RESULTADOS_2026?.last_updated;
+    // Solo re-renderiza si hay cambios o siempre (por si acaso los scores cambiaron)
+    rerenderLiveSections();
+    console.info(`🔄 Auto-refresh resultados (${new Date().toLocaleTimeString()})`);
+  }, INTERVALO_MS);
+}
+
+/** Carga (o recarga) el JSON. Si silent=true no muestra el spinner. */
+async function cargarResultados(silent = false) {
+  const container = document.getElementById('resultados-container');
   try {
-    const res = await fetch('./data/resultados_2026.json');
-    if (!res.ok) throw new Error('No se pudo cargar resultados_2026.json');
+    // Cache-bust para evitar que el navegador devuelva el JSON cacheado
+    const url = `./data/resultados_2026.json?t=${Date.now()}`;
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
     RESULTADOS_2026 = await res.json();
-    renderResultados();
+    if (!silent) renderResultados();
   } catch (e) {
     console.warn('⚠️ resultados_2026.json no disponible:', e.message);
-    const container = document.getElementById('resultados-container');
-    if (container) {
+    if (!silent && container) {
       container.innerHTML = `<div class="info-box" style="color:var(--muted); text-align:center; padding:30px;">
-        ⚠️ No se encontró el archivo de resultados. Asegúrate de que
-        <code>data/resultados_2026.json</code> existe y está accesible.
+        ⚠️ No se encontró el archivo de resultados.<br>
+        <code style="font-size:11px;">data/resultados_2026.json</code>
       </div>`;
     }
+  }
+}
+
+/** Re-renderiza todas las secciones que dependen de resultados en vivo. */
+function rerenderLiveSections() {
+  renderResultados();
+  if (typeof renderHomeResults    === 'function') renderHomeResults();
+  if (typeof renderModeloAccuracy === 'function') renderModeloAccuracy();
+  // Re-aplica i18n al contenido nuevo
+  if (typeof setLanguage === 'function' && typeof currentLang !== 'undefined') {
+    setLanguage(currentLang);
   }
 }
 
