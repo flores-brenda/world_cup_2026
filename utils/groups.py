@@ -23,7 +23,7 @@ groupes_2026 = {
     "C": ["Brazil", "Morocco", "Haiti", "Scotland"],
     "D": ["United States", "Paraguay", "Australia", "Turkey"],
     "E": ["Germany", "Curacao", "Ivory Coast", "Ecuador"],
-    "F": ["Netherlands", "Japan", "Ukraine", "Tunisia"],
+    "F": ["Netherlands", "Japan", "Sweden", "Tunisia"],
     "G": ["Belgium", "Egypt", "Iran", "New Zealand"],
     "H": ["Spain", "Cape Verde", "Saudi Arabia", "Uruguay"],
     "I": ["France", "Senegal", "Iraq", "Norway"],

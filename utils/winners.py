@@ -47,7 +47,7 @@ palmares = {
     "Scotland":      {"titres": 0, "finales": 0,  "annees": "—"},
     "Saudi Arabia":  {"titres": 0, "finales": 0,  "annees": "—"},
     "Tunisia":       {"titres": 0, "finales": 0,  "annees": "—"},
-    "Ukraine":       {"titres": 0, "finales": 0,  "annees": "—"},
+    "Sweden":        {"titres": 0, "finales": 1,  "annees": "—"},
     "South Africa":  {"titres": 0, "finales": 0,  "annees": "—"},
     "United States": {"titres": 0, "finales": 0,  "annees": "—"},
     "Egypt":         {"titres": 0, "finales": 0,  "annees": "—"},
