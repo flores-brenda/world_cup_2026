@@ -1,0 +1,45 @@
+name: ⚽ Update FIFA 2026 Results
+
+on:
+  schedule:
+    # Tous les jours à 07:00 UTC (09:00 Paris, 01:00 Mexico)
+    - cron: '0 7 * * *'
+  workflow_dispatch:   # ← Permet aussi de lancer manuellement depuis GitHub
+
+jobs:
+  update-results:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # Nécessaire pour le git push
+
+    steps:
+      # 1. Télécharger le code du repo
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Installer Python
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # 3. Installer les dépendances
+      - name: 📦 Install dependencies
+        run: pip install requests
+
+      # 4. Exécuter le script de mise à jour
+      #    L'API Key est stockée dans les Secrets du repo (jamais en clair)
+      - name: 🔄 Run results updater
+        env:
+          FOOTBALL_API_KEY: ${{ secrets.FOOTBALL_API_KEY }}
+        run: python actualizar_resultados.py
+
+      # 5. Commit et push si le JSON a changé
+      - name: 💾 Commit updated results
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/resultados_2026.json
+          # Ne commit que s'il y a des changements
+          git diff --cached --quiet || git commit -m "⚽ [auto] Mise à jour résultats $(date +'%Y-%m-%d')"
+          git push

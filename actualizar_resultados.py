@@ -22,7 +22,9 @@ from datetime import datetime, timezone
 # ─────────────────────────────────────────────────
 # ⚙️  CONFIGURACIÓN — edita solo esta sección
 # ─────────────────────────────────────────────────
-API_KEY   = "TU_API_KEY_AQUI"          # ← Pega tu key gratuita de football-data.org
+# Localmente: pega tu key aquí directamente.
+# En GitHub Actions: se lee del Secret FOOTBALL_API_KEY (más seguro).
+API_KEY   = os.getenv("FOOTBALL_API_KEY", "TU_API_KEY_AQUI")
 OUTPUT    = "data/resultados_2026.json"  # Ruta al JSON (relativa al proyecto)
 MAX_PENDING = 12                          # Cuántos partidos futuros incluir en el JSON
 # ─────────────────────────────────────────────────
