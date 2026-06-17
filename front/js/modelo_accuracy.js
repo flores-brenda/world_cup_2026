@@ -58,20 +58,34 @@ function predictMatch(homeTeam, awayTeam, knockout = false) {
   probA = (probA / sum) * 100;
   probD = (probD / sum) * 100;
 
-  // ── Fase eliminatoria: empate a 90' no es resultado final ──
-  // Redistribuimos probD proporcionalmente entre H y A para que
-  // el modelo nunca prediga "empate" en un partido de K.O.
-  if (knockout && probD >= probH && probD >= probA) {
+  // ── Fase eliminatoria: el empate nunca es resultado final ──
+  // Redistribuimos probD entre H y A proporcionalmente.
+  if (knockout) {
     const total = probH + probA;
     probH += probD * (probH / Math.max(total, 0.001));
     probA += probD * (probA / Math.max(total, 0.001));
     probD = 0;
   }
 
+  // ── Regla "zona de empate" (fase de grupos) ──────────────
+  // Poisson puro casi nunca hace probD la más alta aunque el
+  // partido sea equilibrado. Predecimos empate si:
+  //   · probD supera el umbral mínimo (partido no demasiado
+  //     desequilibrado en goles esperados)
+  //   · la diferencia |probH − probA| es pequeña (ningún equipo
+  //     domina claramente)
+  // Calibrado sobre WC 2026 histórico: ~27% de empates en grupos.
+  const DRAW_PROB_THRESHOLD = 24;   // probD mínima para considerar empate
+  const DRAW_GAP_THRESHOLD  = 22;   // diferencia máxima H-A permitida
+
   let winner;
-  if      (probH > probA && probH > probD) winner = 'home';
-  else if (probA > probH && probA > probD) winner = 'away';
-  else                                      winner = 'draw';
+  if (!knockout && probD >= DRAW_PROB_THRESHOLD && Math.abs(probH - probA) < DRAW_GAP_THRESHOLD) {
+    winner = 'draw';
+  } else if (probH >= probA) {
+    winner = 'home';
+  } else {
+    winner = 'away';
+  }
 
   return {
     winner,
