@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderH2H(stats);
   renderSimulador(stats);
   if (typeof initBracketModule === 'function') initBracketModule();
+  if (typeof initMonteCarloModule === 'function') initMonteCarloModule();
 
   // Nuevos módulos — datos en tiempo real
   // initResultados carga el JSON de forma asíncrona y luego llama a renderModeloAccuracy
