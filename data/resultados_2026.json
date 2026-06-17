@@ -2,148 +2,334 @@
   "last_updated": "2026-06-17",
   "matches": [
     {
-      "date": "2026-06-11", "group": "A",
-      "home": "Mexico", "away": "South Africa",
-      "home_score": 2, "away_score": 0,
-      "stadium": "Estadio Azteca", "city": "Mexico City"
+      "date": "2026-06-11",
+      "group": "A",
+      "home": "Mexico",
+      "away": "South Africa",
+      "home_score": 2,
+      "away_score": 0,
+      "stadium": "",
+      "city": "World"
     },
     {
-      "date": "2026-06-11", "group": "A",
-      "home": "South Korea", "away": "Czechia",
-      "home_score": 2, "away_score": 1,
-      "stadium": "Estadio Akron", "city": "Guadalajara"
+      "date": "2026-06-12",
+      "group": "A",
+      "home": "South Korea",
+      "away": "Czechia",
+      "home_score": 2,
+      "away_score": 1,
+      "stadium": "",
+      "city": "World"
     },
     {
-      "date": "2026-06-12", "group": "B",
-      "home": "Canada", "away": "Bosnia and Herzegovina",
-      "home_score": 1, "away_score": 1,
-      "stadium": "BMO Field", "city": "Toronto"
+      "date": "2026-06-12",
+      "group": "B",
+      "home": "Canada",
+      "away": "Bosnia and Herzegovina",
+      "home_score": 1,
+      "away_score": 1,
+      "stadium": "",
+      "city": "World"
     },
     {
-      "date": "2026-06-12", "group": "D",
-      "home": "United States", "away": "Paraguay",
-      "home_score": 4, "away_score": 1,
-      "stadium": "SoFi Stadium", "city": "Los Angeles"
+      "date": "2026-06-13",
+      "group": "D",
+      "home": "United States",
+      "away": "Paraguay",
+      "home_score": 4,
+      "away_score": 1,
+      "stadium": "",
+      "city": "World"
     },
     {
-      "date": "2026-06-13", "group": "B",
-      "home": "Qatar", "away": "Switzerland",
-      "home_score": 1, "away_score": 1,
-      "stadium": "Levi's Stadium", "city": "San Francisco"
+      "date": "2026-06-13",
+      "group": "B",
+      "home": "Qatar",
+      "away": "Switzerland",
+      "home_score": 1,
+      "away_score": 1,
+      "stadium": "",
+      "city": "World"
     },
     {
-      "date": "2026-06-13", "group": "C",
-      "home": "Brazil", "away": "Morocco",
-      "home_score": 1, "away_score": 1,
-      "stadium": "MetLife Stadium", "city": "East Rutherford"
+      "date": "2026-06-13",
+      "group": "C",
+      "home": "Brazil",
+      "away": "Morocco",
+      "home_score": 1,
+      "away_score": 1,
+      "stadium": "",
+      "city": "World"
     },
     {
-      "date": "2026-06-13", "group": "C",
-      "home": "Scotland", "away": "Haiti",
-      "home_score": 1, "away_score": 0,
-      "stadium": "Gillette Stadium", "city": "Foxborough"
+      "date": "2026-06-14",
+      "group": "C",
+      "home": "Haiti",
+      "away": "Scotland",
+      "home_score": 0,
+      "away_score": 1,
+      "stadium": "",
+      "city": "World"
     },
     {
-      "date": "2026-06-13", "group": "D",
-      "home": "Australia", "away": "Turkey",
-      "home_score": 2, "away_score": 0,
-      "stadium": "BC Place", "city": "Vancouver"
+      "date": "2026-06-14",
+      "group": "D",
+      "home": "Australia",
+      "away": "Turkey",
+      "home_score": 2,
+      "away_score": 0,
+      "stadium": "",
+      "city": "World"
     },
     {
-      "date": "2026-06-14", "group": "E",
-      "home": "Germany", "away": "Curacao",
-      "home_score": 7, "away_score": 1,
-      "stadium": "NRG Stadium", "city": "Houston"
+      "date": "2026-06-14",
+      "group": "E",
+      "home": "Germany",
+      "away": "Curacao",
+      "home_score": 7,
+      "away_score": 1,
+      "stadium": "",
+      "city": "World"
     },
     {
-      "date": "2026-06-14", "group": "E",
-      "home": "Ivory Coast", "away": "Ecuador",
-      "home_score": 1, "away_score": 0,
-      "stadium": "Lincoln Financial Field", "city": "Philadelphia"
+      "date": "2026-06-14",
+      "group": "F",
+      "home": "Netherlands",
+      "away": "Japan",
+      "home_score": 2,
+      "away_score": 2,
+      "stadium": "",
+      "city": "World"
     },
     {
-      "date": "2026-06-14", "group": "F",
-      "home": "Netherlands", "away": "Japan",
-      "home_score": 2, "away_score": 2,
-      "stadium": "AT&T Stadium", "city": "Arlington"
+      "date": "2026-06-14",
+      "group": "E",
+      "home": "Ivory Coast",
+      "away": "Ecuador",
+      "home_score": 1,
+      "away_score": 0,
+      "stadium": "",
+      "city": "World"
     },
     {
-      "date": "2026-06-14", "group": "F",
-      "home": "Sweden", "away": "Tunisia",
-      "home_score": 5, "away_score": 1,
-      "stadium": "Estadio BBVA", "city": "Monterrey"
+      "date": "2026-06-15",
+      "group": "F",
+      "home": "Sweden",
+      "away": "Tunisia",
+      "home_score": 5,
+      "away_score": 1,
+      "stadium": "",
+      "city": "World"
     },
     {
-      "date": "2026-06-15", "group": "H",
-      "home": "Spain", "away": "Cape Verde",
-      "home_score": 0, "away_score": 0,
-      "stadium": "AT&T Stadium", "city": "Dallas"
+      "date": "2026-06-15",
+      "group": "H",
+      "home": "Spain",
+      "away": "Cape Verde Islands",
+      "home_score": 0,
+      "away_score": 0,
+      "stadium": "",
+      "city": "World"
     },
     {
-      "date": "2026-06-15", "group": "G",
-      "home": "Belgium", "away": "Egypt",
-      "home_score": 1, "away_score": 1,
-      "stadium": "MetLife Stadium", "city": "New York"
+      "date": "2026-06-15",
+      "group": "G",
+      "home": "Belgium",
+      "away": "Egypt",
+      "home_score": 1,
+      "away_score": 1,
+      "stadium": "",
+      "city": "World"
     },
     {
-      "date": "2026-06-15", "group": "H",
-      "home": "Saudi Arabia", "away": "Uruguay",
-      "home_score": 1, "away_score": 1,
-      "stadium": "SoFi Stadium", "city": "Los Angeles"
+      "date": "2026-06-15",
+      "group": "H",
+      "home": "Saudi Arabia",
+      "away": "Uruguay",
+      "home_score": 1,
+      "away_score": 1,
+      "stadium": "",
+      "city": "World"
     },
     {
-      "date": "2026-06-15", "group": "G",
-      "home": "Iran", "away": "New Zealand",
-      "home_score": 2, "away_score": 2,
-      "stadium": "Rose Bowl", "city": "Pasadena"
+      "date": "2026-06-16",
+      "group": "G",
+      "home": "Iran",
+      "away": "New Zealand",
+      "home_score": 2,
+      "away_score": 2,
+      "stadium": "",
+      "city": "World"
     },
     {
-      "date": "2026-06-16", "group": "J",
-      "home": "Argentina", "away": "Algeria",
-      "home_score": 3, "away_score": 0,
-      "stadium": "Mercedes-Benz Stadium", "city": "Atlanta"
+      "date": "2026-06-16",
+      "group": "I",
+      "home": "France",
+      "away": "Senegal",
+      "home_score": 3,
+      "away_score": 1,
+      "stadium": "",
+      "city": "World"
     },
     {
-      "date": "2026-06-16", "group": "J",
-      "home": "Austria", "away": "Jordan",
-      "home_score": 3, "away_score": 1,
-      "stadium": "Allegiant Stadium", "city": "Las Vegas"
+      "date": "2026-06-16",
+      "group": "I",
+      "home": "Iraq",
+      "away": "Norway",
+      "home_score": 1,
+      "away_score": 4,
+      "stadium": "",
+      "city": "World"
     },
     {
-      "date": "2026-06-16", "group": "I",
-      "home": "France", "away": "Senegal",
-      "home_score": 3, "away_score": 1,
-      "stadium": "Lumen Field", "city": "Seattle"
+      "date": "2026-06-17",
+      "group": "J",
+      "home": "Argentina",
+      "away": "Algeria",
+      "home_score": 3,
+      "away_score": 0,
+      "stadium": "",
+      "city": "World"
     },
     {
-      "date": "2026-06-16", "group": "I",
-      "home": "Norway", "away": "Iraq",
-      "home_score": 4, "away_score": 1,
-      "stadium": "Arrowhead Stadium", "city": "Kansas City"
+      "date": "2026-06-17",
+      "group": "J",
+      "home": "Austria",
+      "away": "Jordan",
+      "home_score": 3,
+      "away_score": 1,
+      "stadium": "",
+      "city": "World"
     },
     {
-      "date": "2026-06-17", "group": "K",
-      "home": "Portugal", "away": "DR Congo",
-      "home_score": null, "away_score": null,
-      "stadium": "Estadio Azteca", "city": "Mexico City"
+      "date": "2026-06-17",
+      "group": "K",
+      "home": "Portugal",
+      "away": "DR Congo",
+      "home_score": 1,
+      "away_score": 1,
+      "stadium": "",
+      "city": "World"
     },
     {
-      "date": "2026-06-17", "group": "L",
-      "home": "England", "away": "Croatia",
-      "home_score": null, "away_score": null,
-      "stadium": "Hard Rock Stadium", "city": "Miami"
+      "date": "2026-06-17",
+      "group": "L",
+      "home": "England",
+      "away": "Croatia",
+      "home_score": null,
+      "away_score": null,
+      "stadium": "",
+      "city": "World"
     },
     {
-      "date": "2026-06-17", "group": "L",
-      "home": "Ghana", "away": "Panama",
-      "home_score": null, "away_score": null,
-      "stadium": "Camping World Stadium", "city": "Orlando"
+      "date": "2026-06-17",
+      "group": "L",
+      "home": "Ghana",
+      "away": "Panama",
+      "home_score": null,
+      "away_score": null,
+      "stadium": "",
+      "city": "World"
     },
     {
-      "date": "2026-06-17", "group": "K",
-      "home": "Uzbekistan", "away": "Colombia",
-      "home_score": null, "away_score": null,
-      "stadium": "State Farm Stadium", "city": "Glendale"
+      "date": "2026-06-18",
+      "group": "K",
+      "home": "Uzbekistan",
+      "away": "Colombia",
+      "home_score": null,
+      "away_score": null,
+      "stadium": "",
+      "city": "World"
+    },
+    {
+      "date": "2026-06-18",
+      "group": "A",
+      "home": "Czechia",
+      "away": "South Africa",
+      "home_score": null,
+      "away_score": null,
+      "stadium": "",
+      "city": "World"
+    },
+    {
+      "date": "2026-06-18",
+      "group": "B",
+      "home": "Switzerland",
+      "away": "Bosnia and Herzegovina",
+      "home_score": null,
+      "away_score": null,
+      "stadium": "",
+      "city": "World"
+    },
+    {
+      "date": "2026-06-18",
+      "group": "B",
+      "home": "Canada",
+      "away": "Qatar",
+      "home_score": null,
+      "away_score": null,
+      "stadium": "",
+      "city": "World"
+    },
+    {
+      "date": "2026-06-19",
+      "group": "A",
+      "home": "Mexico",
+      "away": "South Korea",
+      "home_score": null,
+      "away_score": null,
+      "stadium": "",
+      "city": "World"
+    },
+    {
+      "date": "2026-06-19",
+      "group": "D",
+      "home": "United States",
+      "away": "Australia",
+      "home_score": null,
+      "away_score": null,
+      "stadium": "",
+      "city": "World"
+    },
+    {
+      "date": "2026-06-19",
+      "group": "C",
+      "home": "Scotland",
+      "away": "Morocco",
+      "home_score": null,
+      "away_score": null,
+      "stadium": "",
+      "city": "World"
+    },
+    {
+      "date": "2026-06-20",
+      "group": "C",
+      "home": "Brazil",
+      "away": "Haiti",
+      "home_score": null,
+      "away_score": null,
+      "stadium": "",
+      "city": "World"
+    },
+    {
+      "date": "2026-06-20",
+      "group": "D",
+      "home": "Turkey",
+      "away": "Paraguay",
+      "home_score": null,
+      "away_score": null,
+      "stadium": "",
+      "city": "World"
+    },
+    {
+      "date": "2026-06-20",
+      "group": "F",
+      "home": "Netherlands",
+      "away": "Sweden",
+      "home_score": null,
+      "away_score": null,
+      "stadium": "",
+      "city": "World"
     }
   ]
 }
