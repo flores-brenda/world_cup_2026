@@ -211,8 +211,8 @@ function buildGroupCard(groupId) {
       <div class="groupe-header" style="display:flex; align-items:center; gap:10px;">
         <div class="groupe-letter">G${groupId}</div>
         <div>
-          <div style="font-size:11px; color:rgba(255,255,255,0.7); text-transform:uppercase; letter-spacing:1px;">Grupo ${groupId}</div>
-          <div style="font-size:10px; color:rgba(255,255,255,0.5);">${played.length} partido${played.length !== 1 ? 's' : ''} jugado${played.length !== 1 ? 's' : ''}</div>
+          <div style="font-size:11px; color:rgba(255,255,255,0.7); text-transform:uppercase; letter-spacing:1px;">${t('res_group')} ${groupId}</div>
+          <div style="font-size:10px; color:rgba(255,255,255,0.5);">${played.length} ${played.length !== 1 ? t('res_matches_played_pl') : t('res_match_played_sg')}</div>
         </div>
         <div style="margin-left:auto;">
           <span style="font-size:10px; background:rgba(240,192,64,0.2); color:var(--gold); border-radius:4px; padding:2px 8px; font-weight:700; letter-spacing:1px;">${t('res_in_progress')}</span>
@@ -222,13 +222,13 @@ function buildGroupCard(groupId) {
         <thead>
           <tr style="border-bottom:1px solid var(--border);">
             <th style="padding:5px 4px 5px 10px; text-align:left; color:var(--muted); font-size:10px; width:18px;">#</th>
-            <th style="padding:5px 4px; text-align:left; color:var(--muted); font-size:10px;">Equipo</th>
-            <th style="padding:5px 4px; text-align:center; color:var(--muted); font-size:10px; width:24px;">PJ</th>
-            <th style="padding:5px 4px; text-align:center; color:var(--muted); font-size:10px; width:22px;">V</th>
-            <th style="padding:5px 4px; text-align:center; color:var(--muted); font-size:10px; width:22px;">E</th>
-            <th style="padding:5px 4px; text-align:center; color:var(--muted); font-size:10px; width:22px;">D</th>
-            <th style="padding:5px 4px; text-align:center; color:var(--muted); font-size:10px; width:28px;">DG</th>
-            <th style="padding:5px 10px 5px 4px; text-align:center; color:var(--gold); font-size:10px; font-weight:700; width:26px;">Pts</th>
+            <th style="padding:5px 4px; text-align:left; color:var(--muted); font-size:10px;">${t('res_col_team')}</th>
+            <th style="padding:5px 4px; text-align:center; color:var(--muted); font-size:10px; width:24px;">${t('res_col_pj')}</th>
+            <th style="padding:5px 4px; text-align:center; color:var(--muted); font-size:10px; width:22px;">${t('res_col_v')}</th>
+            <th style="padding:5px 4px; text-align:center; color:var(--muted); font-size:10px; width:22px;">${t('res_col_e')}</th>
+            <th style="padding:5px 4px; text-align:center; color:var(--muted); font-size:10px; width:22px;">${t('res_col_d')}</th>
+            <th style="padding:5px 4px; text-align:center; color:var(--muted); font-size:10px; width:28px;">${t('res_col_dg')}</th>
+            <th style="padding:5px 10px 5px 4px; text-align:center; color:var(--gold); font-size:10px; font-weight:700; width:26px;">${t('res_col_pts')}</th>
           </tr>
         </thead>
         <tbody>`;
