@@ -8,31 +8,70 @@ let accuracyChart = null;
 function fact(n) { return n <= 1 ? 1 : n * fact(n - 1); }
 function poisson(k, lambda) { return (Math.pow(Math.E, -lambda) * Math.pow(lambda, k)) / fact(k); }
 
-function predictMatch(homeTeam, awayTeam) {
+/**
+ * Corrección de Dixon-Coles para marcadores bajos.
+ * El modelo Poisson independiente subestima 0-0, 1-1 y
+ * sobreestima 1-0 / 0-1. El parámetro ρ (rho) ≈ -0.13
+ * es el valor empírico ajustado sobre datos de liga europea.
+ *
+ * τ(i, j, xgH, xgA, ρ) actúa como multiplicador sobre P(i,j).
+ */
+const DIXON_COLES_RHO = -0.13;
+
+function dixonColesTau(i, j, xgH, xgA, rho) {
+  if      (i === 0 && j === 0) return 1 - xgH * xgA * rho;
+  else if (i === 0 && j === 1) return 1 + xgH * rho;
+  else if (i === 1 && j === 0) return 1 + xgA * rho;
+  else if (i === 1 && j === 1) return 1 - rho;
+  return 1; // marcadores ≥ 2: sin corrección
+}
+
+/**
+ * Predice el resultado de un partido usando Poisson + corrección Dixon-Coles.
+ * @param {string}  homeTeam
+ * @param {string}  awayTeam
+ * @param {boolean} [knockout=false] — Si es eliminatoria, el empate se
+ *   redistribuye proporcionalmente (nunca puede ser resultado final).
+ */
+function predictMatch(homeTeam, awayTeam, knockout = false) {
   const ratings   = window.ELO_RATINGS   || {};
   const globalAvg = window.ELO_GLOBAL_AVG || 1.3;
-  const eloH = ratings[homeTeam] || ELO_DEBUTANT;
-  const eloA = ratings[awayTeam] || ELO_DEBUTANT;
+  const eloH  = ratings[homeTeam] || ELO_DEBUTANT;
+  const eloA  = ratings[awayTeam] || ELO_DEBUTANT;
   const { xgA: xgH, xgB: xgAway } = eloToXG(eloH, eloA, globalAvg);
 
   let probH = 0, probA = 0, probD = 0;
   for (let i = 0; i <= 5; i++) {
     for (let j = 0; j <= 5; j++) {
-      const p = poisson(i, xgH) * poisson(j, xgAway);
-      if (i > j) probH += p;
+      // Probabilidad Poisson independiente ajustada por Dixon-Coles
+      const tau = dixonColesTau(i, j, xgH, xgAway, DIXON_COLES_RHO);
+      const p   = poisson(i, xgH) * poisson(j, xgAway) * tau;
+      if      (i > j) probH += p;
       else if (i < j) probA += p;
-      else probD += p;
+      else             probD += p;
     }
   }
+
+  // Normalizar (la corrección DC puede desplazar ligeramente la suma)
   const sum = probH + probA + probD;
   probH = (probH / sum) * 100;
   probA = (probA / sum) * 100;
   probD = (probD / sum) * 100;
 
+  // ── Fase eliminatoria: empate a 90' no es resultado final ──
+  // Redistribuimos probD proporcionalmente entre H y A para que
+  // el modelo nunca prediga "empate" en un partido de K.O.
+  if (knockout && probD >= probH && probD >= probA) {
+    const total = probH + probA;
+    probH += probD * (probH / Math.max(total, 0.001));
+    probA += probD * (probA / Math.max(total, 0.001));
+    probD = 0;
+  }
+
   let winner;
-  if (probH > probA && probH > probD) winner = 'home';
+  if      (probH > probA && probH > probD) winner = 'home';
   else if (probA > probH && probA > probD) winner = 'away';
-  else winner = 'draw';
+  else                                      winner = 'draw';
 
   return {
     winner,

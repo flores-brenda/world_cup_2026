@@ -145,6 +145,47 @@ function simPoissonGoals(lambda) {
   return k - 1;
 }
 
+/**
+ * Muestrea un marcador (goalsA, goalsB) desde la distribución conjunta
+ * de Poisson corregida con Dixon-Coles (hasta 7 goles por equipo).
+ * Más preciso que dos Poisson independientes: genera empates con
+ * mayor fidelidad estadística.
+ * @returns {[number, number]}
+ */
+function simDixonColesGoals(xgA, xgB) {
+  const MAX_G = 7;
+  const rho   = typeof DIXON_COLES_RHO !== 'undefined' ? DIXON_COLES_RHO : -0.13;
+
+  // Función auxiliar tau (duplicada para evitar dependencia circular)
+  function tau(i, j) {
+    if      (i === 0 && j === 0) return 1 - xgA * xgB * rho;
+    else if (i === 0 && j === 1) return 1 + xgA * rho;
+    else if (i === 1 && j === 0) return 1 + xgB * rho;
+    else if (i === 1 && j === 1) return 1 - rho;
+    return 1;
+  }
+
+  function poissonProb(k, lam) {
+    return (Math.pow(Math.E, -lam) * Math.pow(lam, k)) /
+           (k <= 1 ? 1 : Array.from({length: k}, (_, i) => i + 1).reduce((a, b) => a * b));
+  }
+
+  // Construir distribución acumulativa
+  const cumProbs = [];
+  let cumSum = 0;
+  for (let i = 0; i <= MAX_G; i++) {
+    for (let j = 0; j <= MAX_G; j++) {
+      cumSum += poissonProb(i, xgA) * poissonProb(j, xgB) * tau(i, j);
+      cumProbs.push({ i, j, cum: cumSum });
+    }
+  }
+
+  // Muestrear
+  const r = Math.random() * cumSum;
+  const hit = cumProbs.find(c => c.cum >= r) || cumProbs[cumProbs.length - 1];
+  return [hit.i, hit.j];
+}
+
 // Couleur Elo pour affichage
 function eloColor(elo) {
   if (elo >= 1800) return '#f0c040'; // Or — élite

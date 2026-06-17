@@ -1,7 +1,8 @@
-// ── Simulateur de Groupes (Elo + Poisson) ─────────────────
+// ── Simulateur de Groupes (Elo + Poisson + Dixon-Coles) ────
 // Utilise les Elo ratings calculés par elo.js pour simuler
 // la phase de groupes avec des probabilités réalistes.
-// Les débutants (Elo ~1200) ont très peu de chances de dominer.
+// La correction Dixon-Coles est appliquée pour simuler les
+// scores avec une fréquence d'empates plus fidèle à la réalité.
 
 function renderSimulador(stats) {
   const simSelect = document.getElementById("sim-group-select");
@@ -36,10 +37,9 @@ function renderSimulador(stats) {
         const eloA = ratings[tA] || ELO_DEBUTANT;
         const eloB = ratings[tB] || ELO_DEBUTANT;
 
-        // xG dérivé du différentiel Elo
+        // xG dérivé du différentiel Elo + simulation DC
         const { xgA, xgB } = eloToXG(eloA, eloB, globalAvg);
-        const goalsA = simPoissonGoals(xgA);
-        const goalsB = simPoissonGoals(xgB);
+        const [goalsA, goalsB] = simDixonColesGoals(xgA, xgB);
 
         const sA = standings.find(s => s.equipe === tA);
         const sB = standings.find(s => s.equipe === tB);
