@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-17",
+  "last_updated": "2026-06-18",
   "matches": [
     {
       "date": "2026-06-11",
@@ -216,8 +216,8 @@
       "group": "L",
       "home": "England",
       "away": "Croatia",
-      "home_score": null,
-      "away_score": null,
+      "home_score": 4,
+      "away_score": 2,
       "stadium": "",
       "city": "World"
     },
@@ -226,8 +226,8 @@
       "group": "L",
       "home": "Ghana",
       "away": "Panama",
-      "home_score": null,
-      "away_score": null,
+      "home_score": 1,
+      "away_score": 0,
       "stadium": "",
       "city": "World"
     },
@@ -236,8 +236,8 @@
       "group": "K",
       "home": "Uzbekistan",
       "away": "Colombia",
-      "home_score": null,
-      "away_score": null,
+      "home_score": 1,
+      "away_score": 3,
       "stadium": "",
       "city": "World"
     },
@@ -326,6 +326,36 @@
       "group": "F",
       "home": "Netherlands",
       "away": "Sweden",
+      "home_score": null,
+      "away_score": null,
+      "stadium": "",
+      "city": "World"
+    },
+    {
+      "date": "2026-06-20",
+      "group": "E",
+      "home": "Germany",
+      "away": "Ivory Coast",
+      "home_score": null,
+      "away_score": null,
+      "stadium": "",
+      "city": "World"
+    },
+    {
+      "date": "2026-06-21",
+      "group": "E",
+      "home": "Ecuador",
+      "away": "Curacao",
+      "home_score": null,
+      "away_score": null,
+      "stadium": "",
+      "city": "World"
+    },
+    {
+      "date": "2026-06-21",
+      "group": "F",
+      "home": "Tunisia",
+      "away": "Japan",
       "home_score": null,
       "away_score": null,
       "stadium": "",
