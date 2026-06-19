@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-18",
+  "last_updated": "2026-06-19",
   "matches": [
     {
       "date": "2026-06-11",
@@ -246,8 +246,8 @@
       "group": "A",
       "home": "Czechia",
       "away": "South Africa",
-      "home_score": null,
-      "away_score": null,
+      "home_score": 1,
+      "away_score": 1,
       "stadium": "",
       "city": "World"
     },
@@ -256,8 +256,8 @@
       "group": "B",
       "home": "Switzerland",
       "away": "Bosnia and Herzegovina",
-      "home_score": null,
-      "away_score": null,
+      "home_score": 4,
+      "away_score": 1,
       "stadium": "",
       "city": "World"
     },
@@ -266,8 +266,8 @@
       "group": "B",
       "home": "Canada",
       "away": "Qatar",
-      "home_score": null,
-      "away_score": null,
+      "home_score": 6,
+      "away_score": 0,
       "stadium": "",
       "city": "World"
     },
@@ -276,8 +276,8 @@
       "group": "A",
       "home": "Mexico",
       "away": "South Korea",
-      "home_score": null,
-      "away_score": null,
+      "home_score": 1,
+      "away_score": 0,
       "stadium": "",
       "city": "World"
     },
@@ -356,6 +356,46 @@
       "group": "F",
       "home": "Tunisia",
       "away": "Japan",
+      "home_score": null,
+      "away_score": null,
+      "stadium": "",
+      "city": "World"
+    },
+    {
+      "date": "2026-06-21",
+      "group": "H",
+      "home": "Spain",
+      "away": "Saudi Arabia",
+      "home_score": null,
+      "away_score": null,
+      "stadium": "",
+      "city": "World"
+    },
+    {
+      "date": "2026-06-21",
+      "group": "G",
+      "home": "Belgium",
+      "away": "Iran",
+      "home_score": null,
+      "away_score": null,
+      "stadium": "",
+      "city": "World"
+    },
+    {
+      "date": "2026-06-21",
+      "group": "H",
+      "home": "Uruguay",
+      "away": "Cape Verde Islands",
+      "home_score": null,
+      "away_score": null,
+      "stadium": "",
+      "city": "World"
+    },
+    {
+      "date": "2026-06-22",
+      "group": "G",
+      "home": "New Zealand",
+      "away": "Egypt",
       "home_score": null,
       "away_score": null,
       "stadium": "",
