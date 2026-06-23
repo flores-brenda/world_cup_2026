@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-22",
+  "last_updated": "2026-06-23",
   "matches": [
     {
       "date": "2026-06-11",
@@ -406,8 +406,8 @@
       "group": "J",
       "home": "Argentina",
       "away": "Austria",
-      "home_score": null,
-      "away_score": null,
+      "home_score": 2,
+      "away_score": 0,
       "stadium": "",
       "city": "World"
     },
@@ -416,8 +416,8 @@
       "group": "I",
       "home": "France",
       "away": "Iraq",
-      "home_score": null,
-      "away_score": null,
+      "home_score": 3,
+      "away_score": 0,
       "stadium": "",
       "city": "World"
     },
@@ -426,8 +426,8 @@
       "group": "I",
       "home": "Norway",
       "away": "Senegal",
-      "home_score": null,
-      "away_score": null,
+      "home_score": 3,
+      "away_score": 2,
       "stadium": "",
       "city": "World"
     },
@@ -436,8 +436,8 @@
       "group": "J",
       "home": "Jordan",
       "away": "Algeria",
-      "home_score": null,
-      "away_score": null,
+      "home_score": 1,
+      "away_score": 2,
       "stadium": "",
       "city": "World"
     },
@@ -516,6 +516,46 @@
       "group": "C",
       "home": "Scotland",
       "away": "Brazil",
+      "home_score": null,
+      "away_score": null,
+      "stadium": "",
+      "city": "World"
+    },
+    {
+      "date": "2026-06-25",
+      "group": "A",
+      "home": "Czechia",
+      "away": "Mexico",
+      "home_score": null,
+      "away_score": null,
+      "stadium": "",
+      "city": "World"
+    },
+    {
+      "date": "2026-06-25",
+      "group": "A",
+      "home": "South Africa",
+      "away": "South Korea",
+      "home_score": null,
+      "away_score": null,
+      "stadium": "",
+      "city": "World"
+    },
+    {
+      "date": "2026-06-25",
+      "group": "E",
+      "home": "Ecuador",
+      "away": "Germany",
+      "home_score": null,
+      "away_score": null,
+      "stadium": "",
+      "city": "World"
+    },
+    {
+      "date": "2026-06-25",
+      "group": "E",
+      "home": "Curacao",
+      "away": "Ivory Coast",
       "home_score": null,
       "away_score": null,
       "stadium": "",
