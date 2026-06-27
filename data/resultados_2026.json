@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-26",
+  "last_updated": "2026-06-27",
   "matches": [
     {
       "date": "2026-06-11",
@@ -606,8 +606,8 @@
       "group": "I",
       "home": "Norway",
       "away": "France",
-      "home_score": null,
-      "away_score": null,
+      "home_score": 1,
+      "away_score": 4,
       "stadium": "",
       "city": "World"
     },
@@ -616,8 +616,8 @@
       "group": "I",
       "home": "Senegal",
       "away": "Iraq",
-      "home_score": null,
-      "away_score": null,
+      "home_score": 5,
+      "away_score": 0,
       "stadium": "",
       "city": "World"
     },
@@ -626,8 +626,8 @@
       "group": "H",
       "home": "Uruguay",
       "away": "Spain",
-      "home_score": null,
-      "away_score": null,
+      "home_score": 0,
+      "away_score": 1,
       "stadium": "",
       "city": "World"
     },
@@ -636,8 +636,8 @@
       "group": "H",
       "home": "Cape Verde Islands",
       "away": "Saudi Arabia",
-      "home_score": null,
-      "away_score": null,
+      "home_score": 0,
+      "away_score": 0,
       "stadium": "",
       "city": "World"
     },
@@ -646,8 +646,8 @@
       "group": "G",
       "home": "New Zealand",
       "away": "Belgium",
-      "home_score": null,
-      "away_score": null,
+      "home_score": 1,
+      "away_score": 5,
       "stadium": "",
       "city": "World"
     },
@@ -656,8 +656,8 @@
       "group": "G",
       "home": "Egypt",
       "away": "Iran",
-      "home_score": null,
-      "away_score": null,
+      "home_score": 1,
+      "away_score": 1,
       "stadium": "",
       "city": "World"
     },
@@ -716,6 +716,66 @@
       "group": "J",
       "home": "Algeria",
       "away": "Austria",
+      "home_score": null,
+      "away_score": null,
+      "stadium": "",
+      "city": "World"
+    },
+    {
+      "date": "2026-06-28",
+      "group": "",
+      "home": "South Africa",
+      "away": "Canada",
+      "home_score": null,
+      "away_score": null,
+      "stadium": "",
+      "city": "World"
+    },
+    {
+      "date": "2026-06-29",
+      "group": "",
+      "home": "Brazil",
+      "away": "Japan",
+      "home_score": null,
+      "away_score": null,
+      "stadium": "",
+      "city": "World"
+    },
+    {
+      "date": "2026-06-29",
+      "group": "",
+      "home": "Germany",
+      "away": null,
+      "home_score": null,
+      "away_score": null,
+      "stadium": "",
+      "city": "World"
+    },
+    {
+      "date": "2026-06-30",
+      "group": "",
+      "home": "Netherlands",
+      "away": "Morocco",
+      "home_score": null,
+      "away_score": null,
+      "stadium": "",
+      "city": "World"
+    },
+    {
+      "date": "2026-06-30",
+      "group": "",
+      "home": "Ivory Coast",
+      "away": null,
+      "home_score": null,
+      "away_score": null,
+      "stadium": "",
+      "city": "World"
+    },
+    {
+      "date": "2026-06-30",
+      "group": "",
+      "home": null,
+      "away": null,
       "home_score": null,
       "away_score": null,
       "stadium": "",
