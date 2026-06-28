@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-27",
+  "last_updated": "2026-06-28",
   "matches": [
     {
       "date": "2026-06-11",
@@ -666,8 +666,8 @@
       "group": "L",
       "home": "Panama",
       "away": "England",
-      "home_score": null,
-      "away_score": null,
+      "home_score": 0,
+      "away_score": 2,
       "stadium": "",
       "city": "World"
     },
@@ -676,8 +676,8 @@
       "group": "L",
       "home": "Croatia",
       "away": "Ghana",
-      "home_score": null,
-      "away_score": null,
+      "home_score": 2,
+      "away_score": 1,
       "stadium": "",
       "city": "World"
     },
@@ -686,8 +686,8 @@
       "group": "K",
       "home": "Colombia",
       "away": "Portugal",
-      "home_score": null,
-      "away_score": null,
+      "home_score": 0,
+      "away_score": 0,
       "stadium": "",
       "city": "World"
     },
@@ -696,8 +696,8 @@
       "group": "K",
       "home": "DR Congo",
       "away": "Uzbekistan",
-      "home_score": null,
-      "away_score": null,
+      "home_score": 3,
+      "away_score": 1,
       "stadium": "",
       "city": "World"
     },
@@ -706,8 +706,8 @@
       "group": "J",
       "home": "Jordan",
       "away": "Argentina",
-      "home_score": null,
-      "away_score": null,
+      "home_score": 1,
+      "away_score": 3,
       "stadium": "",
       "city": "World"
     },
@@ -716,8 +716,8 @@
       "group": "J",
       "home": "Algeria",
       "away": "Austria",
-      "home_score": null,
-      "away_score": null,
+      "home_score": 3,
+      "away_score": 3,
       "stadium": "",
       "city": "World"
     },
@@ -745,7 +745,7 @@
       "date": "2026-06-29",
       "group": "",
       "home": "Germany",
-      "away": null,
+      "away": "Paraguay",
       "home_score": null,
       "away_score": null,
       "stadium": "",
@@ -765,7 +765,7 @@
       "date": "2026-06-30",
       "group": "",
       "home": "Ivory Coast",
-      "away": null,
+      "away": "Norway",
       "home_score": null,
       "away_score": null,
       "stadium": "",
@@ -774,8 +774,68 @@
     {
       "date": "2026-06-30",
       "group": "",
-      "home": null,
-      "away": null,
+      "home": "France",
+      "away": "Sweden",
+      "home_score": null,
+      "away_score": null,
+      "stadium": "",
+      "city": "World"
+    },
+    {
+      "date": "2026-07-01",
+      "group": "",
+      "home": "Mexico",
+      "away": "Ecuador",
+      "home_score": null,
+      "away_score": null,
+      "stadium": "",
+      "city": "World"
+    },
+    {
+      "date": "2026-07-01",
+      "group": "",
+      "home": "England",
+      "away": "DR Congo",
+      "home_score": null,
+      "away_score": null,
+      "stadium": "",
+      "city": "World"
+    },
+    {
+      "date": "2026-07-01",
+      "group": "",
+      "home": "Belgium",
+      "away": "Senegal",
+      "home_score": null,
+      "away_score": null,
+      "stadium": "",
+      "city": "World"
+    },
+    {
+      "date": "2026-07-02",
+      "group": "",
+      "home": "United States",
+      "away": "Bosnia and Herzegovina",
+      "home_score": null,
+      "away_score": null,
+      "stadium": "",
+      "city": "World"
+    },
+    {
+      "date": "2026-07-02",
+      "group": "",
+      "home": "Spain",
+      "away": "Austria",
+      "home_score": null,
+      "away_score": null,
+      "stadium": "",
+      "city": "World"
+    },
+    {
+      "date": "2026-07-02",
+      "group": "",
+      "home": "Portugal",
+      "away": "Croatia",
       "home_score": null,
       "away_score": null,
       "stadium": "",
