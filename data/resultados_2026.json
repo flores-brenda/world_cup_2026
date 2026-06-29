@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-28",
+  "last_updated": "2026-06-29",
   "matches": [
     {
       "date": "2026-06-11",
@@ -726,8 +726,8 @@
       "group": "",
       "home": "South Africa",
       "away": "Canada",
-      "home_score": null,
-      "away_score": null,
+      "home_score": 0,
+      "away_score": 1,
       "stadium": "",
       "city": "World"
     },
@@ -836,6 +836,16 @@
       "group": "",
       "home": "Portugal",
       "away": "Croatia",
+      "home_score": null,
+      "away_score": null,
+      "stadium": "",
+      "city": "World"
+    },
+    {
+      "date": "2026-07-03",
+      "group": "",
+      "home": "Switzerland",
+      "away": "Algeria",
       "home_score": null,
       "away_score": null,
       "stadium": "",
