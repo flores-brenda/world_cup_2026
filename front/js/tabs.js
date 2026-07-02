@@ -7,7 +7,6 @@ const TABS = [
   { id: "classement", label: "🏆 Classement" },
   { id: "h2h",        label: "⚔️ Face à Face" },
   { id: "palmares",   label: "🏅 Palmarès" },
-  { id: "simulador",  label: "🎲 Simulateur Groupes" },
   { id: "bracket",     label: "🌳 Bracket (Phase Finale)" },
   { id: "montecarlo",  label: "🎲 Monte Carlo" },
   { id: "pronostics",  label: "🔮 Pronostics" }
