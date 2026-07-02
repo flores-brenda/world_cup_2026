@@ -307,8 +307,10 @@ function renderResultados() {
   const container = document.getElementById('resultados-container');
   if (!container || !RESULTADOS_2026) return;
 
-  // Agrupar por grupo
-  const groupsWithData = [...new Set(RESULTADOS_2026.matches.map(m => m.group))].sort();
+  // Agrupar por grupo (excluyendo la fase eliminatoria que tiene grupo "")
+  const groupsWithData = [...new Set(RESULTADOS_2026.matches.map(m => m.group))]
+    .filter(g => g && g.trim() !== "")
+    .sort();
 
   // Estadísticas rápidas del torneo
   const played   = RESULTADOS_2026.matches.filter(m => m.home_score !== null);

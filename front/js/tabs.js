@@ -2,6 +2,7 @@
 const TABS = [
   { id: "home",       label: "🏠 Accueil" },
   { id: "resultados",  label: "📊 En Vivo" },
+  { id: "matchcenter", label: "🏟️ Match Center" },
   { id: "accuracy",   label: "🎯 Modelo vs Realidad" },
   { id: "classement", label: "🏆 Classement" },
   { id: "h2h",        label: "⚔️ Face à Face" },
@@ -51,6 +52,7 @@ function initTabs() {
   const tabKeys = {
     "home": "tab_home",
     "resultados": "tab_resultados",
+    "matchcenter": "tab_matchcenter",
     "accuracy": "tab_accuracy",
     "classement": "tab_classement",
     "palmares": "tab_palmares",

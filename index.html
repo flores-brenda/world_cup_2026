@@ -88,6 +88,31 @@
   </div>
 
   <!-- ═══════════════════════════════════════════════════ -->
+  <!-- SECCIÓN: MATCH CENTER (Novedad)                    -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <div class="section" id="sec-matchcenter">
+    <div class="section-title" data-i18n="sec_matchcenter_title">FASE DE ELIMINACIÓN DIRECTA</div>
+    <div class="section-sub" data-i18n="sec_matchcenter_sub">Seguimiento en vivo de los partidos y equipos clasificados a las siguientes rondas</div>
+    
+    <!-- Filtros de ronda -->
+    <div class="matchcenter-filters" style="display:flex; justify-content:center; gap:10px; margin-bottom:24px; flex-wrap:wrap;">
+      <button class="btn-filter active" data-round="all" data-i18n="mc_filter_all">Todos</button>
+      <button class="btn-filter" data-round="r32" data-i18n="mc_filter_r32">16vos de Final</button>
+      <button class="btn-filter" data-round="r16" data-i18n="mc_filter_r16">Octavos de Final</button>
+      <button class="btn-filter" data-round="qf" data-i18n="mc_filter_qf">Cuartos</button>
+      <button class="btn-filter" data-round="sf" data-i18n="mc_filter_sf">Semifinales</button>
+      <button class="btn-filter" data-round="final" data-i18n="mc_filter_final">Final</button>
+    </div>
+
+    <!-- Contenedor del Match Center -->
+    <div id="matchcenter-container">
+      <div class="info-box" style="text-align:center; padding:30px;">
+        ⏳ Cargando Centro de Partidos...
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
   <!-- SECCIÓN: MODELO VS REALIDAD (Mejora 2)             -->
   <!-- ═══════════════════════════════════════════════════ -->
   <div class="section" id="sec-accuracy">
@@ -292,28 +317,29 @@
     Science</footer>
 
   <!-- ① Données brutes (RAW_H2H, RAW_STATS, GROUPES, PREDICTIONS) -->
-  <script src="./front/script.js"></script>
+  <script src="./front/script.js?v=2"></script>
 
   <!-- ② Modules logiques – ordre important -->
-  <script src="./front/js/cache.js"></script>
-  <script src="./front/js/tabs.js"></script>
-  <script src="./front/js/countdown.js"></script>
-  <script src="./front/js/classement.js"></script>
-  <script src="./front/js/groupes.js"></script>
-  <script src="./front/js/palmares.js"></script>
-  <script src="./front/js/pronostics.js"></script>
-  <script src="./front/js/elo.js"></script>
-  <script src="./front/js/resultados.js"></script>
-  <script src="./front/js/modelo_accuracy.js"></script>
-  <script src="./front/js/h2h.js"></script>
-  <script src="./front/js/simulateur.js"></script>
-  <script src="./front/js/bracket.js"></script>
-  <script src="./front/js/montecarlo.js"></script>
+  <script src="./front/js/cache.js?v=2"></script>
+  <script src="./front/js/tabs.js?v=2"></script>
+  <script src="./front/js/countdown.js?v=2"></script>
+  <script src="./front/js/classement.js?v=2"></script>
+  <script src="./front/js/groupes.js?v=2"></script>
+  <script src="./front/js/palmares.js?v=2"></script>
+  <script src="./front/js/pronostics.js?v=2"></script>
+  <script src="./front/js/elo.js?v=2"></script>
+  <script src="./front/js/resultados.js?v=2"></script>
+  <script src="./front/js/modelo_accuracy.js?v=2"></script>
+  <script src="./front/js/matchcenter.js?v=2"></script>
+  <script src="./front/js/h2h.js?v=2"></script>
+  <script src="./front/js/simulateur.js?v=2"></script>
+  <script src="./front/js/bracket.js?v=2"></script>
+  <script src="./front/js/montecarlo.js?v=2"></script>
 
-  <script src="./front/js/i18n.js"></script>
+  <script src="./front/js/i18n.js?v=2"></script>
 
   <!-- ③ Point d'entrée principal – doit être chargé en dernier -->
-  <script src="./front/js/main.js"></script>
+  <script src="./front/js/main.js?v=2"></script>
 
 </body>
 

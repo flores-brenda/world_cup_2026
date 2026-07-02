@@ -111,10 +111,28 @@ def build_match(m: dict) -> dict:
     
     home_score = None
     away_score = None
+    winner = None
+    penalties = None
+    
     if status == "FINISHED":
         ft = m.get("score", {}).get("fullTime", {})
         home_score = ft.get("home")
         away_score = ft.get("away")
+        
+        # Determinar ganador nominal
+        api_winner = m.get("score", {}).get("winner")
+        if api_winner == "HOME_TEAM":
+            winner = normalize(m.get("homeTeam", {}).get("name", "TBD"))
+        elif api_winner == "AWAY_TEAM":
+            winner = normalize(m.get("awayTeam", {}).get("name", "TBD"))
+            
+        # Verificar si hubo penales
+        pen = m.get("score", {}).get("penalties", {})
+        if pen and pen.get("home") is not None and pen.get("away") is not None:
+            penalties = {
+                "home": pen.get("home"),
+                "away": pen.get("away")
+            }
 
     date_str = (m.get("utcDate") or "")[:10]  # "YYYY-MM-DD"
     
@@ -133,6 +151,8 @@ def build_match(m: dict) -> dict:
         "away":       normalize(m.get("awayTeam", {}).get("name", "TBD")),
         "home_score": home_score,
         "away_score": away_score,
+        "winner":     winner,
+        "penalties":  penalties,
         "stadium":    venue,
         "city":       city,
     }

@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initResultados().then(() => {
       if (typeof renderHomeResults === 'function') renderHomeResults();
       if (typeof renderModeloAccuracy === 'function') renderModeloAccuracy();
+      if (typeof initMatchCenter    === 'function') initMatchCenter();
     });
   }
 
