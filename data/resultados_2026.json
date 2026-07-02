@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-01",
+  "last_updated": "2026-07-02",
   "matches": [
     {
       "date": "2026-06-11",
@@ -796,8 +796,8 @@
       "group": "",
       "home": "England",
       "away": "DR Congo",
-      "home_score": null,
-      "away_score": null,
+      "home_score": 2,
+      "away_score": 1,
       "stadium": "",
       "city": "World"
     },
@@ -806,8 +806,8 @@
       "group": "",
       "home": "Belgium",
       "away": "Senegal",
-      "home_score": null,
-      "away_score": null,
+      "home_score": 3,
+      "away_score": 2,
       "stadium": "",
       "city": "World"
     },
@@ -816,8 +816,8 @@
       "group": "",
       "home": "United States",
       "away": "Bosnia and Herzegovina",
-      "home_score": null,
-      "away_score": null,
+      "home_score": 2,
+      "away_score": 0,
       "stadium": "",
       "city": "World"
     },
@@ -906,6 +906,36 @@
       "group": "",
       "home": "Brazil",
       "away": "Norway",
+      "home_score": null,
+      "away_score": null,
+      "stadium": "",
+      "city": "World"
+    },
+    {
+      "date": "2026-07-06",
+      "group": "",
+      "home": "Mexico",
+      "away": "England",
+      "home_score": null,
+      "away_score": null,
+      "stadium": "",
+      "city": "World"
+    },
+    {
+      "date": "2026-07-06",
+      "group": "",
+      "home": null,
+      "away": null,
+      "home_score": null,
+      "away_score": null,
+      "stadium": "",
+      "city": "World"
+    },
+    {
+      "date": "2026-07-07",
+      "group": "",
+      "home": "United States",
+      "away": "Belgium",
       "home_score": null,
       "away_score": null,
       "stadium": "",
