@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-02",
+  "last_updated": "2026-07-03",
   "matches": [
     {
       "date": "2026-06-11",
@@ -8,6 +8,8 @@
       "away": "South Africa",
       "home_score": 2,
       "away_score": 0,
+      "winner": "Mexico",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -18,6 +20,8 @@
       "away": "Czechia",
       "home_score": 2,
       "away_score": 1,
+      "winner": "South Korea",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -28,6 +32,8 @@
       "away": "Bosnia and Herzegovina",
       "home_score": 1,
       "away_score": 1,
+      "winner": null,
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -38,6 +44,8 @@
       "away": "Paraguay",
       "home_score": 4,
       "away_score": 1,
+      "winner": "United States",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -48,6 +56,8 @@
       "away": "Switzerland",
       "home_score": 1,
       "away_score": 1,
+      "winner": null,
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -58,6 +68,8 @@
       "away": "Morocco",
       "home_score": 1,
       "away_score": 1,
+      "winner": null,
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -68,6 +80,8 @@
       "away": "Scotland",
       "home_score": 0,
       "away_score": 1,
+      "winner": "Scotland",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -78,6 +92,8 @@
       "away": "Turkey",
       "home_score": 2,
       "away_score": 0,
+      "winner": "Australia",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -88,6 +104,8 @@
       "away": "Curacao",
       "home_score": 7,
       "away_score": 1,
+      "winner": "Germany",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -98,6 +116,8 @@
       "away": "Japan",
       "home_score": 2,
       "away_score": 2,
+      "winner": null,
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -108,6 +128,8 @@
       "away": "Ecuador",
       "home_score": 1,
       "away_score": 0,
+      "winner": "Ivory Coast",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -118,6 +140,8 @@
       "away": "Tunisia",
       "home_score": 5,
       "away_score": 1,
+      "winner": "Sweden",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -128,6 +152,8 @@
       "away": "Cape Verde Islands",
       "home_score": 0,
       "away_score": 0,
+      "winner": null,
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -138,6 +164,8 @@
       "away": "Egypt",
       "home_score": 1,
       "away_score": 1,
+      "winner": null,
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -148,6 +176,8 @@
       "away": "Uruguay",
       "home_score": 1,
       "away_score": 1,
+      "winner": null,
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -158,6 +188,8 @@
       "away": "New Zealand",
       "home_score": 2,
       "away_score": 2,
+      "winner": null,
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -168,6 +200,8 @@
       "away": "Senegal",
       "home_score": 3,
       "away_score": 1,
+      "winner": "France",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -178,6 +212,8 @@
       "away": "Norway",
       "home_score": 1,
       "away_score": 4,
+      "winner": "Norway",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -188,6 +224,8 @@
       "away": "Algeria",
       "home_score": 3,
       "away_score": 0,
+      "winner": "Argentina",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -198,6 +236,8 @@
       "away": "Jordan",
       "home_score": 3,
       "away_score": 1,
+      "winner": "Austria",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -208,6 +248,8 @@
       "away": "DR Congo",
       "home_score": 1,
       "away_score": 1,
+      "winner": null,
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -218,6 +260,8 @@
       "away": "Croatia",
       "home_score": 4,
       "away_score": 2,
+      "winner": "England",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -228,6 +272,8 @@
       "away": "Panama",
       "home_score": 1,
       "away_score": 0,
+      "winner": "Ghana",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -238,6 +284,8 @@
       "away": "Colombia",
       "home_score": 1,
       "away_score": 3,
+      "winner": "Colombia",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -248,6 +296,8 @@
       "away": "South Africa",
       "home_score": 1,
       "away_score": 1,
+      "winner": null,
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -258,6 +308,8 @@
       "away": "Bosnia and Herzegovina",
       "home_score": 4,
       "away_score": 1,
+      "winner": "Switzerland",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -268,6 +320,8 @@
       "away": "Qatar",
       "home_score": 6,
       "away_score": 0,
+      "winner": "Canada",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -278,6 +332,8 @@
       "away": "South Korea",
       "home_score": 1,
       "away_score": 0,
+      "winner": "Mexico",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -288,6 +344,8 @@
       "away": "Australia",
       "home_score": 2,
       "away_score": 0,
+      "winner": "United States",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -298,6 +356,8 @@
       "away": "Morocco",
       "home_score": 0,
       "away_score": 1,
+      "winner": "Morocco",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -308,6 +368,8 @@
       "away": "Haiti",
       "home_score": 3,
       "away_score": 0,
+      "winner": "Brazil",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -318,6 +380,8 @@
       "away": "Paraguay",
       "home_score": 0,
       "away_score": 1,
+      "winner": "Paraguay",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -328,6 +392,8 @@
       "away": "Sweden",
       "home_score": 5,
       "away_score": 1,
+      "winner": "Netherlands",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -338,6 +404,8 @@
       "away": "Ivory Coast",
       "home_score": 2,
       "away_score": 1,
+      "winner": "Germany",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -348,6 +416,8 @@
       "away": "Curacao",
       "home_score": 0,
       "away_score": 0,
+      "winner": null,
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -358,6 +428,8 @@
       "away": "Japan",
       "home_score": 0,
       "away_score": 4,
+      "winner": "Japan",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -368,6 +440,8 @@
       "away": "Saudi Arabia",
       "home_score": 4,
       "away_score": 0,
+      "winner": "Spain",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -378,6 +452,8 @@
       "away": "Iran",
       "home_score": 0,
       "away_score": 0,
+      "winner": null,
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -388,6 +464,8 @@
       "away": "Cape Verde Islands",
       "home_score": 2,
       "away_score": 2,
+      "winner": null,
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -398,6 +476,8 @@
       "away": "Egypt",
       "home_score": 1,
       "away_score": 3,
+      "winner": "Egypt",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -408,6 +488,8 @@
       "away": "Austria",
       "home_score": 2,
       "away_score": 0,
+      "winner": "Argentina",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -418,6 +500,8 @@
       "away": "Iraq",
       "home_score": 3,
       "away_score": 0,
+      "winner": "France",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -428,6 +512,8 @@
       "away": "Senegal",
       "home_score": 3,
       "away_score": 2,
+      "winner": "Norway",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -438,6 +524,8 @@
       "away": "Algeria",
       "home_score": 1,
       "away_score": 2,
+      "winner": "Algeria",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -448,6 +536,8 @@
       "away": "Uzbekistan",
       "home_score": 5,
       "away_score": 0,
+      "winner": "Portugal",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -458,6 +548,8 @@
       "away": "Ghana",
       "home_score": 0,
       "away_score": 0,
+      "winner": null,
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -468,6 +560,8 @@
       "away": "Croatia",
       "home_score": 0,
       "away_score": 1,
+      "winner": "Croatia",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -478,6 +572,8 @@
       "away": "DR Congo",
       "home_score": 1,
       "away_score": 0,
+      "winner": "Colombia",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -488,6 +584,8 @@
       "away": "Canada",
       "home_score": 2,
       "away_score": 1,
+      "winner": "Switzerland",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -498,6 +596,8 @@
       "away": "Qatar",
       "home_score": 3,
       "away_score": 1,
+      "winner": "Bosnia and Herzegovina",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -508,6 +608,8 @@
       "away": "Haiti",
       "home_score": 4,
       "away_score": 2,
+      "winner": "Morocco",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -518,6 +620,8 @@
       "away": "Brazil",
       "home_score": 0,
       "away_score": 3,
+      "winner": "Brazil",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -528,6 +632,8 @@
       "away": "Mexico",
       "home_score": 0,
       "away_score": 3,
+      "winner": "Mexico",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -538,6 +644,8 @@
       "away": "South Korea",
       "home_score": 1,
       "away_score": 0,
+      "winner": "South Africa",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -548,6 +656,8 @@
       "away": "Germany",
       "home_score": 2,
       "away_score": 1,
+      "winner": "Ecuador",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -558,6 +668,8 @@
       "away": "Ivory Coast",
       "home_score": 0,
       "away_score": 2,
+      "winner": "Ivory Coast",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -568,6 +680,8 @@
       "away": "Netherlands",
       "home_score": 1,
       "away_score": 3,
+      "winner": "Netherlands",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -578,6 +692,8 @@
       "away": "Sweden",
       "home_score": 1,
       "away_score": 1,
+      "winner": null,
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -588,6 +704,8 @@
       "away": "United States",
       "home_score": 3,
       "away_score": 2,
+      "winner": "Turkey",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -598,6 +716,8 @@
       "away": "Australia",
       "home_score": 0,
       "away_score": 0,
+      "winner": null,
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -608,6 +728,8 @@
       "away": "France",
       "home_score": 1,
       "away_score": 4,
+      "winner": "France",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -618,6 +740,8 @@
       "away": "Iraq",
       "home_score": 5,
       "away_score": 0,
+      "winner": "Senegal",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -628,6 +752,8 @@
       "away": "Spain",
       "home_score": 0,
       "away_score": 1,
+      "winner": "Spain",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -638,6 +764,8 @@
       "away": "Saudi Arabia",
       "home_score": 0,
       "away_score": 0,
+      "winner": null,
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -648,6 +776,8 @@
       "away": "Belgium",
       "home_score": 1,
       "away_score": 5,
+      "winner": "Belgium",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -658,6 +788,8 @@
       "away": "Iran",
       "home_score": 1,
       "away_score": 1,
+      "winner": null,
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -668,6 +800,8 @@
       "away": "England",
       "home_score": 0,
       "away_score": 2,
+      "winner": "England",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -678,6 +812,8 @@
       "away": "Ghana",
       "home_score": 2,
       "away_score": 1,
+      "winner": "Croatia",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -688,6 +824,8 @@
       "away": "Portugal",
       "home_score": 0,
       "away_score": 0,
+      "winner": null,
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -698,6 +836,8 @@
       "away": "Uzbekistan",
       "home_score": 3,
       "away_score": 1,
+      "winner": "DR Congo",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -708,6 +848,8 @@
       "away": "Argentina",
       "home_score": 1,
       "away_score": 3,
+      "winner": "Argentina",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -718,6 +860,8 @@
       "away": "Austria",
       "home_score": 3,
       "away_score": 3,
+      "winner": null,
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -729,6 +873,7 @@
       "home_score": 0,
       "away_score": 1,
       "winner": "Canada",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -740,6 +885,7 @@
       "home_score": 2,
       "away_score": 1,
       "winner": "Brazil",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -751,6 +897,10 @@
       "home_score": 4,
       "away_score": 5,
       "winner": "Paraguay",
+      "penalties": {
+        "home": 3,
+        "away": 4
+      },
       "stadium": "",
       "city": "World"
     },
@@ -762,6 +912,10 @@
       "home_score": 3,
       "away_score": 4,
       "winner": "Morocco",
+      "penalties": {
+        "home": 2,
+        "away": 3
+      },
       "stadium": "",
       "city": "World"
     },
@@ -773,6 +927,7 @@
       "home_score": 1,
       "away_score": 2,
       "winner": "Norway",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -784,6 +939,7 @@
       "home_score": 3,
       "away_score": 0,
       "winner": "France",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -795,6 +951,7 @@
       "home_score": 2,
       "away_score": 0,
       "winner": "Mexico",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -805,6 +962,8 @@
       "away": "DR Congo",
       "home_score": 2,
       "away_score": 1,
+      "winner": "England",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -815,6 +974,8 @@
       "away": "Senegal",
       "home_score": 3,
       "away_score": 2,
+      "winner": "Belgium",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -825,6 +986,8 @@
       "away": "Bosnia and Herzegovina",
       "home_score": 2,
       "away_score": 0,
+      "winner": "United States",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -833,8 +996,10 @@
       "group": "",
       "home": "Spain",
       "away": "Austria",
-      "home_score": null,
-      "away_score": null,
+      "home_score": 3,
+      "away_score": 0,
+      "winner": "Spain",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -843,8 +1008,10 @@
       "group": "",
       "home": "Portugal",
       "away": "Croatia",
-      "home_score": null,
-      "away_score": null,
+      "home_score": 2,
+      "away_score": 1,
+      "winner": "Portugal",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -853,8 +1020,10 @@
       "group": "",
       "home": "Switzerland",
       "away": "Algeria",
-      "home_score": null,
-      "away_score": null,
+      "home_score": 2,
+      "away_score": 0,
+      "winner": "Switzerland",
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -865,6 +1034,8 @@
       "away": "Egypt",
       "home_score": null,
       "away_score": null,
+      "winner": null,
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -875,6 +1046,8 @@
       "away": "Cape Verde Islands",
       "home_score": null,
       "away_score": null,
+      "winner": null,
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -885,6 +1058,8 @@
       "away": "Ghana",
       "home_score": null,
       "away_score": null,
+      "winner": null,
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -895,6 +1070,8 @@
       "away": "Morocco",
       "home_score": null,
       "away_score": null,
+      "winner": null,
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -905,6 +1082,8 @@
       "away": "France",
       "home_score": null,
       "away_score": null,
+      "winner": null,
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -915,6 +1094,8 @@
       "away": "Norway",
       "home_score": null,
       "away_score": null,
+      "winner": null,
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -925,6 +1106,8 @@
       "away": "England",
       "home_score": null,
       "away_score": null,
+      "winner": null,
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -935,6 +1118,8 @@
       "away": null,
       "home_score": null,
       "away_score": null,
+      "winner": null,
+      "penalties": null,
       "stadium": "",
       "city": "World"
     },
@@ -945,6 +1130,44 @@
       "away": "Belgium",
       "home_score": null,
       "away_score": null,
+      "winner": null,
+      "penalties": null,
+      "stadium": "",
+      "city": "World"
+    },
+    {
+      "date": "2026-07-07",
+      "group": "",
+      "home": null,
+      "away": null,
+      "home_score": null,
+      "away_score": null,
+      "winner": null,
+      "penalties": null,
+      "stadium": "",
+      "city": "World"
+    },
+    {
+      "date": "2026-07-07",
+      "group": "",
+      "home": null,
+      "away": null,
+      "home_score": null,
+      "away_score": null,
+      "winner": null,
+      "penalties": null,
+      "stadium": "",
+      "city": "World"
+    },
+    {
+      "date": "2026-07-09",
+      "group": "",
+      "home": null,
+      "away": null,
+      "home_score": null,
+      "away_score": null,
+      "winner": null,
+      "penalties": null,
       "stadium": "",
       "city": "World"
     }
