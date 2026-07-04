@@ -735,6 +735,27 @@
   border-color: rgba(240, 192, 64, 0.3);
   box-shadow: 0 0 12px rgba(240, 192, 64, 0.08);
 }
+.bracket-match.real-result {
+  border-color: rgba(74, 222, 128, 0.4);
+  background: linear-gradient(135deg, var(--surface2) 0%, rgba(74, 222, 128, 0.05) 100%);
+  box-shadow: 0 0 10px rgba(74, 222, 128, 0.05);
+}
+.bracket-match.real-result:hover {
+  border-color: rgba(74, 222, 128, 0.6);
+  box-shadow: 0 0 14px rgba(74, 222, 128, 0.12);
+}
+.bracket-score {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 13px;
+  color: var(--gold);
+  margin-left: 6px;
+  letter-spacing: 0.5px;
+}
+.bracket-pen {
+  font-size: 9px;
+  color: var(--muted);
+  margin-left: 2px;
+}
 .bracket-team {
   padding: clamp(5px, 0.8vw, 8px) clamp(6px, 1vw, 10px);
   cursor: pointer;

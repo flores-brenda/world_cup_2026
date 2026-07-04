@@ -8,7 +8,9 @@ const TABS = [
   { id: "h2h",        label: "⚔️ Face à Face" },
   { id: "palmares",   label: "🏅 Palmarès" },
   { id: "bracket",     label: "🌳 Bracket (Phase Finale)" },
+  { id: "bracket_r16", label: "🌳 Bracket (Octavos)" },
   { id: "montecarlo",  label: "🎲 Monte Carlo" },
+  { id: "montecarlo_r16", label: "🎲 Monte Carlo (Octavos)" },
   { id: "pronostics",  label: "🔮 Pronostics" }
 ];
 
@@ -59,7 +61,9 @@ function initTabs() {
     "h2h": "tab_h2h",
     "simulador":    "tab_simulador",
     "bracket":     "tab_bracket",
-    "montecarlo":  "tab_montecarlo"
+    "bracket_r16": "tab_bracket_r16",
+    "montecarlo":  "tab_montecarlo",
+    "montecarlo_r16": "tab_montecarlo_r16"
   };
 
   TABS.forEach(t => {

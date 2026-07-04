@@ -172,7 +172,16 @@ const translations = {
     "mc_col_qf": "⚡ Quarts",
     "mc_col_bar": "Prob. Champion",
     "mc_btn_rerun": "🔄 Resimule",
-    "mc_champion_label": "🏆 Champion"
+    "mc_champion_label": "🏆 Champion",
+    "tab_bracket": "🌳 Bracket (32)",
+    "tab_bracket_r16": "🌳 Bracket (16)",
+    "tab_montecarlo_r16": "🎲 Monte Carlo (16)",
+    "sec_bracket_title": "PHASE À ÉLIMINATION DIRECTE (32)",
+    "sec_bracket_sub": "Simulateur de croisements des Seizièmes de finale (32) à la Finale",
+    "sec_bracket_r16_title": "PHASE À ÉLIMINATION DIRECTE (16)",
+    "sec_bracket_r16_sub": "Simulateur de croisements des Huitièmes de finale (16) à la Finale",
+    "sec_mc_r16_title": "SIMULATION MONTE CARLO (OCTAVOS)",
+    "sec_mc_r16_sub": "Probabilités de champion à partir des Huitièmes de finale (16 équipes) · 10 000 simulations"
   },
   es: {
     "title": "Análisis FIFA World Cup 2026",
@@ -346,7 +355,16 @@ const translations = {
     "mc_col_qf": "⚡ Cuartos",
     "mc_col_bar": "Prob. Campeón",
     "mc_btn_rerun": "🔄 Volver a simular",
-    "mc_champion_label": "🏆 Campeón"
+    "mc_champion_label": "🏆 Campeón",
+    "tab_bracket": "🌳 Bracket (32)",
+    "tab_bracket_r16": "🌳 Bracket (16)",
+    "tab_montecarlo_r16": "🎲 Monte Carlo (16)",
+    "sec_bracket_title": "FASE DE ELIMINACIÓN DIRECTA (32)",
+    "sec_bracket_sub": "Simulador desde Dieciseisavos de final (32 equipos) hasta la Final",
+    "sec_bracket_r16_title": "FASE DE ELIMINACIÓN DIRECTA (16)",
+    "sec_bracket_r16_sub": "Simulador desde Octavos de final (16 equipos) hasta la Final",
+    "sec_mc_r16_title": "SIMULACIÓN MONTE CARLO (OCTAVOS)",
+    "sec_mc_r16_sub": "Probabilidades de campeón desde Octavos de final (16 equipos) · 10,000 simulaciones"
   },
   en: {
     "title": "FIFA World Cup 2026 Analysis",
@@ -520,7 +538,16 @@ const translations = {
     "mc_col_qf": "⚡ Quarter-final",
     "mc_col_bar": "Champion Prob.",
     "mc_btn_rerun": "🔄 Re-simulate",
-    "mc_champion_label": "🏆 Champion"
+    "mc_champion_label": "🏆 Champion",
+    "tab_bracket": "🌳 Bracket (32)",
+    "tab_bracket_r16": "🌳 Bracket (16)",
+    "tab_montecarlo_r16": "🎲 Monte Carlo (16)",
+    "sec_bracket_title": "KNOCKOUT STAGE (32)",
+    "sec_bracket_sub": "Interactive simulation from Round of 32 (32 teams) to the Final",
+    "sec_bracket_r16_title": "KNOCKOUT STAGE (16)",
+    "sec_bracket_r16_sub": "Interactive simulation from Round of 16 (16 teams) to the Final",
+    "sec_mc_r16_title": "MONTE CARLO SIMULATION (OCTAVOS)",
+    "sec_mc_r16_sub": "Champion probabilities starting from the Round of 16 (16 teams) · 10,000 simulations"
   }
 };
 

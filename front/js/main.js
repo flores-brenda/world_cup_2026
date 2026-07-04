@@ -26,16 +26,20 @@ document.addEventListener("DOMContentLoaded", () => {
   renderPronostics(stats);
   renderH2H(stats);
   renderSimulador(stats);
-  if (typeof initBracketModule === 'function') initBracketModule();
-  if (typeof initMonteCarloModule === 'function') initMonteCarloModule();
 
   // Nuevos módulos — datos en tiempo real
-  // initResultados carga el JSON de forma asíncrona y luego llama a renderModeloAccuracy
+  // initResultados carga el JSON de forma asíncrona y luego llama a los renderers correspondientes
   if (typeof initResultados === 'function') {
     initResultados().then(() => {
       if (typeof renderHomeResults === 'function') renderHomeResults();
       if (typeof renderModeloAccuracy === 'function') renderModeloAccuracy();
       if (typeof initMatchCenter    === 'function') initMatchCenter();
+      
+      // Inicializar brackets y Monte Carlo después de cargar los resultados
+      if (typeof initBracketModule === 'function') initBracketModule();
+      if (typeof initBracketR16Module === 'function') initBracketR16Module();
+      if (typeof initMonteCarloModule === 'function') initMonteCarloModule();
+      if (typeof initMonteCarloR16Module === 'function') initMonteCarloR16Module();
     });
   }
 

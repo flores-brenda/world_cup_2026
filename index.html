@@ -297,12 +297,33 @@
     </div>
 
     <!-- ═══════════════════════════════════════════════════ -->
+    <!-- SECCIÓN: BRACKET DESDE OCTAVOS (R16)               -->
+    <!-- ═══════════════════════════════════════════════════ -->
+    <div class="section" id="sec-bracket_r16">
+      <div class="section-title" data-i18n="sec_bracket_r16_title">PHASE À ÉLIMINATION DIRECTE (16)</div>
+      <div class="section-sub" data-i18n="sec_bracket_r16_sub">Simulateur de croisements des Huitièmes de finale (16) à la Finale</div>
+      
+      <div class="card" style="margin-bottom:20px; text-align:center;">
+        <button id="btn-sim-random-r16" class="btn-primary" data-i18n="btn_sim_random">Simulation Libre</button>
+        <button id="btn-sim-data-r16" class="btn-primary" data-i18n="btn_sim_data">Prédiction IA/Data</button>
+      </div>
+
+      <div style="text-align:center; margin-bottom: 20px;">
+        <p style="color: var(--muted); font-size: clamp(11px, 1.3vw, 13px);" data-i18n="bracket_hint">Cliquez sur une équipe pour la faire avancer au tour suivant.</p>
+      </div>
+
+      <div class="card" style="overflow-x: auto; padding: 20px;">
+        <div id="bracket-container-r16"></div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════ -->
     <!-- SECCIÓN: MONTE CARLO                               -->
     <!-- ═══════════════════════════════════════════════════ -->
     <div class="section" id="sec-montecarlo">
-      <div class="section-title" data-i18n="sec_mc_title">SIMULACIÓN MONTE CARLO</div>
+      <div class="section-title" data-i18n="sec_mc_title">SIMULATION MONTE CARLO</div>
       <div class="section-sub" data-i18n="sec_mc_sub">
-        Probabilidades de campeón calculadas sobre
+        Probabilités de champion calculées sur
         <strong>10,000 simulaciones</strong> completas del torneo · Poisson + Dixon-Coles + Elo
       </div>
       <div id="mc-container">
@@ -312,34 +333,51 @@
       </div>
     </div>
 
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!-- SECCIÓN: MONTE CARLO DESDE OCTAVOS (R16)           -->
+    <!-- ═══════════════════════════════════════════════════ -->
+    <div class="section" id="sec-montecarlo_r16">
+      <div class="section-title" data-i18n="sec_mc_r16_title">SIMULATION MONTE CARLO (OCTAVOS)</div>
+      <div class="section-sub" data-i18n="sec_mc_r16_sub">
+        Probabilités de champion à partir des Huitièmes de finale (16 équipes) · 10 000 simulations
+      </div>
+      <div id="mc-container-r16">
+        <div class="info-box" style="text-align:center; padding:30px;">
+          ⏳ Cargando módulo Monte Carlo (Octavos)...
+        </div>
+      </div>
+    </div>
+
     </div>
   <footer data-i18n="footer_text">⚽ Analyse du Football International 1872–2025 · Dataset Kaggle (martj42) · Projet Data
     Science</footer>
 
   <!-- ① Données brutes (RAW_H2H, RAW_STATS, GROUPES, PREDICTIONS) -->
-  <script src="./front/script.js?v=2"></script>
+  <script src="./front/script.js?v=5"></script>
 
   <!-- ② Modules logiques – ordre important -->
-  <script src="./front/js/cache.js?v=2"></script>
-  <script src="./front/js/tabs.js?v=2"></script>
-  <script src="./front/js/countdown.js?v=2"></script>
-  <script src="./front/js/classement.js?v=2"></script>
-  <script src="./front/js/groupes.js?v=2"></script>
-  <script src="./front/js/palmares.js?v=2"></script>
-  <script src="./front/js/pronostics.js?v=2"></script>
-  <script src="./front/js/elo.js?v=2"></script>
-  <script src="./front/js/resultados.js?v=2"></script>
-  <script src="./front/js/modelo_accuracy.js?v=2"></script>
-  <script src="./front/js/matchcenter.js?v=2"></script>
-  <script src="./front/js/h2h.js?v=2"></script>
-  <script src="./front/js/simulateur.js?v=2"></script>
-  <script src="./front/js/bracket.js?v=2"></script>
-  <script src="./front/js/montecarlo.js?v=2"></script>
+  <script src="./front/js/cache.js?v=5"></script>
+  <script src="./front/js/tabs.js?v=5"></script>
+  <script src="./front/js/countdown.js?v=5"></script>
+  <script src="./front/js/classement.js?v=5"></script>
+  <script src="./front/js/groupes.js?v=5"></script>
+  <script src="./front/js/palmares.js?v=5"></script>
+  <script src="./front/js/pronostics.js?v=5"></script>
+  <script src="./front/js/elo.js?v=5"></script>
+  <script src="./front/js/resultados.js?v=5"></script>
+  <script src="./front/js/modelo_accuracy.js?v=5"></script>
+  <script src="./front/js/matchcenter.js?v=5"></script>
+  <script src="./front/js/h2h.js?v=5"></script>
+  <script src="./front/js/simulateur.js?v=5"></script>
+  <script src="./front/js/bracket.js?v=5"></script>
+  <script src="./front/js/bracket_r16.js?v=5"></script>
+  <script src="./front/js/montecarlo.js?v=5"></script>
+  <script src="./front/js/montecarlo_r16.js?v=5"></script>
 
-  <script src="./front/js/i18n.js?v=2"></script>
+  <script src="./front/js/i18n.js?v=5"></script>
 
   <!-- ③ Point d'entrée principal – doit être chargé en dernier -->
-  <script src="./front/js/main.js?v=2"></script>
+  <script src="./front/js/main.js?v=5"></script>
 
 </body>
 

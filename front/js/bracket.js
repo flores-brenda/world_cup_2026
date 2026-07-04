@@ -171,8 +171,12 @@ function recomputeBracket(mode = 'data') {
           match.manualWinner = null;
         }
 
+        const realW = getRealPlayedMatchWinner(match.t1, match.t2);
+
         let winner;
-        if (match.manualWinner) {
+        if (realW) {
+          winner = realW;
+        } else if (match.manualWinner) {
           winner = match.manualWinner;
         } else if (match.w && (match.w === match.t1 || match.w === match.t2)) {
           // Si on a déjà simulé un gagnant et qu'il est toujours valide, on le conserve pour éviter
@@ -264,15 +268,30 @@ function createMatchHTML(match, round, index) {
   const t1Name = match.t1 || "TBD";
   const t2Name = match.t2 || "TBD";
 
-  const probs = getMatchProbabilities(match);
-  const p1Text = probs ? ` <span class="bracket-prob">[${probs.p1}%]</span>` : "";
-  const p2Text = probs ? ` <span class="bracket-prob">[${probs.p2}%]</span>` : "";
+  const realScore = getRealPlayedMatchScore(match.t1, match.t2);
+  let p1Text = "";
+  let p2Text = "";
+  let realResultClass = "";
 
-  const onClickT1 = match.t1 ? `onclick="manualSelectionHandler('${round}', ${index}, '${match.t1.replace(/'/g, "\\'")}')"` : "";
-  const onClickT2 = match.t2 ? `onclick="manualSelectionHandler('${round}', ${index}, '${match.t2.replace(/'/g, "\\'")}')"` : "";
+  if (realScore) {
+    realResultClass = "real-result";
+    const p1Score = realScore.p1 !== null ? `<span class="bracket-pen">(${realScore.p1})</span>` : "";
+    const p2Score = realScore.p2 !== null ? `<span class="bracket-pen">(${realScore.p2})</span>` : "";
+    p1Text = ` <span class="bracket-score">${realScore.s1}${p1Score}</span>`;
+    p2Text = ` <span class="bracket-score">${realScore.s2}${p2Score}</span>`;
+  } else {
+    const probs = getMatchProbabilities(match);
+    p1Text = probs ? ` <span class="bracket-prob">[${probs.p1}%]</span>` : "";
+    p2Text = probs ? ` <span class="bracket-prob">[${probs.p2}%]</span>` : "";
+  }
+
+  const onClickT1 = match.t1 && !realScore ? `onclick="manualSelectionHandler('${round}', ${index}, '${match.t1.replace(/'/g, "\\'")}')"` : "";
+  const onClickT2 = match.t2 && !realScore ? `onclick="manualSelectionHandler('${round}', ${index}, '${match.t2.replace(/'/g, "\\'")}')"` : "";
+
+  const titleAttr = realScore ? `title="Resultados reales y oficiales"` : "";
 
   return `
-    <div class="bracket-match" data-round="${round}" data-index="${index}">
+    <div class="bracket-match ${realResultClass}" ${titleAttr} data-round="${round}" data-index="${index}">
       <div class="bracket-team ${t1Class}" ${onClickT1}>
         <span class="team-name">${t1Name}${p1Text}</span>
       </div>
@@ -427,13 +446,25 @@ function renderBracketMobile() {
     const t1Name = match.t1 || "TBD";
     const t2Name = match.t2 || "TBD";
 
-    // Probabilités (fonction partagée avec createMatchHTML)
-    const probs = getMatchProbabilities(match);
-    const p1Text = probs ? ` <span class="bracket-prob">[${probs.p1}%]</span>` : "";
-    const p2Text = probs ? ` <span class="bracket-prob">[${probs.p2}%]</span>` : "";
+    const realScore = getRealPlayedMatchScore(match.t1, match.t2);
+    let p1Text = "";
+    let p2Text = "";
+    let realResultClass = "";
 
-    const onClickT1 = match.t1 ? `onclick="manualSelectionHandler('${roundDef.id}', ${index}, '${match.t1.replace(/'/g, "\\'")}')"` : "";
-    const onClickT2 = match.t2 ? `onclick="manualSelectionHandler('${roundDef.id}', ${index}, '${match.t2.replace(/'/g, "\\'")}')"` : "";
+    if (realScore) {
+      realResultClass = "real-result";
+      const p1Score = realScore.p1 !== null ? `<span class="bracket-pen">(${realScore.p1})</span>` : "";
+      const p2Score = realScore.p2 !== null ? `<span class="bracket-pen">(${realScore.p2})</span>` : "";
+      p1Text = ` <span class="bracket-score">${realScore.s1}${p1Score}</span>`;
+      p2Text = ` <span class="bracket-score">${realScore.s2}${p2Score}</span>`;
+    } else {
+      const probs = getMatchProbabilities(match);
+      p1Text = probs ? ` <span class="bracket-prob">[${probs.p1}%]</span>` : "";
+      p2Text = probs ? ` <span class="bracket-prob">[${probs.p2}%]</span>` : "";
+    }
+
+    const onClickT1 = match.t1 && !realScore ? `onclick="manualSelectionHandler('${roundDef.id}', ${index}, '${match.t1.replace(/'/g, "\\'")}')"` : "";
+    const onClickT2 = match.t2 && !realScore ? `onclick="manualSelectionHandler('${roundDef.id}', ${index}, '${match.t2.replace(/'/g, "\\'")}')"` : "";
 
     // Indicateur de progression
     let progressIndicator = "";
@@ -446,17 +477,21 @@ function renderBracketMobile() {
       </div>`;
     }
 
+    const titleAttr = realScore ? `title="Resultados reales y oficiales"` : "";
+
     matchesHtml += `
-      <div class="bracket-mobile-match-card">
+      <div class="bracket-mobile-match-card ${realResultClass}" ${titleAttr}>
         <div class="bracket-mobile-match-header">
           <span class="match-num">Match ${index + 1}</span>
           ${progressIndicator}
         </div>
         <div class="bracket-team ${t1Class}" ${onClickT1}>
-          <span class="team-name">${t1Name}${p1Text}</span>
+          <span class="team-name">${t1Name}</span>
+          ${p1Text}
         </div>
         <div class="bracket-team ${t2Class}" ${onClickT2}>
-          <span class="team-name">${t2Name}${p2Text}</span>
+          <span class="team-name">${t2Name}</span>
+          ${p2Text}
         </div>
       </div>
     `;
@@ -517,4 +552,42 @@ function initBracketModule() {
 
   initBracketData();
   renderBracket();
+}
+
+function getRealPlayedMatchWinner(t1, t2) {
+  if (!t1 || !t2 || t1 === "TBD" || t2 === "TBD") return null;
+  if (!window.RESULTADOS_2026 || !window.RESULTADOS_2026.matches) return null;
+  
+  const match = window.RESULTADOS_2026.matches.find(m => 
+    ((m.home === t1 && m.away === t2) || (m.home === t2 && m.away === t1)) &&
+    m.home_score !== null && m.away_score !== null
+  );
+  if (!match) return null;
+  
+  if (match.winner) return match.winner;
+  if (match.penalties) {
+    if (match.penalties.home > match.penalties.away) return match.home;
+    if (match.penalties.away > match.penalties.home) return match.away;
+  }
+  if (match.home_score > match.away_score) return match.home;
+  if (match.away_score > match.home_score) return match.away;
+  return null;
+}
+
+function getRealPlayedMatchScore(t1, t2) {
+  if (!t1 || !t2 || t1 === "TBD" || t2 === "TBD") return null;
+  if (!window.RESULTADOS_2026 || !window.RESULTADOS_2026.matches) return null;
+  
+  const match = window.RESULTADOS_2026.matches.find(m => 
+    ((m.home === t1 && m.away === t2) || (m.home === t2 && m.away === t1)) &&
+    m.home_score !== null && m.away_score !== null
+  );
+  if (!match) return null;
+  
+  return {
+    s1: match.home === t1 ? match.home_score : match.away_score,
+    s2: match.home === t1 ? match.away_score : match.home_score,
+    p1: match.penalties ? (match.home === t1 ? match.penalties.home : match.penalties.away) : null,
+    p2: match.penalties ? (match.home === t1 ? match.penalties.away : match.penalties.home) : null
+  };
 }

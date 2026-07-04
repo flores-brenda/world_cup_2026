@@ -383,6 +383,9 @@ function renderMatchCenter() {
 
 // ── Constructor HTML de Tarjeta de Partido ────────────────────────────
 function buildMatchCardHTML(match, idx) {
+  const homeName = match.home || "TBD";
+  const awayName = match.away || "TBD";
+
   const isFinished = match.home_score !== null && match.away_score !== null;
   const cardClass = isFinished ? "finished" : "upcoming";
   
@@ -402,10 +405,10 @@ function buildMatchCardHTML(match, idx) {
   let winnerBadgeHtml = "";
 
   if (isFinished) {
-    const winnerName = match.winner || (match.home_score > match.away_score ? match.home : (match.home_score < match.away_score ? match.away : null));
-    if (winnerName === match.home) {
+    const winnerName = match.winner || (match.home_score > match.away_score ? homeName : (match.home_score < match.away_score ? awayName : null));
+    if (winnerName === homeName) {
       homeWinnerClass = "winner-name";
-    } else if (winnerName === match.away) {
+    } else if (winnerName === awayName) {
       awayWinnerClass = "winner-name";
     }
     
@@ -434,33 +437,33 @@ function buildMatchCardHTML(match, idx) {
   }
 
   // Predicción IA
-  const pred = getMatchStatsPrediction(match.home, match.away);
+  const pred = getMatchStatsPrediction(homeName, awayName);
   let iaSectionHtml = "";
-  if (pred && !isFinished && match.home !== "TBD" && match.away !== "TBD") {
+  if (pred && !isFinished && homeName !== "TBD" && awayName !== "TBD") {
     iaSectionHtml = `
       <button class="mc-ia-toggle" onclick="toggleIASection(${idx})">
         <span>🔮</span> <span data-i18n="mc_pred_title">${t("mc_pred_title")}</span>
       </button>
       <div class="mc-ia-content" id="mc-ia-content-${idx}">
         <div class="mc-xg-row">
-          <span>${match.home} (xG)</span>
+          <span>${homeName} (xG)</span>
           <strong>${pred.xgA} - ${pred.xgB}</strong>
-          <span>(xG) ${match.away}</span>
+          <span>(xG) ${awayName}</span>
         </div>
         <div class="mc-pred-bars">
-          <div class="mc-pred-bar home-bar" style="width: ${pred.pA}%" title="${match.home}: ${pred.pA}%"></div>
+          <div class="mc-pred-bar home-bar" style="width: ${pred.pA}%" title="${homeName}: ${pred.pA}%"></div>
           <div class="mc-pred-bar draw-bar" style="width: ${pred.pDraw}%" title="Empate: ${pred.pDraw}%"></div>
-          <div class="mc-pred-bar away-bar" style="width: ${pred.pB}%" title="${match.away}: ${pred.pB}%"></div>
+          <div class="mc-pred-bar away-bar" style="width: ${pred.pB}%" title="${awayName}: ${pred.pB}%"></div>
         </div>
         <div class="mc-pred-legend">
-          <span>${pred.pA}% ${match.home.substring(0,6)}</span>
+          <span>${pred.pA}% ${homeName.substring(0,6)}</span>
           <span>${pred.pDraw}% Nul</span>
-          <span>${pred.pB}% ${match.away.substring(0,6)}</span>
+          <span>${pred.pB}% ${awayName.substring(0,6)}</span>
         </div>
         <div style="font-size: 10px; color: var(--gold); text-align: center; margin-bottom: 8px;">
           Marcador más probable: ${pred.likelyHomeGoals} – ${pred.likelyAwayGoals}
         </div>
-        <button class="mc-sim-btn" onclick="simulateMatchOnCard('${match.home.replace(/'/g, "\\'")}', '${match.away.replace(/'/g, "\\'")}', ${idx})">
+        <button class="mc-sim-btn" onclick="simulateMatchOnCard('${homeName.replace(/'/g, "\\'")}', '${awayName.replace(/'/g, "\\'")}', ${idx})">
           ${t("mc_sim_btn") || "Simular"}
         </button>
         <div class="mc-sim-result" id="sim-result-${idx}"></div>
@@ -479,8 +482,8 @@ function buildMatchCardHTML(match, idx) {
       <div class="mc-teams-row">
         <!-- Local -->
         <div class="mc-team-col">
-          ${getMatchCenterFlagHtml(match.home, 44)}
-          <span class="mc-team-name ${homeWinnerClass}">${match.home}</span>
+          ${getMatchCenterFlagHtml(homeName, 44)}
+          <span class="mc-team-name ${homeWinnerClass}">${homeName}</span>
         </div>
         
         <!-- Marcador -->
@@ -490,8 +493,8 @@ function buildMatchCardHTML(match, idx) {
 
         <!-- Visitante -->
         <div class="mc-team-col">
-          ${getMatchCenterFlagHtml(match.away, 44)}
-          <span class="mc-team-name ${awayWinnerClass}">${match.away}</span>
+          ${getMatchCenterFlagHtml(awayName, 44)}
+          <span class="mc-team-name ${awayWinnerClass}">${awayName}</span>
         </div>
       </div>
 
