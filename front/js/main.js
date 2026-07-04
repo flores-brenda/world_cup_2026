@@ -1,4 +1,4 @@
-// ── Main – initialisation de l'application ────────────────
+// ── Main – initialisation de l'application (v5.1) ────────────────
 // Ce fichier doit être chargé EN DERNIER, après tous les autres JS.
 
 document.addEventListener("DOMContentLoaded", () => {
