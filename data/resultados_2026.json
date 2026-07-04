@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-03",
+  "last_updated": "2026-07-04",
   "matches": [
     {
       "date": "2026-06-11",
@@ -1032,10 +1032,13 @@
       "group": "",
       "home": "Australia",
       "away": "Egypt",
-      "home_score": null,
-      "away_score": null,
-      "winner": null,
-      "penalties": null,
+      "home_score": 3,
+      "away_score": 5,
+      "winner": "Egypt",
+      "penalties": {
+        "home": 2,
+        "away": 4
+      },
       "stadium": "",
       "city": "World"
     },
@@ -1044,9 +1047,9 @@
       "group": "",
       "home": "Argentina",
       "away": "Cape Verde Islands",
-      "home_score": null,
-      "away_score": null,
-      "winner": null,
+      "home_score": 3,
+      "away_score": 2,
+      "winner": "Argentina",
       "penalties": null,
       "stadium": "",
       "city": "World"
@@ -1056,9 +1059,9 @@
       "group": "",
       "home": "Colombia",
       "away": "Ghana",
-      "home_score": null,
-      "away_score": null,
-      "winner": null,
+      "home_score": 1,
+      "away_score": 0,
+      "winner": "Colombia",
       "penalties": null,
       "stadium": "",
       "city": "World"
@@ -1114,8 +1117,8 @@
     {
       "date": "2026-07-06",
       "group": "",
-      "home": null,
-      "away": null,
+      "home": "Portugal",
+      "away": "Spain",
       "home_score": null,
       "away_score": null,
       "winner": null,
@@ -1138,8 +1141,8 @@
     {
       "date": "2026-07-07",
       "group": "",
-      "home": null,
-      "away": null,
+      "home": "Argentina",
+      "away": "Egypt",
       "home_score": null,
       "away_score": null,
       "winner": null,
@@ -1149,6 +1152,18 @@
     },
     {
       "date": "2026-07-07",
+      "group": "",
+      "home": "Switzerland",
+      "away": "Colombia",
+      "home_score": null,
+      "away_score": null,
+      "winner": null,
+      "penalties": null,
+      "stadium": "",
+      "city": "World"
+    },
+    {
+      "date": "2026-07-09",
       "group": "",
       "home": null,
       "away": null,
@@ -1160,7 +1175,31 @@
       "city": "World"
     },
     {
-      "date": "2026-07-09",
+      "date": "2026-07-10",
+      "group": "",
+      "home": null,
+      "away": null,
+      "home_score": null,
+      "away_score": null,
+      "winner": null,
+      "penalties": null,
+      "stadium": "",
+      "city": "World"
+    },
+    {
+      "date": "2026-07-11",
+      "group": "",
+      "home": null,
+      "away": null,
+      "home_score": null,
+      "away_score": null,
+      "winner": null,
+      "penalties": null,
+      "stadium": "",
+      "city": "World"
+    },
+    {
+      "date": "2026-07-12",
       "group": "",
       "home": null,
       "away": null,
