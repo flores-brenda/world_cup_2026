@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-04",
+  "last_updated": "2026-07-05",
   "matches": [
     {
       "date": "2026-06-11",
@@ -1071,9 +1071,9 @@
       "group": "",
       "home": "Canada",
       "away": "Morocco",
-      "home_score": null,
-      "away_score": null,
-      "winner": null,
+      "home_score": 0,
+      "away_score": 3,
+      "winner": "Morocco",
       "penalties": null,
       "stadium": "",
       "city": "World"
@@ -1083,9 +1083,9 @@
       "group": "",
       "home": "Paraguay",
       "away": "France",
-      "home_score": null,
-      "away_score": null,
-      "winner": null,
+      "home_score": 0,
+      "away_score": 1,
+      "winner": "France",
       "penalties": null,
       "stadium": "",
       "city": "World"
@@ -1165,8 +1165,8 @@
     {
       "date": "2026-07-09",
       "group": "",
-      "home": null,
-      "away": null,
+      "home": "France",
+      "away": "Morocco",
       "home_score": null,
       "away_score": null,
       "winner": null,
@@ -1200,6 +1200,30 @@
     },
     {
       "date": "2026-07-12",
+      "group": "",
+      "home": null,
+      "away": null,
+      "home_score": null,
+      "away_score": null,
+      "winner": null,
+      "penalties": null,
+      "stadium": "",
+      "city": "World"
+    },
+    {
+      "date": "2026-07-14",
+      "group": "",
+      "home": null,
+      "away": null,
+      "home_score": null,
+      "away_score": null,
+      "winner": null,
+      "penalties": null,
+      "stadium": "",
+      "city": "World"
+    },
+    {
+      "date": "2026-07-15",
       "group": "",
       "home": null,
       "away": null,
