@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-06",
+  "last_updated": "2026-07-07",
   "matches": [
     {
       "date": "2026-06-11",
@@ -1119,9 +1119,9 @@
       "group": "",
       "home": "Portugal",
       "away": "Spain",
-      "home_score": null,
-      "away_score": null,
-      "winner": null,
+      "home_score": 0,
+      "away_score": 1,
+      "winner": "Spain",
       "penalties": null,
       "stadium": "",
       "city": "World"
@@ -1131,9 +1131,9 @@
       "group": "",
       "home": "United States",
       "away": "Belgium",
-      "home_score": null,
-      "away_score": null,
-      "winner": null,
+      "home_score": 1,
+      "away_score": 4,
+      "winner": "Belgium",
       "penalties": null,
       "stadium": "",
       "city": "World"
@@ -1177,8 +1177,8 @@
     {
       "date": "2026-07-10",
       "group": "",
-      "home": null,
-      "away": null,
+      "home": "Spain",
+      "away": "Belgium",
       "home_score": null,
       "away_score": null,
       "winner": null,
