@@ -1,16 +1,11 @@
 // ── Tabs navigation ───────────────────────────────────────
 const TABS = [
   { id: "home",       label: "🏠 Accueil" },
-  { id: "resultados",  label: "📊 En Vivo" },
-  { id: "matchcenter", label: "🏟️ Match Center" },
   { id: "accuracy",   label: "🎯 Modelo vs Realidad" },
   { id: "classement", label: "🏆 Classement" },
   { id: "h2h",        label: "⚔️ Face à Face" },
-  { id: "palmares",   label: "🏅 Palmarès" },
-  { id: "bracket",     label: "🌳 Bracket (Phase Finale)" },
-  { id: "bracket_r16", label: "🌳 Bracket (Octavos)" },
-  { id: "montecarlo",  label: "🎲 Monte Carlo" },
-  { id: "montecarlo_r16", label: "🎲 Monte Carlo (Octavos)" },
+  { id: "bracket_qf",  label: "🌳 Bracket (8)" },
+  { id: "montecarlo_qf", label: "🎲 Monte Carlo (8)" },
   { id: "pronostics",  label: "🔮 Pronostics" }
 ];
 
@@ -52,18 +47,12 @@ function initTabs() {
   const nav = document.getElementById("tabsNav");
   const tabKeys = {
     "home": "tab_home",
-    "resultados": "tab_resultados",
-    "matchcenter": "tab_matchcenter",
     "accuracy": "tab_accuracy",
     "classement": "tab_classement",
-    "palmares": "tab_palmares",
     "pronostics": "tab_pronostics",
     "h2h": "tab_h2h",
-    "simulador":    "tab_simulador",
-    "bracket":     "tab_bracket",
-    "bracket_r16": "tab_bracket_r16",
-    "montecarlo":  "tab_montecarlo",
-    "montecarlo_r16": "tab_montecarlo_r16"
+    "bracket_qf":     "tab_bracket_qf",
+    "montecarlo_qf":  "tab_montecarlo_qf"
   };
 
   TABS.forEach(t => {

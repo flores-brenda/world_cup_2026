@@ -617,3 +617,52 @@ function simulateMatchOnCard(teamA, teamB, cardIdx) {
     `;
   }, 600);
 }
+
+// ── HOME MATCH CENTER — upcoming knockout matches in Accueil ──────────
+let homeMatchCenterFilter = 'upcoming-all';
+
+function filterHomeMatchCenter(filterVal) {
+  homeMatchCenterFilter = filterVal;
+  // Update active state on filter buttons within home section
+  const homeFilters = document.querySelectorAll('#sec-home .matchcenter-filters .btn-filter');
+  homeFilters.forEach(b => {
+    const round = b.getAttribute('data-round');
+    b.classList.toggle('active', round === filterVal);
+  });
+  renderHomeMatchCenter();
+}
+
+function renderHomeMatchCenter() {
+  injectMatchCenterStyles();
+  const container = document.getElementById("home-matchcenter-container");
+  if (!container) return;
+
+  if (!RESULTADOS_2026) {
+    container.innerHTML = `<div class="info-box" style="text-align:center; padding:30px;">⏳ Loading...</div>`;
+    return;
+  }
+
+  const classified = classifyKnockoutMatches();
+  // Only show unplayed matches in QF, SF, Final rounds
+  const upcomingRounds = ['qf', 'sf', 'final'];
+  const upcoming = classified.filter(m => {
+    const isUnplayed = m.home_score === null || m.away_score === null;
+    const isInRound = upcomingRounds.includes(m.roundId);
+    if (homeMatchCenterFilter === 'upcoming-all') {
+      return isInRound;
+    }
+    return m.roundId === homeMatchCenterFilter;
+  });
+
+  if (upcoming.length === 0) {
+    container.innerHTML = `<div class="info-box" style="text-align:center; padding:30px; color:var(--muted);">${t('mc_no_matches')}</div>`;
+    return;
+  }
+
+  let html = `<div class="matchcenter-grid">`;
+  upcoming.forEach((match, idx) => {
+    html += buildMatchCardHTML(match, 1000 + idx);
+  });
+  html += `</div>`;
+  container.innerHTML = html;
+}

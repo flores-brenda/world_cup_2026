@@ -181,7 +181,14 @@ const translations = {
     "sec_bracket_r16_title": "PHASE À ÉLIMINATION DIRECTE (16)",
     "sec_bracket_r16_sub": "Simulateur de croisements des Huitièmes de finale (16) à la Finale",
     "sec_mc_r16_title": "SIMULATION MONTE CARLO (OCTAVOS)",
-    "sec_mc_r16_sub": "Probabilités de champion à partir des Huitièmes de finale (16 équipes) · 10 000 simulations"
+    "sec_mc_r16_sub": "Probabilités de champion à partir des Huitièmes de finale (16 équipes) · 10 000 simulations",
+    "tab_bracket_qf": "🌳 Bracket (8)",
+    "tab_montecarlo_qf": "🎲 Monte Carlo (8)",
+    "sec_bracket_qf_title": "PHASE À ÉLIMINATION DIRECTE (8)",
+    "sec_bracket_qf_sub": "Simulateur de croisements des Quarts de finale (8) à la Finale",
+    "sec_mc_qf_title": "SIMULATION MONTE CARLO (QUARTS)",
+    "sec_mc_qf_sub": "Probabilités de champion à partir des Quarts de finale (8 équipes) · 10 000 simulations",
+    "sec_home_upcoming_sub": "Prochains matchs de la phase éliminatoire (Quarts, Demis, Finale)"
   },
   es: {
     "title": "Análisis FIFA World Cup 2026",
@@ -364,7 +371,14 @@ const translations = {
     "sec_bracket_r16_title": "FASE DE ELIMINACIÓN DIRECTA (16)",
     "sec_bracket_r16_sub": "Simulador desde Octavos de final (16 equipos) hasta la Final",
     "sec_mc_r16_title": "SIMULACIÓN MONTE CARLO (OCTAVOS)",
-    "sec_mc_r16_sub": "Probabilidades de campeón desde Octavos de final (16 equipos) · 10,000 simulaciones"
+    "sec_mc_r16_sub": "Probabilidades de campeón desde Octavos de final (16 equipos) · 10,000 simulaciones",
+    "tab_bracket_qf": "🌳 Bracket (8)",
+    "tab_montecarlo_qf": "🎲 Monte Carlo (8)",
+    "sec_bracket_qf_title": "FASE DE ELIMINACIÓN DIRECTA (8)",
+    "sec_bracket_qf_sub": "Simulador desde Cuartos de final (8 equipos) hasta la Final",
+    "sec_mc_qf_title": "SIMULACIÓN MONTE CARLO (CUARTOS)",
+    "sec_mc_qf_sub": "Probabilidades de campeón desde Cuartos de final (8 equipos) · 10,000 simulaciones",
+    "sec_home_upcoming_sub": "Próximos partidos de la fase eliminatoria (Cuartos, Semis, Final)"
   },
   en: {
     "title": "FIFA World Cup 2026 Analysis",
@@ -547,7 +561,14 @@ const translations = {
     "sec_bracket_r16_title": "KNOCKOUT STAGE (16)",
     "sec_bracket_r16_sub": "Interactive simulation from Round of 16 (16 teams) to the Final",
     "sec_mc_r16_title": "MONTE CARLO SIMULATION (OCTAVOS)",
-    "sec_mc_r16_sub": "Champion probabilities starting from the Round of 16 (16 teams) · 10,000 simulations"
+    "sec_mc_r16_sub": "Champion probabilities starting from the Round of 16 (16 teams) · 10,000 simulations",
+    "tab_bracket_qf": "🌳 Bracket (8)",
+    "tab_montecarlo_qf": "🎲 Monte Carlo (8)",
+    "sec_bracket_qf_title": "KNOCKOUT STAGE (8)",
+    "sec_bracket_qf_sub": "Interactive simulation from Quarter-finals (8 teams) to the Final",
+    "sec_mc_qf_title": "MONTE CARLO SIMULATION (QUARTERS)",
+    "sec_mc_qf_sub": "Champion probabilities starting from the Quarter-finals (8 teams) · 10,000 simulations",
+    "sec_home_upcoming_sub": "Upcoming knockout stage matches (Quarters, Semis, Final)"
   }
 };
 

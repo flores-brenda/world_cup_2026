@@ -72,6 +72,32 @@
   <div class="grid-3" id="home-matches">
     <!-- Populated dynamically by renderHomeResults() in resultados.js -->
   </div>
+
+  <!-- ═══ PALMARÈS intégré dans Accueil ═══ -->
+  <div style="margin-top: 36px;">
+    <div class="section-title" data-i18n="sec_palmares_title">PALMARÈS</div>
+    <div class="section-sub" data-i18n="sec_palmares_sub">Champions du monde qualifiés pour 2026</div>
+    <div class="card" style="margin-bottom:20px">
+      <div class="card-title"><span data-i18n="titles_wc">Titres FIFA World Cup</span><span class="tooltip">?<span class="tooltip-text" data-i18n="tt_palmares"></span></span></div>
+      <div class="chart-wrap"><canvas id="chartPalmares"></canvas></div>
+    </div>
+    <div id="palmaresCards" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;"></div>
+  </div>
+
+  <!-- ═══ MATCH CENTER intégré dans Accueil (partidos pendientes QF/SF/Final) ═══ -->
+  <div style="margin-top: 36px;">
+    <div class="section-title" data-i18n="sec_matchcenter_title">FASE DE ELIMINACIÓN DIRECTA</div>
+    <div class="section-sub" data-i18n="sec_home_upcoming_sub">Prochains matchs de la phase éliminatoire (Quarts, Demis, Finale)</div>
+    <div class="matchcenter-filters" style="display:flex; justify-content:center; gap:10px; margin-bottom:24px; flex-wrap:wrap;">
+      <button class="btn-filter active" data-round="upcoming-all" data-i18n="mc_filter_all" onclick="filterHomeMatchCenter('upcoming-all')">Todos</button>
+      <button class="btn-filter" data-round="qf" data-i18n="mc_filter_qf" onclick="filterHomeMatchCenter('qf')">Cuartos</button>
+      <button class="btn-filter" data-round="sf" data-i18n="mc_filter_sf" onclick="filterHomeMatchCenter('sf')">Semifinales</button>
+      <button class="btn-filter" data-round="final" data-i18n="mc_filter_final" onclick="filterHomeMatchCenter('final')">Final</button>
+    </div>
+    <div id="home-matchcenter-container">
+      <div class="info-box" style="text-align:center; padding:30px;">⏳ Cargando partidos...</div>
+    </div>
+  </div>
 </div>
 
   <!-- ═══════════════════════════════════════════════════ -->
@@ -201,17 +227,6 @@
       </div>
     </div>
 
-    <div class="section" id="sec-palmares">
-      <div class="section-title" data-i18n="sec_palmares_title">PALMARÈS</div>
-      <div class="section-sub" data-i18n="sec_palmares_sub">Champions du monde qualifiés pour 2026</div>
-      <div class="card" style="margin-bottom:20px">
-        <div class="card-title"><span data-i18n="titles_wc">Titres FIFA World Cup</span><span class="tooltip">?<span
-              class="tooltip-text" data-i18n="tt_palmares"></span></span></div>
-        <div class="chart-wrap"><canvas id="chartPalmares"></canvas></div>
-      </div>
-      <div id="palmaresCards" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;">
-      </div>
-    </div>
     <div class="section" id="sec-simulador">
       <div class="section-title" data-i18n="sec_simulador_title">SIMULATEUR DE LA PHASE DE GROUPES</div>
       <div class="section-sub" data-i18n="sec_simulador_sub">Simulation dynamique basée sur les probabilités de Poisson
@@ -299,13 +314,16 @@
     <!-- ═══════════════════════════════════════════════════ -->
     <!-- SECCIÓN: BRACKET DESDE OCTAVOS (R16)               -->
     <!-- ═══════════════════════════════════════════════════ -->
-    <div class="section" id="sec-bracket_r16">
-      <div class="section-title" data-i18n="sec_bracket_r16_title">PHASE À ÉLIMINATION DIRECTE (16)</div>
-      <div class="section-sub" data-i18n="sec_bracket_r16_sub">Simulateur de croisements des Huitièmes de finale (16) à la Finale</div>
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!-- SECCIÓN: BRACKET DESDE CUARTOS (QF) (8)            -->
+    <!-- ═══════════════════════════════════════════════════ -->
+    <div class="section" id="sec-bracket_qf">
+      <div class="section-title" data-i18n="sec_bracket_qf_title">PHASE À ÉLIMINATION DIRECTE (8)</div>
+      <div class="section-sub" data-i18n="sec_bracket_qf_sub">Simulateur de croisements des Quarts de finale (8) à la Finale</div>
       
       <div class="card" style="margin-bottom:20px; text-align:center;">
-        <button id="btn-sim-random-r16" class="btn-primary" data-i18n="btn_sim_random">Simulation Libre</button>
-        <button id="btn-sim-data-r16" class="btn-primary" data-i18n="btn_sim_data">Prédiction IA/Data</button>
+        <button id="btn-sim-random-qf" class="btn-primary" data-i18n="btn_sim_random">Simulation Libre</button>
+        <button id="btn-sim-data-qf" class="btn-primary" data-i18n="btn_sim_data">Prédiction IA/Data</button>
       </div>
 
       <div style="text-align:center; margin-bottom: 20px;">
@@ -313,37 +331,21 @@
       </div>
 
       <div class="card" style="overflow-x: auto; padding: 20px;">
-        <div id="bracket-container-r16"></div>
+        <div id="bracket-container-qf"></div>
       </div>
     </div>
 
     <!-- ═══════════════════════════════════════════════════ -->
-    <!-- SECCIÓN: MONTE CARLO                               -->
+    <!-- SECCIÓN: MONTE CARLO DESDE CUARTOS (QF) (8)        -->
     <!-- ═══════════════════════════════════════════════════ -->
-    <div class="section" id="sec-montecarlo">
-      <div class="section-title" data-i18n="sec_mc_title">SIMULATION MONTE CARLO</div>
-      <div class="section-sub" data-i18n="sec_mc_sub">
-        Probabilités de champion calculées sur
-        <strong>10,000 simulaciones</strong> completas del torneo · Poisson + Dixon-Coles + Elo
+    <div class="section" id="sec-montecarlo_qf">
+      <div class="section-title" data-i18n="sec_mc_qf_title">SIMULATION MONTE CARLO (CUARTOS)</div>
+      <div class="section-sub" data-i18n="sec_mc_qf_sub">
+        Probabilités de champion à partir des Quarts de finale (8 équipes) · 10 000 simulations
       </div>
-      <div id="mc-container">
+      <div id="mc-container-qf">
         <div class="info-box" style="text-align:center; padding:30px;">
-          ⏳ Cargando módulo Monte Carlo...
-        </div>
-      </div>
-    </div>
-
-    <!-- ═══════════════════════════════════════════════════ -->
-    <!-- SECCIÓN: MONTE CARLO DESDE OCTAVOS (R16)           -->
-    <!-- ═══════════════════════════════════════════════════ -->
-    <div class="section" id="sec-montecarlo_r16">
-      <div class="section-title" data-i18n="sec_mc_r16_title">SIMULATION MONTE CARLO (OCTAVOS)</div>
-      <div class="section-sub" data-i18n="sec_mc_r16_sub">
-        Probabilités de champion à partir des Huitièmes de finale (16 équipes) · 10 000 simulations
-      </div>
-      <div id="mc-container-r16">
-        <div class="info-box" style="text-align:center; padding:30px;">
-          ⏳ Cargando módulo Monte Carlo (Octavos)...
+          ⏳ Cargando módulo Monte Carlo (Cuartos)...
         </div>
       </div>
     </div>
@@ -371,8 +373,10 @@
   <script src="./front/js/simulateur.js?v=6"></script>
   <script src="./front/js/bracket.js?v=6"></script>
   <script src="./front/js/bracket_r16.js?v=6"></script>
+  <script src="./front/js/bracket_qf.js?v=7"></script>
   <script src="./front/js/montecarlo.js?v=6"></script>
   <script src="./front/js/montecarlo_r16.js?v=6"></script>
+  <script src="./front/js/montecarlo_qf.js?v=7"></script>
 
   <script src="./front/js/i18n.js?v=6"></script>
 

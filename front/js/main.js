@@ -38,8 +38,13 @@ document.addEventListener("DOMContentLoaded", () => {
       // Inicializar brackets y Monte Carlo después de cargar los resultados
       if (typeof initBracketModule === 'function') initBracketModule();
       if (typeof initBracketR16Module === 'function') initBracketR16Module();
+      if (typeof initBracketQFModule === 'function') initBracketQFModule();
       if (typeof initMonteCarloModule === 'function') initMonteCarloModule();
       if (typeof initMonteCarloR16Module === 'function') initMonteCarloR16Module();
+      if (typeof initMonteCarloQFModule === 'function') initMonteCarloQFModule();
+
+      // Render upcoming matches (QF/SF/Final) in the home page
+      if (typeof renderHomeMatchCenter === 'function') renderHomeMatchCenter();
     });
   }
 
