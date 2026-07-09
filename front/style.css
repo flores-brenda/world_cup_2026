@@ -1079,3 +1079,209 @@
     max-width: 1400px;
   }
 }
+
+/* ══════════════════════════════════════════════════════════
+   PENALTIS — Penalty Shootout Stats Section
+   ══════════════════════════════════════════════════════════ */
+
+.pen-duels-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 900px) {
+  .pen-duels-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pen-duel-card {
+  background: linear-gradient(135deg, var(--surface2) 0%, rgba(24, 95, 165, 0.08) 100%);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.2s;
+}
+
+.pen-duel-card:hover {
+  border-color: rgba(240, 192, 64, 0.3);
+  box-shadow: 0 4px 24px rgba(240, 192, 64, 0.08);
+  transform: translateY(-2px);
+}
+
+.pen-duel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.pen-duel-team {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.pen-duel-team-left {
+  align-items: flex-start;
+}
+
+.pen-duel-team-right {
+  align-items: flex-end;
+}
+
+.pen-duel-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(16px, 2.5vw, 20px);
+  letter-spacing: 1.5px;
+  color: var(--text);
+}
+
+.pen-duel-tier {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.pen-duel-vs {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  color: var(--gold);
+  letter-spacing: 2px;
+  flex-shrink: 0;
+  padding: 0 12px;
+  opacity: 0.7;
+}
+
+.pen-duel-stats {
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pen-duel-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pen-duel-label {
+  font-size: 10px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-align: center;
+  flex: 1;
+}
+
+.pen-duel-val {
+  font-size: 14px;
+  font-weight: 700;
+  min-width: 60px;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 1px;
+}
+
+.pen-duel-val-left {
+  text-align: left;
+}
+
+.pen-duel-val-right {
+  text-align: right;
+}
+
+.pen-duel-bars {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.pen-bar-track {
+  flex: 1;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.pen-bar-left {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.pen-bar-right {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.pen-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.8s ease-out;
+}
+
+.pen-duel-edge {
+  text-align: center;
+  padding: 8px 16px;
+  font-size: 12px;
+  color: var(--gold);
+  background: rgba(240, 192, 64, 0.05);
+  border-top: 1px solid var(--border);
+  letter-spacing: 0.5px;
+}
+
+/* ── Ranking Table ───────────────────────────────────────── */
+
+.pen-table tr {
+  transition: background 0.15s;
+}
+
+.pen-row-qf td {
+  background: rgba(74, 158, 255, 0.04);
+}
+
+.pen-row-qf:hover td {
+  background: rgba(74, 158, 255, 0.08) !important;
+}
+
+.pen-qf-badge {
+  display: inline-block;
+  background: var(--blue);
+  color: white;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 1px 5px;
+  border-radius: 3px;
+  margin-left: 6px;
+  vertical-align: middle;
+  letter-spacing: 0.5px;
+}
+
+.pen-tier-pill {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.pen-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+  letter-spacing: 0.5px;
+}

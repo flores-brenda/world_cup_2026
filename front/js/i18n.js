@@ -188,7 +188,31 @@ const translations = {
     "sec_bracket_qf_sub": "Simulateur de croisements des Quarts de finale (8) à la Finale",
     "sec_mc_qf_title": "SIMULATION MONTE CARLO (QUARTS)",
     "sec_mc_qf_sub": "Probabilités de champion à partir des Quarts de finale (8 équipes) · 10 000 simulations",
-    "sec_home_upcoming_sub": "Prochains matchs de la phase éliminatoire (Quarts, Demis, Finale)"
+    "sec_home_upcoming_sub": "Prochains matchs de la phase éliminatoire (Quarts, Demis, Finale)",
+    "tab_penaltis": "⚽ Tirs au But",
+    "sec_penaltis_title": "HISTORIQUE DES TIRS AU BUT",
+    "sec_penaltis_sub": "Statistiques historiques des tirs au but · Comparaison des équipes en quarts de finale",
+    "pen_stat_countries": "Pays analysés",
+    "pen_stat_shootouts": "Séances de tirs au but",
+    "pen_stat_avg": "Taux moyen de succès",
+    "pen_qf_title": "⚽ COMPARAISON DES QUARTS DE FINALE — TIRS AU BUT",
+    "pen_success_rate": "Taux de succès",
+    "pen_won_played": "Gagnées / Jouées",
+    "pen_experience": "Expérience (séances)",
+    "pen_even": "Égalité parfaite",
+    "pen_ranking_title": "🏆 CLASSEMENT COMPLET — TIRS AU BUT PAR PAYS",
+    "pen_col_team": "Équipe",
+    "pen_col_tier": "Niveau",
+    "pen_col_rate": "Taux",
+    "pen_col_record": "Bilan",
+    "pen_col_exp": "Expérience",
+    "pen_col_bar": "Taux de succès",
+    "pen_tier_lethal": "Expert",
+    "pen_tier_strong": "Fort",
+    "pen_tier_average": "Moyen",
+    "pen_tier_weak": "Faible",
+    "pen_no_data": "Données de tirs au but indisponibles.",
+    "pen_method_note": "Données basées sur l'historique complet des séances de tirs au but en compétitions internationales (Coupe du Monde, tournois continentaux, éliminatoires). Source : analyses statistiques 1970–2025."
   },
   es: {
     "title": "Análisis FIFA World Cup 2026",
@@ -378,7 +402,31 @@ const translations = {
     "sec_bracket_qf_sub": "Simulador desde Cuartos de final (8 equipos) hasta la Final",
     "sec_mc_qf_title": "SIMULACIÓN MONTE CARLO (CUARTOS)",
     "sec_mc_qf_sub": "Probabilidades de campeón desde Cuartos de final (8 equipos) · 10,000 simulaciones",
-    "sec_home_upcoming_sub": "Próximos partidos de la fase eliminatoria (Cuartos, Semis, Final)"
+    "sec_home_upcoming_sub": "Próximos partidos de la fase eliminatoria (Cuartos, Semis, Final)",
+    "tab_penaltis": "⚽ Penaltis",
+    "sec_penaltis_title": "HISTORIAL DE PENALTIS",
+    "sec_penaltis_sub": "Estadísticas históricas de tandas de penales · Comparación de equipos en cuartos de final",
+    "pen_stat_countries": "Países analizados",
+    "pen_stat_shootouts": "Tandas registradas",
+    "pen_stat_avg": "Tasa promedio de éxito",
+    "pen_qf_title": "⚽ COMPARACIÓN CUARTOS DE FINAL — PENALTIS",
+    "pen_success_rate": "Tasa de éxito",
+    "pen_won_played": "Ganadas / Jugadas",
+    "pen_experience": "Experiencia (tandas)",
+    "pen_even": "Igualdad perfecta",
+    "pen_ranking_title": "🏆 RANKING COMPLETO — PENALTIS POR PAÍS",
+    "pen_col_team": "Equipo",
+    "pen_col_tier": "Nivel",
+    "pen_col_rate": "Tasa",
+    "pen_col_record": "Balance",
+    "pen_col_exp": "Experiencia",
+    "pen_col_bar": "Tasa éxito",
+    "pen_tier_lethal": "Experto",
+    "pen_tier_strong": "Fuerte",
+    "pen_tier_average": "Promedio",
+    "pen_tier_weak": "Débil",
+    "pen_no_data": "Datos de penaltis no disponibles.",
+    "pen_method_note": "Datos basados en el historial completo de tandas de penales en competiciones internacionales (Copa del Mundo, torneos continentales, eliminatorias). Fuente: análisis estadísticos 1970–2025."
   },
   en: {
     "title": "FIFA World Cup 2026 Analysis",
@@ -568,7 +616,31 @@ const translations = {
     "sec_bracket_qf_sub": "Interactive simulation from Quarter-finals (8 teams) to the Final",
     "sec_mc_qf_title": "MONTE CARLO SIMULATION (QUARTERS)",
     "sec_mc_qf_sub": "Champion probabilities starting from the Quarter-finals (8 teams) · 10,000 simulations",
-    "sec_home_upcoming_sub": "Upcoming knockout stage matches (Quarters, Semis, Final)"
+    "sec_home_upcoming_sub": "Upcoming knockout stage matches (Quarters, Semis, Final)",
+    "tab_penaltis": "⚽ Shootouts",
+    "sec_penaltis_title": "PENALTY SHOOTOUT HISTORY",
+    "sec_penaltis_sub": "Historical penalty shootout statistics · Quarter-final team comparison",
+    "pen_stat_countries": "Countries analyzed",
+    "pen_stat_shootouts": "Shootouts recorded",
+    "pen_stat_avg": "Average success rate",
+    "pen_qf_title": "⚽ QUARTER-FINAL COMPARISON — PENALTY SHOOTOUTS",
+    "pen_success_rate": "Success rate",
+    "pen_won_played": "Won / Played",
+    "pen_experience": "Experience (shootouts)",
+    "pen_even": "Dead even",
+    "pen_ranking_title": "🏆 FULL RANKING — PENALTY SHOOTOUTS BY COUNTRY",
+    "pen_col_team": "Team",
+    "pen_col_tier": "Tier",
+    "pen_col_rate": "Rate",
+    "pen_col_record": "Record",
+    "pen_col_exp": "Experience",
+    "pen_col_bar": "Success rate",
+    "pen_tier_lethal": "Expert",
+    "pen_tier_strong": "Strong",
+    "pen_tier_average": "Average",
+    "pen_tier_weak": "Weak",
+    "pen_no_data": "Penalty shootout data unavailable.",
+    "pen_method_note": "Data based on complete penalty shootout history in international competitions (World Cup, continental tournaments, qualifiers). Source: statistical analysis 1970–2025."
   }
 };
 
@@ -606,6 +678,11 @@ function setLanguage(lang) {
       btn.classList.remove('active');
     }
   });
+
+  // Re-render dynamic modules that use runtime t() calls
+  if (typeof renderPenaltisSection === 'function') {
+    renderPenaltisSection();
+  }
 }
 
 function initI18n() {

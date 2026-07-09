@@ -51,6 +51,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // Traduire tous les éléments après leur rendu
   if (typeof initI18n === 'function') initI18n();
 
+  // Module Penaltis — dépend uniquement de SHOOTOUT_STATS (elo.js), pas des résultats live
+  if (typeof initPenaltisModule === 'function') initPenaltisModule();
+
   // Compte à rebours
   initCountdown();
 });

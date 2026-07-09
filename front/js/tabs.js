@@ -6,6 +6,7 @@ const TABS = [
   { id: "h2h",        label: "⚔️ Face à Face" },
   { id: "bracket_qf",  label: "🌳 Bracket (8)" },
   { id: "montecarlo_qf", label: "🎲 Monte Carlo (8)" },
+  { id: "penaltis",      label: "⚽ Penaltis" },
   { id: "pronostics",  label: "🔮 Pronostics" }
 ];
 
@@ -52,7 +53,8 @@ function initTabs() {
     "pronostics": "tab_pronostics",
     "h2h": "tab_h2h",
     "bracket_qf":     "tab_bracket_qf",
-    "montecarlo_qf":  "tab_montecarlo_qf"
+    "montecarlo_qf":  "tab_montecarlo_qf",
+    "penaltis":       "tab_penaltis"
   };
 
   TABS.forEach(t => {
