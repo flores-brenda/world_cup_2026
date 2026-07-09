@@ -14,20 +14,14 @@ const QF_MATCHUPS_MC = [
 ];
 
 function mcSimulateKOMatchQF(teamA, teamB, ratings, globalAvg) {
-  const eloA = ratings[teamA] || (typeof ELO_DEBUTANT !== 'undefined' ? ELO_DEBUTANT : 1200);
-  const eloB = ratings[teamB] || (typeof ELO_DEBUTANT !== 'undefined' ? ELO_DEBUTANT : 1200);
-  if (typeof eloToXG === 'function' && typeof simDixonColesGoals === 'function') {
-    const { xgA, xgB } = eloToXG(eloA, eloB, globalAvg);
-    const [gA, gB] = simDixonColesGoals(xgA, xgB);
-    if (gA !== gB) return gA > gB ? teamA : teamB;
-  } else {
-    const probA = 1 / (1 + Math.pow(10, (eloB - eloA) / 400));
-    if (Math.random() < probA) return teamA;
-    return teamB;
+  if (typeof simKnockoutMatch === 'function') {
+    return simKnockoutMatch(teamA, teamB, ratings, globalAvg);
   }
-  // Penaltis
-  const probPenA = 0.5 + 0.1 * ((eloA - eloB) / Math.max(eloA, eloB));
-  return Math.random() < Math.max(0.3, Math.min(0.7, probPenA)) ? teamA : teamB;
+  // Fallback simple
+  const eloA = ratings[teamA] || 1200;
+  const eloB = ratings[teamB] || 1200;
+  const probA = 1 / (1 + Math.pow(10, (eloB - eloA) / 400));
+  return Math.random() < probA ? teamA : teamB;
 }
 
 function mcRunOneTournamentQF(ratings, globalAvg) {

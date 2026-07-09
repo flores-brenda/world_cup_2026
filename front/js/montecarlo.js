@@ -85,16 +85,14 @@ function mcResolveSlot(slot, winners, runners, thirds) {
  * Devuelve el nombre del ganador.
  */
 function mcSimulateKOMatch(teamA, teamB, ratings, globalAvg) {
-  const eloA = ratings[teamA] || ELO_DEBUTANT;
-  const eloB = ratings[teamB] || ELO_DEBUTANT;
-  const { xgA, xgB } = eloToXG(eloA, eloB, globalAvg);
-  const [gA, gB] = simDixonColesGoals(xgA, xgB);
-
-  if (gA !== gB) return gA > gB ? teamA : teamB;
-
-  // Penaltis: probabilidad ponderada por Elo (base 50-50 + ligera ventaja Elo)
-  const probPenA = 0.5 + 0.1 * ((eloA - eloB) / Math.max(eloA, eloB));
-  return Math.random() < Math.max(0.3, Math.min(0.7, probPenA)) ? teamA : teamB;
+  if (typeof simKnockoutMatch === 'function') {
+    return simKnockoutMatch(teamA, teamB, ratings, globalAvg);
+  }
+  // Fallback simple
+  const eloA = ratings[teamA] || 1200;
+  const eloB = ratings[teamB] || 1200;
+  const probA = 1 / (1 + Math.pow(10, (eloB - eloA) / 400));
+  return Math.random() < probA ? teamA : teamB;
 }
 
 /**

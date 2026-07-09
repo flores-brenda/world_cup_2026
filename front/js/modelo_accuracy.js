@@ -129,7 +129,8 @@ function renderModeloAccuracy() {
 
   let hits = 0;
   const matchResults = played.map(m => {
-    const pred    = predictMatch(m.home, m.away);
+    const isKnockout = !m.group || m.group.trim() === "";
+    const pred    = predictMatch(m.home, m.away, isKnockout);
     const realWin = getRealWinner(m);
     const isHit   = pred.winner === realWin;
     if (isHit) hits++;
