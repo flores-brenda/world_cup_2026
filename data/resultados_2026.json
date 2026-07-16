@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-15",
+  "last_updated": "2026-07-16",
   "matches": [
     {
       "date": "2026-06-11",
@@ -1230,9 +1230,9 @@
       "group": "",
       "home": "England",
       "away": "Argentina",
-      "home_score": null,
-      "away_score": null,
-      "winner": null,
+      "home_score": 1,
+      "away_score": 2,
+      "winner": "Argentina",
       "penalties": null,
       "stadium": "",
       "city": "World"
@@ -1241,7 +1241,7 @@
       "date": "2026-07-18",
       "group": "",
       "home": "France",
-      "away": null,
+      "away": "England",
       "home_score": null,
       "away_score": null,
       "winner": null,
@@ -1253,7 +1253,7 @@
       "date": "2026-07-19",
       "group": "",
       "home": "Spain",
-      "away": null,
+      "away": "Argentina",
       "home_score": null,
       "away_score": null,
       "winner": null,
