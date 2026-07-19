@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-18",
+  "last_updated": "2026-07-19",
   "matches": [
     {
       "date": "2026-06-11",
@@ -1242,9 +1242,9 @@
       "group": "",
       "home": "France",
       "away": "England",
-      "home_score": null,
-      "away_score": null,
-      "winner": null,
+      "home_score": 4,
+      "away_score": 6,
+      "winner": "England",
       "penalties": null,
       "stadium": "",
       "city": "World"
